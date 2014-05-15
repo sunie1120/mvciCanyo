@@ -1,15 +1,15 @@
 <?php
-const MODULO = 'usuarios/';
+const MODULO = 'anuncios/';
 
 # controladores
-const SET_USER = 'set';
-const GET_USER = 'get';
-const DELETE_USER = 'delete';
-const EDIT_USER = 'edit';
+const SET_ANUN = 'set';
+const GET_ANUN = 'get';
+const DELETE_ANUN = 'delete';
+const EDIT_ANUN = 'edit';
 
 # vistas
-const VIEW_SET_USER = 'agregar';
-const VIEW_GET_USER = 'buscar';
-const VIEW_DELETE_USER = 'borrar';
-const VIEW_EDIT_USER = 'modificar';
+const VIEW_SET_ANUN = 'agregar';
+const VIEW_GET_ANUN = 'buscar';
+const VIEW_DELETE_ANUN = 'borrar';
+const VIEW_EDIT_ANUN = 'modificar';
 ?>

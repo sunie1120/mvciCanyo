@@ -29,13 +29,13 @@ function handler() {
             $usuario->get($user_data);
             $data = array(
                 'nombre'=>$usuario->nombre,
-                'primer_apellido'=>$usuario->primer_apellido,
-                'segundo_apellido'=>$usuario->segundo_apellido
+                'apellido'=>$usuario->apellido,
+                'email'=>$usuario->email
             );
             retornar_vista(VIEW_EDIT_USER, $data);
             break;
         case DELETE_USER:
-            $usuario->delete($user_data['id_usuario']);
+            $usuario->delete($user_data['email']);
             $data = array('mensaje'=>$usuario->mensaje);
             retornar_vista(VIEW_DELETE_USER, $data);
             break;
@@ -61,18 +61,18 @@ function helper_user_data() {
         if(array_key_exists('nombre', $_POST)) { 
             $user_data['nombre'] = $_POST['nombre']; 
         }
-        if(array_key_exists('primer_apellido', $_POST)) { 
-            $user_data['primer_apellido'] = $_POST['primer_apellido']; 
+        if(array_key_exists('apellido', $_POST)) { 
+            $user_data['apellido'] = $_POST['apellido']; 
         }
-        if(array_key_exists('segundo_apellido', $_POST)) { 
-            $user_data['segundo_apellido'] = $_POST['segundo_apellido']; 
+        if(array_key_exists('email', $_POST)) { 
+            $user_data['email'] = $_POST['email']; 
         }
-        if(array_key_exists('nick_usuario', $_POST)) { 
-            $user_data['nick_usuario'] = $_POST['nick_usuario']; 
+        if(array_key_exists('clave', $_POST)) { 
+            $user_data['clave'] = $_POST['clave']; 
         }
     } else if($_GET) {
-        if(array_key_exists('id_usuario', $_GET)) {
-            $user_data = $_GET['id_usuario'];
+        if(array_key_exists('email', $_GET)) {
+            $user_data = $_GET['email'];
         }
     }
     return $user_data;

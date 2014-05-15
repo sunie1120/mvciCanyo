@@ -7,24 +7,20 @@ class usuario extends DBAbstractModel {
 
     ############################### PROPIEDADES ################################
     protected $id_usuario;
-	public $nombre;
+    public $nombre;
     public $primer_apellido;
-	public $segundo_apellido;
+    public $segundo_apellido;
     public $nick_suario;
     private $contrasena;
     public $id_rol;
-	public $foto;
+    public $foto;
 
 
     ################################# MÉTODOS ##################################
     # Traer datos de un usuario
     public function get($nick_suario='') {
         if($nick_suario != '') {
-            $this->query = "
-                SELECT      id_uduario, nombre, primer_apellido, segund_apellido, id_rol, id_usuario, contrasena
-                FROM        usuario
-                WHERE       nick_suario = '$nick_suario'
-            ";
+            $this->query = "SELECT id_uduario, nombre, primer_apellido, segund_apellido, id_rol, id_usuario, contrasena FROM usuario WHERE nick_suario = '$nick_suario'";
             $this->get_results_from_query();
         }
 
@@ -46,12 +42,7 @@ class usuario extends DBAbstractModel {
                 foreach ($user_data as $campo=>$valor) {
                     $$campo = $valor;
                 }
-                $this->query = "
-                        INSERT INTO     usuario
-                        (nombre, primer_apellido, segundo_apellido, nick_usuario, contrasena, id_rol, foto)
-                        VALUES
-                        ('$nombre', '$primer_apellido',$seguno_apellido', '$nick_usuario', '$id_rol','$contrasena','$foto')
-                ";
+                $this->query = "INSERT INTO usuario (nombre, primer_apellido, segundo_apellido, nick_usuario, contrasena, id_rol, foto VALUES ('$nombre', '$primer_apellido',$seguno_apellido', '$nick_usuario', '$id_rol','$contrasena','$foto')";
                 $this->execute_single_query();
                 $this->mensaje = 'Usuario agregado exitosamente';
             } else {
@@ -67,9 +58,8 @@ class usuario extends DBAbstractModel {
         foreach ($user_data as $campo=>$valor) {
             $$campo = $valor;
         }
-		 $this->query = "
-                UPDATE      usuario
-                SET         ";
+		$this->query = "UPDATE usuario SET";
+                
 		if($nombre!=""){
 			$this->query .=" nombre='$nombre'";
 		}
@@ -91,7 +81,7 @@ class usuario extends DBAbstractModel {
 		if($foto!=""){
 		$this->query .=" foto='$foto'";
 		}
-		$this->query .="WHERE       nick_usuario = '$nick_usuario'";
+		$this->query .="WHERE nick_usuario = '$nick_usuario'";
 		
         $this->execute_single_query();
         $this->mensaje = 'Usuario modificado';
@@ -99,17 +89,14 @@ class usuario extends DBAbstractModel {
 
     # Eliminar un usuario
     public function delete($user_email='') {
-        $this->query = "
-                DELETE FROM     usuarios
-                WHERE           email = '$user_email'
-        ";
+        $this->query = "DELETE FROM usuario WHERE nick_usuario = '$nick_usuario'";
         $this->execute_single_query();
         $this->mensaje = 'Usuario eliminado';
     }
 
     # Método constructor
     function __construct() {
-        $this->db_name = 'book_example';
+        $this->db_name = 'usuario';
     }
 
     # Método destructor del objeto
