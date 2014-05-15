@@ -8,6 +8,13 @@ $usuario_contrasena=htmlspecialchars($_POST['contrasena']);
 $usuario_puesto=htmlspecialchars($_POST['puesto']);
 $usuario_rol=htmlspecialchars($_POST['rol']);
 $usuario_departamento=htmlspecialchars($_POST['departamento']);
+$foto=htmlspecialchars($_POST['foto']);
+//directorio para almacenar la imagen
+$directorio_destino="C:\xampp\xampp\htdocs\mvciCanyo\temporales";
+$nombre_foto=$usuario_nick."temporal_foto";
+
+//convertimos la imagen en un string
+subir_foto($directorio_destino, $nombre_foto);
 
 $conex=conectar_bdd();
 /*$query_usuario="insert into usuario nombre, primer_apellido, segundo_apellido,nck:usuario,contrasena, id_rol values($usuario_nombre,$usuario_primer_apellido,$usuario_segundo_apellido,$usuario_nick,$usuario_contrasena,$usuario_rol)";

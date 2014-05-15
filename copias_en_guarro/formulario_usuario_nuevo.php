@@ -24,6 +24,7 @@ require_once('devuelve_roles.php');
 	<input type="text" name="segundo_apellido" placeholder="Segundo APellido" required="true"></input>
 	<input type="text" name="nick" placeholder="Nick de usuario" required="true"></input>
 	<input type="password" name="contrasena" placeholder="Contraseña" required="true"></input>
+	<p>Seleccione una imagen para el perfil</p><input type="file" name="foto"></input>
 	<p>Rol:</p>
 	<select id="rol_usu" name="rol">
 	<?php 

@@ -3,24 +3,27 @@
 require_once('../core/db_abstract_model.php');
 
 
-class Usuario extends DBAbstractModel {
+class usuario extends DBAbstractModel {
 
     ############################### PROPIEDADES ################################
-    public $nombre;
-    public $apellido;
-    public $email;
-    private $clave;
-    protected $id;
+    protected $id_usuario;
+	public $nombre;
+    public $primer_apellido;
+	public $segundo_apellido;
+    public $nick_suario;
+    private $contrasena;
+    public $id_rol;
+	public $foto;
 
 
     ################################# MÉTODOS ##################################
     # Traer datos de un usuario
-    public function get($user_email='') {
-        if($user_email != '') {
+    public function get($nick_suario='') {
+        if($nick_suario != '') {
             $this->query = "
-                SELECT      id, nombre, apellido, email, clave
-                FROM        usuarios
-                WHERE       email = '$user_email'
+                SELECT      id_uduario, nombre, primer_apellido, segund_apellido, id_rol, id_usuario, contrasena
+                FROM        usuario
+                WHERE       nick_suario = '$nick_suario'
             ";
             $this->get_results_from_query();
         }
@@ -37,17 +40,17 @@ class Usuario extends DBAbstractModel {
 
     # Crear un nuevo usuario
     public function set($user_data=array()) {
-        if(array_key_exists('email', $user_data)) {
-            $this->get($user_data['email']);
-            if($user_data['email'] != $this->email) {
+        if(array_key_exists('nick_usuario', $user_data)) {
+            $this->get($user_data['nick_usuario']);
+            if($user_data['nick_usuario'] != $this->nick_usuario) {
                 foreach ($user_data as $campo=>$valor) {
                     $$campo = $valor;
                 }
                 $this->query = "
-                        INSERT INTO     usuarios
-                        (nombre, apellido, email, clave)
+                        INSERT INTO     usuario
+                        (nombre, primer_apellido, segundo_apellido, nick_usuario, contrasena, id_rol, foto)
                         VALUES
-                        ('$nombre', '$apellido', '$email', '$clave')
+                        ('$nombre', '$primer_apellido',$seguno_apellido', '$nick_usuario', '$id_rol','$contrasena','$foto')
                 ";
                 $this->execute_single_query();
                 $this->mensaje = 'Usuario agregado exitosamente';
@@ -64,12 +67,32 @@ class Usuario extends DBAbstractModel {
         foreach ($user_data as $campo=>$valor) {
             $$campo = $valor;
         }
-        $this->query = "
-                UPDATE      usuarios
-                SET         nombre='$nombre',
-                            apellido='$apellido'
-                WHERE       email = '$email'
-        ";
+		 $this->query = "
+                UPDATE      usuario
+                SET         ";
+		if($nombre!=""){
+			$this->query .=" nombre='$nombre'";
+		}
+		if($primer_apellido!=""){
+		$this->query .=" primer_apellido='$primer_apellido'";
+		}
+		if($segundo_apellido!=""){
+		$this->query .=" segundo_apellido='$segundo_apellido'";
+		}
+		if($nick_usuario!=""){
+		$this->query .=" nick_usuario='$nick_usuario'";
+		}
+		if($contrasena!=""){
+		$this->query .=" contrasena='$contrasena'";
+		}
+		if($id_rol!=""){
+		$this->query .=" id_rol='$id_rol'";
+		}
+		if($foto!=""){
+		$this->query .=" foto='$foto'";
+		}
+		$this->query .="WHERE       nick_usuario = '$nick_usuario'";
+		
         $this->execute_single_query();
         $this->mensaje = 'Usuario modificado';
     }
