@@ -9,16 +9,16 @@
         <title>iCanyo</title>
         <meta name="description" content="gestor de comunicados, tareas, vacaciones y agenda, para entidades y empresas">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="mvc/site_media/css/metro-bootstrap.min.css">
-        <link rel="stylesheet" href="mvc/site_media/css/metro-bootstrap-responsive.min.css">
-        <link  rel="stylesheet" href="mvc/site_media/css/iconFont.min.css">
-        <link href="mvc/site_media/css/iCanyo.css" rel="stylesheet">
+        <link rel="stylesheet" href="../css/metro-bootstrap.min.css">
+        <link rel="stylesheet" href="../css/metro-bootstrap-responsive.min.css">
+        <link  rel="stylesheet" href="../css/iconFont.min.css">
+        <link href="../css/iCanyo.css" rel="stylesheet">
         <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
         <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.min.js"></script>
-        <script src="mvc/site_media/js/metro.min.js"></script>
+        <script src="../js/metro.min.js"></script>
     </head>
     <body class="metro">
-	<link rel="icon" type="image/png" href="imagenes/gatete_favicon.png" />
+	<link rel="icon" type="image/png" href="../../../imagenes/gatete_favicon.png" />
         <div class="grid">
             <div class="row">
                 <!-- Menú -->
@@ -65,26 +65,67 @@
                 </nav>
                 <!-- Cuadros -->
                 <div class="span12 offset4">
-                    <div class="tile triple double-vertical bg-orange">
+                    <div class="tile quadro quadro-vertical bg-orange">
                         <div class="tile-content text-center">
                             <div class="input-control text size3 mg2">
-                                <input type="text" id="user" placeholder="nick de usuario" name="usuario" required></input>
+                               <form id="nuevo_usuario" action="alta_usuario.php" method="post">
+							   
+									<div class="input-control text size3 mg1">
+									<input type="text" name="nombre" placeholder="Nombre" required="true"></input>
+									 <button class="btn-clear"></button>
+									</div>
+									</div>
+									<div class="input-control text size3 mg2">
+									<input type="text" name="primer_apellido" placeholder="Primer apellido" required="true"></input>
+									 <button class="btn-clear"></button>
+									</div>
+									<div class="input-control text size3 mg2">
+									<input type="text" name="segundo_apellido" placeholder="Segundo APellido" required="true"></input>
+									 <button class="btn-clear"></button>
+									</div>
+									<div class="input-controltext size3 mg2">
+									<input type="text" name="nick" placeholder="Nick de usuario" required="true"></input>
+									 <button class="btn-clear"></button>
+									</div>
+									<div class="input-control text size3 mg2">
+									<input type="password" name="contrasena" placeholder="Contraseña" required="true"></input>
+									 <button class="btn-clear"></button>
+									</div>
+									<p>Seleccione una imagen para el perfil</p><input type="file" name="foto"></input>
+									<p>Rol:</p>
+									<select id="rol_usu" name="rol">
+									<?php 
+									roles();
+									?>
+									</select>
+									<p>Puesto</p>
+									<select id="puesto_usu" name="puesto">
+									<?php
+									puestos();
+									?>
+									</select>
+									<p>Departamento:</p>
+									<select id="departamento_usu" name="departamento">
+									<?php
+									departamentos();	
+									?>
+									</select>
+								
+								
                             </div>
-                            <div class="input-control password size3">
-                                <input type="password" id="contra" placeholder="contraseña" name="contra" required></input>
-                                <button class="btn-reveal"></button>
-							</div>
-                            <div id="errores"></div>
-                        </div>
-                        <div class="brand bg-black">
+                         <div class="brand bg-black">
                             <span class="label fg-white text-right">
 							<input type="reset" value="Restaura" class="bg-steel fg-white bg-hover-red">
-                             <input type="submit" class="bg-orange fg-white bg-hover-amber" value="Iniciar Sesión"></input>
+                             <input type="submit" class="bg-orange fg-white bg-hover-amber" value="Guardar usuario"></input>
+							 </form>
                             </span>
-                        </div>
+                        </div>  
                     </div>
-					<div class="tile double double-vertical bg-indigo"></div>
-                    <div class="tile double bg-olive"></div>
+						
+                        
+                    </div>
+					<div class="tile double-vertical bg-indigo"></div>
+                    <div class="tile bg-olive"></div>
                     <div class="tile double">
                         <div class="brand">
                             <div class="times" data-role="times" data-alarm="hh:mm:ss"></div>
@@ -95,11 +136,11 @@
 					<div class="tile bg-steel"></div>
 					<div class="tile double bg-cyan"></div>
                    	<div class="tile bg-black">
-						<img src="imagenes/gatete1.png"></img>
+						<img src="../../../imagenes/gatete1.png"></img>
 					</div>
                     <div class="tile triple bg-amber"></div>
 					<div class="tile bg-black">
-						<img src="imagenes/logoiCanyo.jpg"></img>
+						<img src="../../../imagenes/logoiCanyo.jpg"></img>
 					</div>
                     
                 </div>
