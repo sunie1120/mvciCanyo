@@ -16,6 +16,7 @@
         <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
         <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.min.js"></script>
         <script src="mvc/site_media/js/metro.min.js"></script>
+		<script type="text/javascript" src="mvc/site_media/js/iCanyo.js"></script> 
     </head>
     <body class="metro">
 	<link rel="icon" type="image/png" href="imagenes/gatete_favicon.png" />
@@ -67,6 +68,7 @@
                 <div class="span12 offset4">
                     <div class="tile triple double-vertical bg-orange">
                         <div class="tile-content text-center">
+						<form id="loguin_usuario" method="post" action="mvc/login/controller.php">
                             <div class="input-control text size3 mg2">
                                 <input type="text" id="user" placeholder="nick de usuario" name="usuario" required></input>
                             </div>
@@ -75,12 +77,14 @@
                                 <button class="btn-reveal"></button>
 							</div>
                             <div id="errores"></div>
-                        </div>
-                        <div class="brand bg-black">
-                            <span class="label fg-white text-right">
-							<input type="reset" value="Restaura" class="bg-steel fg-white bg-hover-red">
-                             <input type="submit" class="bg-orange fg-white bg-hover-amber" value="Iniciar Sesión"></input>
-                            </span>
+						
+							<div class="brand bg-black">
+								<span class="label fg-white text-right">
+								<input type="reset" value="Restaura" class="bg-steel fg-white bg-hover-red">
+								 <input type="submit" class="bg-orange fg-white bg-hover-amber" value="Iniciar Sesión"></input>
+								</span>
+							</div>
+						</form>
                         </div>
                     </div>
 					<div class="tile double double-vertical bg-indigo"></div>

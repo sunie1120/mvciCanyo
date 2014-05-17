@@ -16,6 +16,7 @@
         <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
         <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.min.js"></script>
         <script src="../js/metro.min.js"></script>
+		<script src="../js/iCanyo.js"></script>
     </head>
     <body class="metro">
 	<link rel="icon" type="image/png" href="../../../imagenes/gatete_favicon.png" />
@@ -65,88 +66,116 @@
                 </nav>
                 <!-- Cuadros -->
                 <div class="span12 offset4">
-                    <div class="tile quadro quadro-vertical bg-orange">
+					<div class="tile triple triple-vertical bg-orange">
+					<center>
+					<form id="nuevo_usuario" action="alta_usuario.php" method="post">
+						<div class="input-control text warning-state size3 mg3">
+							<input type="text" id="name" name="nombre" placeholder="Nombre" required="true"></input> 
+						</div>
+						<div class="input-control text size3 mg3">
+							<input type="text"  id="papellido" name="primer_apellido" placeholder="Primer apellido" required/></input> 
+						</div>
+						<div class="input-control text size3 mg3">
+							<input type="text"  id="sapellido" name="segundo_apellido" placeholder="Segundo Apellido" required/></input> 
+						</div>
+						<div class="input-control text size3 mg3">
+							<input type="text"  id="alias" name="nick" placeholder="Nick de usuario" required/></input> 
+						</div>
+						<div class="input-control password size3 mg3">
+							<input type="password"  id="contra" name="contrasena"  placeholder="Contraseña" required/></input> 
+							<button class="btn-reveal" tabindex="-1" type="button"></button>
+						</center>
+					</div>					
+					<div class="tile quadro triple-vertical bg-orange">
                         <div class="tile-content text-center">
-                            <div class="input-control text size3 mg2">
-                               <form id="nuevo_usuario" action="alta_usuario.php" method="post">
-							   
-									<div class="input-control text size3 mg1">
-									<input type="text" name="nombre" placeholder="Nombre" required="true"></input>
-									 <button class="btn-clear"></button>
-									</div>
-									</div>
-									<div class="input-control text size3 mg2">
-									<input type="text" name="primer_apellido" placeholder="Primer apellido" required="true"></input>
-									 <button class="btn-clear"></button>
-									</div>
-									<div class="input-control text size3 mg2">
-									<input type="text" name="segundo_apellido" placeholder="Segundo APellido" required="true"></input>
-									 <button class="btn-clear"></button>
-									</div>
-									<div class="input-controltext size3 mg2">
-									<input type="text" name="nick" placeholder="Nick de usuario" required="true"></input>
-									 <button class="btn-clear"></button>
-									</div>
-									<div class="input-control text size3 mg2">
-									<input type="password" name="contrasena" placeholder="Contraseña" required="true"></input>
-									 <button class="btn-clear"></button>
-									</div>
-									<p>Seleccione una imagen para el perfil</p><input type="file" name="foto"></input>
-									<p>Rol:</p>
-									<select id="rol_usu" name="rol">
-									<?php 
-									roles();
-									?>
-									</select>
-									<p>Puesto</p>
-									<select id="puesto_usu" name="puesto">
-									<?php
-									puestos();
-									?>
-									</select>
-									<p>Departamento:</p>
-									<select id="departamento_usu" name="departamento">
-									<?php
-									departamentos();	
-									?>
-									</select>
-								
-								
-                            </div>
+ 							<h5 class="item-title-secondary">Seleccione una imagen para el perfil</h5>
+							<div class="input-control file size3" >
+								<input type="file" name="foto">
+								<button class="btn-file"></button></input>
+							</div>
+							<br>
+							<div class="input-control size3 select">		
+								<h5 class="item-title-secondary">Rol</h5>
+								<select id="rol_usu" name="rol">
+								<!--<?php /*
+								roles();*/
+								?>-->
+								</select>
+							</div>
+							<br>
+							<div class="input-control size3 select">		
+								<h5 class="item-title-secondary">Puesto</h5>
+								<select id="puesto_usu" name="puesto">
+								<!--<?php/*
+								puestos();*/
+								?>-->
+								</select>
+							</div>
+							<br>
+							<div class="input-control size3 select">		
+								<h5 class="item-title-secondary">Departamento</h5>
+								<select id="departamento_usu" name="departamento">
+								<!--<?php/*
+								departamentos();	
+								*/?>-->
+								</select>
+							</div>
                          <div class="brand bg-black">
                             <span class="label fg-white text-right">
 							<input type="reset" value="Restaura" class="bg-steel fg-white bg-hover-red">
                              <input type="submit" class="bg-orange fg-white bg-hover-amber" value="Guardar usuario"></input>
-							 </form>
+					</form>
                             </span>
-                        </div>  
+                         </div>  
+						</div>
                     </div>
-						
-                        
-                    </div>
-					<div class="tile double-vertical bg-indigo"></div>
-                    <div class="tile bg-olive"></div>
+					<div class="tile triple double-vertical bg-cyan">
+					<center>
+							<div class="input-control text size2 mg3">		
+								<input type="text" id="nombre"></input>
+							</div>
+							<div class="input-control text size2 mg3">		
+								<input type="text"></input>
+							</div>
+							<div class="input-control text size2"">		
+								<input type="text"></input>
+							</div>						
+							<div class="input-control text size2"">		
+								<input type="text"></input>
+							</div>							
+							<div class="input-control text size2"">		
+								<input type="text"></input>
+							</div>							
+							<div class="input-control text size2"">		
+								<input type="text"></input>
+							</div>							
+							<div class="input-control text size2">		
+								<input type="text"></input>
+							</div>							
+							<div class="input-control text size2"">		
+								<input type="text"></input>
+							</div>							
+					</center>	
+					</div>
+					<div class="tile  bg-steel"></div>
+					<div class="tile  bg-amber"></div>
+					<div class="tile double  bg-teal">
+					</div>
+					<div class="tile bg-black">
+						<img src="../../../imagenes/gatete1.png"></img>
+					</div>
                     <div class="tile double">
                         <div class="brand">
                             <div class="times" data-role="times" data-alarm="hh:mm:ss"></div>
                         </div>
                     </div>
-					<div class="tile double double-vertical bg-gray"></div>
-					<div class="tile double bg-olive"></div>
-					<div class="tile bg-steel"></div>
-					<div class="tile double bg-cyan"></div>
-                   	<div class="tile bg-black">
-						<img src="../../../imagenes/gatete1.png"></img>
-					</div>
-                    <div class="tile triple bg-amber"></div>
 					<div class="tile bg-black">
 						<img src="../../../imagenes/logoiCanyo.jpg"></img>
 					</div>
-                    
                 </div>
             </div>
         </div>
-
+	</div>
 	</body>
 	
 	
