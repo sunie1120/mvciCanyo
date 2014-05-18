@@ -9,14 +9,13 @@
         <title>iCanyo</title>
         <meta name="description" content="gestor de comunicados, tareas, vacaciones y agenda, para entidades y empresas">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="../css/metro-bootstrap.min.css">
-        <link rel="stylesheet" href="../css/metro-bootstrap-responsive.min.css">
-        <link  rel="stylesheet" href="../css/iconFont.min.css">
+        <link rel="stylesheet" href="../docs/css/metro-bootstrap.css">
+        <link rel="stylesheet" href="../docs/css/metro-bootstrap-responsive.css">
+        <link  rel="stylesheet" href="../docs/css/iconFont.css">
         <link href="../css/iCanyo.css" rel="stylesheet">
-        <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
-        <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.min.js"></script>
-        <script src="../js/metro.min.js"></script>
-		<script src="../js/iCanyo.js"></script>
+
+		
+		
     </head>
     <body class="metro">
 	<link rel="icon" type="image/png" href="../../../imagenes/gatete_favicon.png" />
@@ -66,23 +65,23 @@
                 </nav>
                 <!-- Cuadros -->
                 <div class="span12 offset4">
-					<div class="tile triple triple-vertical bg-orange">
+					<div class="tile triple triple-vertical bg-white" style="border: solid 3px orange">
 					<center>
 					<form id="nuevo_usuario" action="alta_usuario.php" method="post">
-						<div class="input-control text warning-state size3 mg3">
-							<input type="text" id="name" name="nombre" placeholder="Nombre" required="true"></input> 
+						<div class="input-control text size3 mg3 info-state">
+							<input type="text" id="name" name="nombre" placeholder="Nombre" required></input> 
 						</div>
-						<div class="input-control text size3 mg3">
-							<input type="text"  id="papellido" name="primer_apellido" placeholder="Primer apellido" required/></input> 
+						<div class="input-control text size3 mg3  info-state" data-role="input-control">
+							<input type="text"  id="papellido" name="primer_apellido"  placeholder="Primer apellido" required/></input> 
 						</div>
-						<div class="input-control text size3 mg3">
-							<input type="text"  id="sapellido" name="segundo_apellido" placeholder="Segundo Apellido" required/></input> 
+						<div class="input-control text size3 mg3  info-state">
+							<input type="text"  id="sapellido" name="segundo_apellido"  placeholder="Segundo Apellido" required/></input> 
 						</div>
-						<div class="input-control text size3 mg3">
-							<input type="text"  id="alias" name="nick" placeholder="Nick de usuario" required/></input> 
+						<div class="input-control text size3 mg3  info-state">
+							<input type="text"  id="alias" name="nick"  placeholder="Nick de usuario" required/></input> 
 						</div>
-						<div class="input-control password size3 mg3">
-							<input type="password"  id="contra" name="contrasena"  placeholder="Contraseña" required/></input> 
+						<div class="input-control password size3 mg3  info-state">
+							<input type="password"  id="contra" name="contrasena"   placeholder="Contraseña" title="Entre 6 y 20 caracteres,  un digito mínimo y un alfanumérico. No puede contener caracteres especiales." required/></input> 
 							<button class="btn-reveal" tabindex="-1" type="button"></button>
 						</center>
 					</div>					
@@ -129,32 +128,19 @@
                          </div>  
 						</div>
                     </div>
-					<div class="tile triple double-vertical bg-cyan">
+					<div class="tile triple double-vertical bg-amber">
 					<center>
-							<div class="input-control text size2 mg3">		
-								<input type="text" id="nombre"></input>
-							</div>
-							<div class="input-control text size2 mg3">		
-								<input type="text"></input>
-							</div>
-							<div class="input-control text size2"">		
-								<input type="text"></input>
-							</div>						
-							<div class="input-control text size2"">		
-								<input type="text"></input>
-							</div>							
-							<div class="input-control text size2"">		
-								<input type="text"></input>
-							</div>							
-							<div class="input-control text size2"">		
-								<input type="text"></input>
-							</div>							
-							<div class="input-control text size2">		
-								<input type="text"></input>
-							</div>							
-							<div class="input-control text size2"">		
-								<input type="text"></input>
-							</div>							
+						    <div class="tile triple double-vertical bg-transparent" data-role="live-tile" data-effect="slideLeft" >
+								<div class="tile-content"><br><br><br><h5 class="item-title">El nombre, los apellidos y el nick no deben contener números ni caracteres especiales.</h5>
+								</div>
+								<div class="tile-content "><img src="../../../imagenes/gatete1.png" style="width='50px' height='50px'" alt="iGreb, la mascota de iCanyo: un gato naranja atigrado, diseñado por Javier Bailen" title="iGreb, la mascota de iCanyo: un gato naranja atigrado, diseñado por Javier Bailen" width="60%"></img>
+								</div>
+								<div class="tile-content"><br><br><br><h5 class="item-title">La contraseña debe tener entre 6 y 20 caracteres,  un digito minimo y un alfanumérico, y no puede contener caracteres especiales.</h5>
+								</div>
+								<div class="tile-content"><img src="../../../imagenes/logoiCanyo.jpg" alt="El logotipo de iCanyo: cuadrados naranjas sobre fondo sable." title="El logotipo de iCanyo: cuadrados naranjas sobre fondo sable."></img>
+								</div>
+							</div>		
+							
 					</center>	
 					</div>
 					<div class="tile  bg-steel"></div>
@@ -162,7 +148,7 @@
 					<div class="tile double  bg-teal">
 					</div>
 					<div class="tile bg-black">
-						<img src="../../../imagenes/gatete1.png"></img>
+						<img src="../../../imagenes/gatete1.png" alt="iGreb, la mascota de iCanyo: un gato naranja atigrado, diseñado por Javier Bailen" title="iGreb, la mascota de iCanyo: un gato naranja atigrado, diseñado por Javier Bailen"></img>
 					</div>
                     <div class="tile double">
                         <div class="brand">
@@ -170,13 +156,21 @@
                         </div>
                     </div>
 					<div class="tile bg-black">
-						<img src="../../../imagenes/logoiCanyo.jpg"></img>
+						<img src="../../../imagenes/logoiCanyo.jpg" alt="El logotipo de iCanyo: cuadrados naranjas sobre fondo sable." title="El logotipo de iCanyo: cuadrados naranjas sobre fondo sable."></img>
 					</div>
                 </div>
             </div>
         </div>
 	</div>
+		<script src="../docs/js/jquery/jQuery.min.js"></script>
+		<script src="../docs/js/jquery/jQuery.widget.min.js"></script>
+		<script src="../docs/js/metro.min.js"></script>
+		<script src="../docs/js/jquery/mousewheel.js"></script>
+		<script src="../js/iCanyo.js"></script>
+
+	
 	</body>
 	
 	
     </html>
+	

@@ -42,20 +42,44 @@ function envia_usuarios(){
 			 alert( "Request failed: " + textStatus );
 			 });
 }
-/*
+/**
+*Validacion de los inputs de texto y pass
+*/
 $( document ).ready(function() {
-
-	$("input").keyup(function(){
- carga_resultados();
-
+/**
+*Validacion de los inputs de texto
+*/
+	$("input[type=text]").on("keypress", function(){
+		var x = $(this).val();
+		
+		if (x.match(/^[a-zA-Z]+$/)) {
+			$(this).parent().removeClass("info-state").removeClass("warning-state").addClass("success-state");
+			
+		} else {
+			$(this).parent().removeClass("info-state").removeClass("success-state").addClass("warning-state");
+			
+		}
 	});
 	
-		$("select").change(function(){
- carga_resultados();
-
+	/**
+	* Validacion de pass: Entre 6 y 20 caracteres,  un digito minimo y un alfanumérico, y no puede contener caracteres especiales
+	*/
+		$("input[type=password]").on("keypress", function(){
+		var x = $(this).val();
+		
+		if (x.match(/(?!^[0-9]*$)(?!^[a-zA-Z]*$)^([a-zA-Z0-9]{6,20})$/)) {
+			$(this).parent().removeClass("info-state").removeClass("warning-state").addClass("success-state");
+			
+		} else {
+			$(this).parent().removeClass("info-state").removeClass("success-state").addClass("warning-state");
+			
+		}
 	});
+	
 });
-*/
+
+
+
 
 
 /**
@@ -71,7 +95,8 @@ $( document ).ready(function() {
 		var puesto = $("select[name='puesto']").prop("value");
 		var departamento = $("select[name='departamento']").prop("value");
 		
-		if(nombre){
+		if(nombre!="" && nombre!=" "){
+		document.getElementById("name").className= "validado";
 		}
 		
 		$("#nombre").val(nombre);
