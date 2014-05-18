@@ -20,7 +20,7 @@ class usuario extends DBAbstractModel {
     # Traer datos de un usuario
     public function get($nick_suario='') {
         if($nick_suario != '') {
-            $this->query = "SELECT id_uduario, nombre, primer_apellido, segund_apellido, id_rol, id_usuario, contrasena FROM usuario WHERE nick_suario = '$nick_suario'";
+            $this->query = "SELECT id_usuario, nombre, primer_apellido, segund_apellido, id_rol, id_usuario, contrasena FROM usuario WHERE nick_suario = '$nick_suario'";
             $this->get_results_from_query();
         }
 
@@ -56,7 +56,7 @@ class usuario extends DBAbstractModel {
     # Modificar un usuario
     public function edit($user_data=array()) {
         foreach ($user_data as $campo=>$valor) {
-            $$campo = $valor;
+            $campo = $valor;
         }
 		$this->query = "UPDATE usuario SET";
                 
@@ -64,22 +64,22 @@ class usuario extends DBAbstractModel {
 			$this->query .=" nombre='$nombre'";
 		}
 		if($primer_apellido!=""){
-		$this->query .=" primer_apellido='$primer_apellido'";
+			$this->query .=" primer_apellido='$primer_apellido'";
 		}
 		if($segundo_apellido!=""){
-		$this->query .=" segundo_apellido='$segundo_apellido'";
+			$this->query .=" segundo_apellido='$segundo_apellido'";
 		}
 		if($nick_usuario!=""){
-		$this->query .=" nick_usuario='$nick_usuario'";
+			$this->query .=" nick_usuario='$nick_usuario'";
 		}
 		if($contrasena!=""){
-		$this->query .=" contrasena='$contrasena'";
+			$this->query .=" contrasena='$contrasena'";
 		}
 		if($id_rol!=""){
-		$this->query .=" id_rol='$id_rol'";
+			$this->query .=" id_rol='$id_rol'";
 		}
 		if($foto!=""){
-		$this->query .=" foto='$foto'";
+			$this->query .=" foto='$foto'";
 		}
 		$this->query .="WHERE nick_usuario = '$nick_usuario'";
 		

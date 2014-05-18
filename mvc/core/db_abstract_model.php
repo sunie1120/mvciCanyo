@@ -3,8 +3,8 @@ abstract class DBAbstractModel {
 
     private static $db_host = 'localhost';
     private static $db_user = 'root';
-    private static $db_pass = 'clave';
-    protected $db_name = 'mydb';
+    private static $db_pass = '';
+    protected $db_name = 'icanyo';
     protected $query;
     protected $rows = array();
     private $conn;

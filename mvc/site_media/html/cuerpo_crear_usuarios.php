@@ -1,3 +1,6 @@
+<?php
+include_once('../php/devuelve_roles.php');
+?>
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -22,7 +25,7 @@
         <div class="grid">
             <div class="row">
                 <!-- Menú -->
-                 <nav class="span3">
+                <nav class="span3">
                     <ul  class="dropdown-menu dark open keep-open" >
                         <li class="menu-title">
                             <i class="icon-clipboard-2"></i>
@@ -96,27 +99,27 @@
 							<div class="input-control size3 select">		
 								<h5 class="item-title-secondary">Rol</h5>
 								<select id="rol_usu" name="rol">
-								<!--<?php /*
-								roles();*/
-								?>-->
+								<?php echo "rol";
+								roles();
+								?>
 								</select>
 							</div>
 							<br>
 							<div class="input-control size3 select">		
 								<h5 class="item-title-secondary">Puesto</h5>
 								<select id="puesto_usu" name="puesto">
-								<!--<?php/*
-								puestos();*/
-								?>-->
+								<?php 
+								puestos();
+								?>
 								</select>
 							</div>
 							<br>
 							<div class="input-control size3 select">		
 								<h5 class="item-title-secondary">Departamento</h5>
 								<select id="departamento_usu" name="departamento">
-								<!--<?php/*
+								<?php
 								departamentos();	
-								*/?>-->
+								?>
 								</select>
 							</div>
                          <div class="brand bg-black">
