@@ -28,7 +28,7 @@ include_once('../php/devuelve_roles.php');
                 <nav class="span3">
                     <ul  class="dropdown-menu dark open keep-open" >
                         <li class="menu-title">
-                            <i class="icon-clipboard-2"></i>
+                            <i class="icon-clipboard-2 fg-amber"></i>
                             Anuncios
 						</li>
                         <li><a href="#">Anuncios generales</a></li>
@@ -38,7 +38,7 @@ include_once('../php/devuelve_roles.php');
                         <li><a href="#">Todos los anuncios</a></li>
                         <li class="divider"></li>
                         <li class="menu-title">
-                            <i class="icon-volume-2"></i>
+                            <i class="icon-shipping fg-amber"  ></i>
                             Tareas
                         </li>
                         <li><a href="#">Mis tareas</a></li>
@@ -46,7 +46,7 @@ include_once('../php/devuelve_roles.php');
                         <li><a href="#">Crear tareas</a></li>
                         <li class="divider"></li>
 						<li class="menu-title">
-                            <i class="icon-book"></i>
+                            <i class="icon-book fg-amber"></i>
                             Agenda
                         </li>
                         <li><a href="#">Hoy</a></li>
@@ -54,7 +54,7 @@ include_once('../php/devuelve_roles.php');
                         <li><a href="#">Crear Cita</a></li>
                         <li class="divider"></li>
                         <li class="menu-title">
-                            <i class="icon-sun"></i>
+                            <i class="icon-sun fg-amber"></i>
                             Vacaciones
                         </li>
                         <li><a href="#">Ver mis vacaciones</a></li>
