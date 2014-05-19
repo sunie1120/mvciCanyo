@@ -1,5 +1,5 @@
 <?php
-include_once('../php/devuelve_roles.php');
+require_once('../php/devuelve_roles.php');
 ?>
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
@@ -25,10 +25,10 @@ include_once('../php/devuelve_roles.php');
         <div class="grid">
             <div class="row">
                 <!-- Menú -->
-                <nav class="span3">
+				<nav class="span3">
                     <ul  class="dropdown-menu dark open keep-open" >
                         <li class="menu-title">
-                            <i class="icon-clipboard-2 fg-amber"></i>
+                            <i class="icon-clipboard-2"></i>
                             Anuncios
 						</li>
                         <li><a href="#">Anuncios generales</a></li>
@@ -38,7 +38,7 @@ include_once('../php/devuelve_roles.php');
                         <li><a href="#">Todos los anuncios</a></li>
                         <li class="divider"></li>
                         <li class="menu-title">
-                            <i class="icon-shipping fg-amber"  ></i>
+                            <i class="icon-volume-2"></i>
                             Tareas
                         </li>
                         <li><a href="#">Mis tareas</a></li>
@@ -46,7 +46,7 @@ include_once('../php/devuelve_roles.php');
                         <li><a href="#">Crear tareas</a></li>
                         <li class="divider"></li>
 						<li class="menu-title">
-                            <i class="icon-book fg-amber"></i>
+                            <i class="icon-shipping"></i>
                             Agenda
                         </li>
                         <li><a href="#">Hoy</a></li>
@@ -54,7 +54,7 @@ include_once('../php/devuelve_roles.php');
                         <li><a href="#">Crear Cita</a></li>
                         <li class="divider"></li>
                         <li class="menu-title">
-                            <i class="icon-sun fg-amber"></i>
+                            <i class="icon-sun"></i>
                             Vacaciones
                         </li>
                         <li><a href="#">Ver mis vacaciones</a></li>
@@ -72,16 +72,16 @@ include_once('../php/devuelve_roles.php');
 					<center>
 					<form id="nuevo_usuario" action="alta_usuario.php" method="post">
 						<div class="input-control text size3 mg3 info-state">
-							<input type="text" id="name" name="nombre" placeholder="Nombre" required></input> 
+							<input type="text" id="name" name="nombre" title="No debe contener números ni caracteres especiales" placeholder="Nombre" required></input> 
 						</div>
 						<div class="input-control text size3 mg3  info-state" data-role="input-control">
-							<input type="text"  id="papellido" name="primer_apellido"  placeholder="Primer apellido" required/></input> 
+							<input type="text"  id="papellido" name="primer_apellido" title="No debe contener números ni caracteres especiales" placeholder="Primer apellido" required/></input> 
 						</div>
 						<div class="input-control text size3 mg3  info-state">
-							<input type="text"  id="sapellido" name="segundo_apellido"  placeholder="Segundo Apellido" required/></input> 
+							<input type="text"  id="sapellido" name="segundo_apellido" title="No debe contener números ni caracteres especiales" placeholder="Segundo Apellido" required/></input> 
 						</div>
 						<div class="input-control text size3 mg3  info-state">
-							<input type="text"  id="alias" name="nick"  placeholder="Nick de usuario" required/></input> 
+							<input type="text"  id="alias" name="nick"  placeholder="Nick de usuario" title="No debe contener números ni caracteres especiales" required/></input> 
 						</div>
 						<div class="input-control password size3 mg3  info-state">
 							<input type="password"  id="contra" name="contrasena"   placeholder="Contraseña" title="Entre 6 y 20 caracteres,  un digito mínimo y un alfanumérico. No puede contener caracteres especiales." required/></input> 
@@ -134,6 +134,8 @@ include_once('../php/devuelve_roles.php');
 					<div class="tile triple double-vertical bg-amber">
 					<center>
 						    <div class="tile triple double-vertical bg-transparent" data-role="live-tile" data-effect="slideLeft" >
+								<div class="tile-content"><?php devuelve_roles() ?>
+								</div>
 								<div class="tile-content"><br><br><br><h5 class="item-title">El nombre, los apellidos y el nick no deben contener números ni caracteres especiales.</h5>
 								</div>
 								<div class="tile-content "><img src="../../../imagenes/gatete1.png" style="width='50px' height='50px'" alt="iGreb, la mascota de iCanyo: un gato naranja atigrado, diseñado por Javier Bailen" title="iGreb, la mascota de iCanyo: un gato naranja atigrado, diseñado por Javier Bailen" width="60%"></img>

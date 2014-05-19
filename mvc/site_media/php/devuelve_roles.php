@@ -1,30 +1,34 @@
 <?php
-include_once('funciones_icanyo.php');
+require_once('funciones_icanyo.php');
 /*-------------------------------------*/
-function devuele_roles(){
+function devuelve_roles(){
 $conex= conectar_bdd();
 $query="select * from rol";
 $consulta=mysql_query($query,$conex);
 $total_consulta=mysql_num_rows($consulta);
 	if($total_consulta > 0){
-	echo "<table border='3px'>";
+	echo "<table class='table'>";
+	echo "<thead>";
 		echo "<tr>";
 		echo "Roles";
 		echo "</tr>";
+	echo "</thead>";
+	echo "<tbody>";
 		while ($fila = mysql_fetch_array($consulta)) {
 			echo "<tr>";
 			echo "<td><p>Id del rol</p></td>";
 			echo "<td>".$fila[0]."</td>";
-			echo "</tr>";
-			echo "<tr>";
+			//echo "</tr>";
+			//echo "<tr>";
 			echo "<td><p>Nombre del rol</p></td>";
 			echo "<td>".$fila[1]."</td>";
-			echo "</tr>";
-			echo "<tr>";
+			//echo "</tr>";
+			//echo "<tr>";
 			echo "<td><p>Descripción</p></td>";
 			echo "<td>".$fila[2]."</td>";
 			echo "</tr>";
 		}
+	echo "<tbody>";
 	echo "</table>";
 	}
 mysql_close($conex);
@@ -38,6 +42,9 @@ $conex= conectar_bdd();
 $query2="select id_rol, nombre_rol from rol";
 $consulta2=mysql_query($query2,$conex);
 $total_consulta2=mysql_num_rows($consulta2);
+
+
+$fila2 = mysql_fetch_array($consulta2);
 
 	if($total_consulta2 > 0){
 		while ($fila2 = mysql_fetch_array($consulta2)) {
@@ -56,9 +63,11 @@ function puestos(){
  //console.log("llega hasta aqui");
  
 $conex= conectar_bdd();
+
  //console.log($conex);
 $query5="select id_puesto,nombre_puesto from puesto";
 $consulta5=mysql_query($query5,$conex);
+
 $total_consulta5=mysql_num_rows($consulta5);
 
 	if($total_consulta5 > 0){
@@ -82,6 +91,7 @@ $query6="select id_departamento,nombre_departamento from departamento";
 $consulta6=mysql_query($query6,$conex);
 $total_consulta6=mysql_num_rows($consulta6);
 
+echo $total_consulta6;
 	if($total_consulta6 > 0){
 		while ($fila6 = mysql_fetch_array($consulta6)) {
 				echo "<option value=".$fila6[0].">".$fila6[1]."</option>";

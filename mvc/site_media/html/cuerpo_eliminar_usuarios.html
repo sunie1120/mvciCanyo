@@ -1,6 +1,3 @@
-<?php
-include_once('../php/devuelve_roles.php');
-?>
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -16,8 +13,7 @@ include_once('../php/devuelve_roles.php');
         <link rel="stylesheet" href="../docs/css/metro-bootstrap-responsive.css">
         <link  rel="stylesheet" href="../docs/css/iconFont.css">
         <link href="../css/iCanyo.css" rel="stylesheet">
-		<script src="../js/carga_usuarios_eliminar.js"></script>
-		<script src="../php/carga_usuarios_eliminar.php"></script>
+		
 		
 		
     </head>
@@ -85,7 +81,7 @@ include_once('../php/devuelve_roles.php');
 							<input type="text"  id="alias" name="nick"  placeholder="Nick de usuario" /></input> 
 						</div>
 						<div class="input-control password size3 mg3  info-state">
-							<input type="text"  id="id_usere" name="id_usuario"  placeholder="Id de usuario" /></input> 
+							<input type="text"  id="id_user" name="id_usuario"  placeholder="Id de usuario" /></input> 
 						</center>
 					</div>					
 					<div class="tile quadro triple-vertical bg-orange">
@@ -144,7 +140,45 @@ include_once('../php/devuelve_roles.php');
 		<script src="../docs/js/metro.min.js"></script>
 		<script src="../docs/js/jquery/mousewheel.js"></script>
 		<script src="../js/iCanyo.js"></script>
+		<script type="text/javascript" src="../js/carga_usuarios_eliminar.js"></script>
+<script>
+function carga_resultados(){
 
+var id_usuario = $("input[name='id_usuario']").prop("value");
+var nombre = $("input[name='nombre']").prop("value");
+var papellido = $("input[name='papellido']").prop("value");
+var sapellido = $("input[name='sapellido']").prop("value");
+var nick = $("input[name='nick']").prop("value");
+
+
+	 var request = $.ajax({
+	 url: "../php/eliminar_usuario.php",
+	 type: "POST",
+	 data: 'id_usuario='+ id_usuario +'&nombre='+ nombre+'&primer_apellido='+ papellido+'&seguno_apellido='+ sapellido+"'&nick_usuario'"+nick,
+	 dataType: "html"
+	 });
+	 request.done(function( msg ) {
+	 $( "#resultado_consulta" ).html( msg );
+	 });
+	 request.fail(function( jqXHR, textStatus ) {
+	 alert( "Request failed: " + textStatus );
+	 });
+}
+
+$( document ).ready(function() {
+
+	$("#usuario_eliminar").keyup(function(){
+	alert(11);
+ carga_resultados();
+
+	});
+	
+		/*$("select").change(function(){
+ carga_resultados();
+
+	});*/
+});
+</script>
 	
 	</body>
 	

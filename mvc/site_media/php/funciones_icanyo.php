@@ -1,6 +1,5 @@
 <?php
-include_once('config.php');
-
+include_once('configuracion_bbdd.php');
 /**
  * Especificacion: Función que conecta con la base de datos
  * Función que conecta con la base de datos, utilizando las variables globales
@@ -21,9 +20,10 @@ function conectar_bdd(){
 $dbUser='root';
 $dbPass='';
 $dbname='icanyo';*/
+ global $dbHost,$dbUser,$dbPass,$dbname; // hay que indicar que las variables son globales(de  fuera)
 
-    global $dbHost,$dbUser,$dbPass,$dbname; // hay que indicar que las variables son globales(de  fuera)
-
+	
+	/* $conexion=mysql_connect('localhost', 'root', '');*/
     $conexion=mysql_connect($dbHost,$dbUser,$dbPass);
 
     if (!$conexion)
@@ -31,7 +31,7 @@ $dbname='icanyo';*/
         die('No es posible la conexion a la base de datos:'.mysql_error());
     }
 
-    mysql_select_db($dbname,$conexion);
+    mysql_select_db('icanyo',$conexion);
 
     return $conexion;
 
