@@ -67,7 +67,7 @@
                 <div class="span12 offset4">
 					<div class="tile triple triple-vertical bg-white" style="border: solid 3px orange">
 					<center>
-					<form id="nuevo_usuario" action="elimina_usuario.php" method="post">
+			<form id="datos_usuarios">
 						<div class="input-control text size3 mg3 info-state">
 							<input type="text" id="name" name="nombre" placeholder="Nombre" ></input> 
 						</div>
@@ -89,26 +89,27 @@
  							
 						<h5>Datos del usuario a eliminar</h5>
 					
-							<div id="usuario_eliminar" class="tile ribbed-amber quadro double-vertical" >
+							<div id="usuario_eliminar" class="tile ribbed-amber quadro double-vertical"  style="overflow:auto;">
 							
 							<!---Div para que aprezcan los datos del usuario que va a ser eliminado de la BBDD-->
 							</div>
-						
                          <div class="brand bg-black">
                             <span class="label fg-white text-right">
-							<input type="reset" value="Restaura" class="bg-steel fg-white bg-hover-red">
+							<input type="button" id="restaurar" value="Restaura" class="bg-steel fg-white bg-hover-red">
                              <input type="button" id="eliminar" class="bg-orange fg-white bg-hover-amber" value="Eliminar usuario"></input>
 					
                             </span>
                          </div>  
 						</div>
                     </div>
+				
+				<form id="nuevo_usuario" action="elimina_usuario.php" method="post">
 					<div class="tile triple double-vertical bg-amber">
 					<center>
 						    <div class="tile triple double-vertical bg-transparent" data-role="live-tile" data-effect="slideLeft" >
 								<div class="tile-content"><br><br><br><h5 class="item-title">El nombre, los apellidos y el nick no deben contener números ni caracteres especiales.</h5>
 								</div>
-								<div class="tile-content "><img src="../../../imagenes/gatete1.png" style="width='50px' height='50px'" alt="iGreb, la mascota de iCanyo: un gato naranja atigrado, diseñado por Javier Bailen" title="iGreb, la mascota de iCanyo: un gato naranja atigrado, diseñado por Javier Bailen" width="60%"></img>
+								<div class="tile-content "><img src="../../../imagenes/gatete1.png" style="width='50px' height='50px'" alt="iGreb, la mascota de iCanyo: un gato naranja atigrado, diseñado por Javier Bailen" title="iGreb, la mascota de iCanyo: un gato naranja atigrado, diseñado por Javier Bailén" width="60%"></img>
 								</div>
 								<div class="tile-content"><br><br><br><h5 class="item-title">La contraseña debe tener entre 6 y 20 caracteres,  un digito minimo y un alfanumérico, y no puede contener caracteres especiales.</h5>
 								</div>
@@ -123,6 +124,7 @@
 					<div id="confirmacion" class="tile double  bg-teal">
 					</div>
 				</form>
+			</form>
 					<div class="tile bg-black">
 						<img src="../../../imagenes/gatete1.png" alt="iGreb, la mascota de iCanyo: un gato naranja atigrado, diseñado por Javier Bailen" title="iGreb, la mascota de iCanyo: un gato naranja atigrado, diseñado por Javier Bailen"></img>
 					</div>

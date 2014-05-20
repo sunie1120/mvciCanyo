@@ -23,20 +23,31 @@ var nick_usuario = $("input[name='nick_usuario']").prop("value");
 
 $( document ).ready(function() {
  //alert(4444);
+  carga_resultados();
 	$("input").keyup(function(){
-	
- carga_resultados();
+	carga_resultados();
 
 	});
-	$("#eliminar").click(function(){
-	$("#confirmacion").append("<div class='notice marker-on-bottom'>Los usuarios marcados se eliminarán");
-	$("#confirmacion").append("<input type='submit'/>");
-	$("#confirmacion").append("</div>");
+	$("#restaurar").click(function(){
+	   $("#datos_usuarios")[0].reset();
+		carga_resultados();
+	});
 });
-/*function pop_aviso(){
-$( document ).ready(function() {
-	$("#eliminar").click(function(){
-	$("#confirmacion").append("<div class='notice marker-on-bottom'>Los usuarios marcados se eliminarán");
-	$("#confirmacion").append("<input ype='button'/>");
-	});*/
-});
+
+function envia_usuario_eliminar(){
+
+var id_usuario = $("input[name='id_usuario']").prop("value");
+
+	 var request = $.ajax({
+	 url: "../php/eliminar_usuario.php",
+	 type: "POST",
+	 data: 'nombre='+nombre+'&primer_apellido='+primer_apellido+'&segundo_apellido='+segundo_apellido+'&nick_usuario='+nick_usuario+'&id_usuario='+id_usuario,
+	 dataType: "html"
+	 });
+	 request.done(function( msg ) {
+	 $( "#usuario_eliminar" ).html( msg );
+	 });
+	 request.fail(function( jqXHR, textStatus ) {
+	 alert( "Request failed: " + textStatus );
+	 });
+}
