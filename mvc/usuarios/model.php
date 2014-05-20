@@ -7,20 +7,260 @@ class usuario extends DBAbstractModel {
 
     ############################### PROPIEDADES ################################
     protected $id_usuario;
-    public $nombre;
-    public $primer_apellido;
-    public $segundo_apellido;
-    public $nick_suario;
+    protected $nombre;
+    protected $primer_apellido;
+    protected $segundo_apellido;
+    protected $nick_usuario;
     private $contrasena;
-    public $id_rol;
-    public $foto;
+    private $id_rol;
+    /*private $nombre_archivo;
+    private $nombre_temporal_archivo;
+    private $tipo_archivo;
+    private $tamano_archivo;
+    protected $foto;*/
 
 
     ################################# MÉTODOS ##################################
+            
+        /**
+         * Método constructor
+         * @return void
+         */
+//        public function __construct($nombre='',$primer_apellido='', $segundo_apellido='', $nick_usuario='', $contrasena='', $id_rol=0/*, $nombre_archivo,$nombre_temporal_archivo,$tipo_archivo,$tamano_archivo*/){
+//            $this->nombre=$nombre;
+//            $this->primer_apellido=$primer_apellido;
+//            $this->segundo_apellido=$segundo_apellido;
+//            $this->nick_usuario=$nick_usuario;
+//            $this->contrasena=$contrasena;
+//            $this->id_rol=$id_rol;
+//            //$this->nombre_archivo=$nombre_archivo;
+//            //$this->nombre_temporal_archivo=$nombre_temporal_archivo;
+//            //$this->tipo_archivo=$tipo_archivo;
+//            //$this->tamano_archivo=$tamano_archivo;
+//            //$this->foto=file($this->nombre_archivo);
+//            
+//        }
+        
+        ############################### SET ################################
+        /**
+         * Metodo que modifica el nombre 
+         * @param string $nombre
+         */
+        public function setNombre($nombre){
+            $this->nombre=$nombre;
+        }
+        
+        /**
+         * Metodo que modifica el primer apellido 
+         * @param string $primer_apellido
+         */
+        public function setPrimer_apellido($primer_apellido){
+            $this->primer_apellido=$primer_apellido;
+        }
+        
+        /**
+         * Metodo que modifica el nick_usuario 
+         * @param string $nick_usuario
+         */
+        public function setNick_usuario($nick_usuario){
+            $this->nick_usuario=$nick_usuario;
+        }
+        
+        /**
+         * Metodo que modifica la contrasena 
+         * @param string $contrasena
+         */
+        public function setContrasena($contrasena){
+            $this->contrasena=$contrasena;
+        }
+        
+        /**
+         * Metodo que modifica el id del rol 
+         * @param int $id_rol
+         */
+        public function setId_rol($id_rol){
+            $this->id_rol=$id_rol;
+        }
+        
+        /**
+         * Metodo que modifica el nombre de archivo de la foto 
+         * @param string $nombre_archivo
+         */
+        public function setNombre_archivo($nombre_archivo){
+            $this->nombre_archivo=$nombre_archivo;
+        }
+        
+        /**
+         * Metodo que modifica el nombre de archivo temporal de la foto 
+         * @param string $nombre_archivo_temporal
+         */
+        public function setNombre_archivo_temporal($nombre_archivo_temporal){
+            $this->nombre_archivo_temporal=$nombre_archivo_temporal;
+        }
+        
+        /**
+         * Metodo que modifica el nombre de archivo temporal de la foto 
+         * @param string $nombre_archivo_temporal
+         */
+        public function setTipo_archivo($tipo_archivo){
+            $this->tipo_archivo=$tipo_archivo;
+        }
+        
+        /**
+         * Metodo que modifica el tamaño de archivo 
+         * @param string $tamano_archivo
+         */
+        public function setTamano_archivo($tipo_archivo){
+            $this->tamano_archivo=$tamano_archivo;
+        }
+        
+        /**
+         * Metodo que modifica la foto del usuario
+         * @param 
+         */
+        public function setFoto(){
+            $this->foto=file($this->nombre_archivo);
+        }
+        
+        ############################### GET ################################
+        /**
+         * Metodo que devuelve el nombre 
+         * @return string $nombre
+         */
+        public function getNombre(){
+            return $this->nombre;
+        }
+        
+        /**
+         * Metodo que devuelve el primer apellido 
+         * @return string $primer_apellido
+         */
+        public function getPrimer_apellido(){
+            return $this->primer_apellido;
+        }
+        
+        /**
+         * Metodo que devuelve el nick_usuario 
+         * @return string $nick_usuario
+         */
+        public function getNick_usuario(){
+            return $this->nick_usuario;
+        }
+        
+        /**
+         * Metodo que devuelve la contrasena 
+         * @return string $contrasena
+         */
+        public function getContrasena(){
+            return $this->contrasena;
+        }
+        
+        /**
+         * Metodo que devuelve el id del rol 
+         * @return string $id_rol
+         */
+        public function getId_rol(){
+            return $this->id_rol;
+        }
+        
+        /**
+         * Metodo que devuelve el nombre de archivo de la foto 
+         * @return string $nombre_archivo
+         */
+        public function getNombre_archivo(){
+            return $this->nombre_archivo;
+        }
+        
+        /**
+         * Metodo que devuelve el nombre de archivo temporal de la foto 
+         * @return string $nombre_archivo_temporal
+         */
+        public function getNombre_archivo_temporal(){
+            return $this->nombre_archivo_temporal;
+        }
+        
+        /**
+         * Metodo que devuelve el nombre de archivo temporal de la foto 
+         * @return string $nombre_archivo_temporal
+         */
+        public function getTipo_archivo(){
+            return $this->tipo_archivo;
+        }
+        
+        /**
+         * Metodo que devuelve el tamaño de archivo 
+         * @return string $tamano_archivo
+         */
+        public function getTamano_archivo(){
+            return $this->tamano_archivo;
+        }
+        
+        /**
+         * Metodo que devuelve la foto del usuario
+         * @return 
+         */
+        public function getFoto(){
+            return $this->foto;
+        }
+        ############################### OTROS ################################
+        /**
+         * Metodo que comprueba si el tipo de archivo es correcto, jpg o png
+         * @return boolean
+         */
+        public function isTipoArchivoCorrecto(){
+           
+           if (!((strpos($this->getNombreArchivo(), 'jpg')))&&!((strpos($this->getNombreArchivo(), 'png')))) {
+               return false;
+           }
+           else{
+               return true;
+           }
+        }    
+
+    public function edit($id_usuario='',$user_data=array()) {
+        
+        foreach ($user_data as $propiedad=>$valor) {
+                $this->$propiedad = $valor;
+        }
+        
+        if($id_usuario!=''){
+    
+             $query = "UPDATE `icanyo`.`usuario` SET";
+             if($user_data['nombre']!=''){
+                 $query .=" `nombre` = '$this->nombre'";
+             }
+             if($user_data['primer_apellido']!=''){
+                 $query .=", `primer_apellido` = '$this->primer_apellido'";
+             }
+             if($user_data['segundo_apellido']!=''){
+                 $query .=", `segundo_apellido` = '$this->segundo_apellido'";
+             }
+             if($user_data['nick_usuario']!=''){
+                 $query .=", `nick_usuario` = '$this->nick_usuario'";
+             }
+             if($user_data['contrasena']!=''){
+                 $query .=", `contrasena` = PASSWORD('$this->contrasena')";
+             }
+             if($user_data['rol']!=''){
+                 $query .=", `id_rol` = '$this->id_rol'";
+             }
+             $query .=" WHERE `usuario`.`id_usuario` = $id_usuario;";
+        }
+        
+         $this->query = $query;
+         $this->execute_single_query();
+         $this->mensaje = 'Usuario modificado';
+    }
+
+    
     # Traer datos de un usuario
-    public function get($nick_suario='') {
-        if($nick_suario != '') {
-            $this->query = "SELECT id_usuario, nombre, primer_apellido, segund_apellido, id_rol, id_usuario, contrasena FROM usuario WHERE nick_suario = '$nick_suario'";
+    public function get($id_usuario='') {
+        if($id_usuario != '') {
+            $this->query = "
+                SELECT      *
+                FROM        usuario
+                WHERE       id_usuario = '$id_usuario'
+            ";
             $this->get_results_from_query();
         }
 
@@ -33,70 +273,55 @@ class usuario extends DBAbstractModel {
             $this->mensaje = 'Usuario no encontrado';
         }
     }
-
-    # Crear un nuevo usuario
+    
+    # Crear un usuario
+//    public function set() {
+//        if ($this->nick_usuario!=''){
+//            $this->query = "
+//                SELECT      *
+//                FROM        usuario
+//                WHERE       nick_usuario = '$this->nick_usuario'
+//            ";
+//            $this->get_results_from_query();
+//        }
+//
+//        if(count($this->rows) == 1) {
+//            $this->mensaje = 'Nick de usuario no disponible';
+//        }else{
+//            $query = "INSERT INTO `icanyo`.`usuario` (`id_usuario`, `nombre`, `primer_apellido`, `segundo_apellido`, `nick_usuario`, `contrasena`, `id_rol`, `foto`) VALUES (NULL, '$this->nombre', '$this->primer_apellido', '$this->segundo_apellido', '$this->nick_usuario', PASSWORD('$this->contrasena'), '$this->id_rol', NULL);";
+//            $this->query = $query;
+//            $this->execute_single_query();
+//            $this->mensaje = 'Usuario agregado exitosamente';
+//        }
+//    }
+    # Crear un usuario
     public function set($user_data=array()) {
-        if(array_key_exists('nick_usuario', $user_data)) {
-            $this->get($user_data['nick_usuario']);
-            if($user_data['nick_usuario'] != $this->nick_usuario) {
-                foreach ($user_data as $campo=>$valor) {
-                    $$campo = $valor;
-                }
-                $this->query = "INSERT INTO usuario (nombre, primer_apellido, segundo_apellido, nick_usuario, contrasena, id_rol, foto VALUES ('$nombre', '$primer_apellido',$seguno_apellido', '$nick_usuario', '$id_rol','$contrasena','$foto')";
+            $nick=$user_data['nick_usuario'];
+            $this->query = "SELECT * FROM usuario WHERE nick_usuario = '$nick'";
+            $this->get_results_from_query();
+            
+            if(count($this->rows) == 0){
+                $query = "INSERT INTO `icanyo`.`usuario` (`id_usuario`, `nombre`, `primer_apellido`, `segundo_apellido`, `nick_usuario`, `contrasena`, `id_rol`, `foto`) VALUES (NULL, '$this->nombre', '$this->primer_apellido', '$this->segundo_apellido', '$this->nick_usuario', PASSWORD('$this->contrasena'), '$this->id_rol', NULL);";
+                $this->query = $query;
                 $this->execute_single_query();
                 $this->mensaje = 'Usuario agregado exitosamente';
             } else {
                 $this->mensaje = 'El usuario ya existe';
             }
-        } else {
-            $this->mensaje = 'No se ha agregado al usuario';
-        }
     }
 
-    # Modificar un usuario
-    public function edit($user_data=array()) {
-        foreach ($user_data as $campo=>$valor) {
-            $campo = $valor;
-        }
-		$this->query = "UPDATE usuario SET";
-                
-		if($nombre!=""){
-			$this->query .=" nombre='$nombre'";
-		}
-		if($primer_apellido!=""){
-			$this->query .=" primer_apellido='$primer_apellido'";
-		}
-		if($segundo_apellido!=""){
-			$this->query .=" segundo_apellido='$segundo_apellido'";
-		}
-		if($nick_usuario!=""){
-			$this->query .=" nick_usuario='$nick_usuario'";
-		}
-		if($contrasena!=""){
-			$this->query .=" contrasena='$contrasena'";
-		}
-		if($id_rol!=""){
-			$this->query .=" id_rol='$id_rol'";
-		}
-		if($foto!=""){
-			$this->query .=" foto='$foto'";
-		}
-		$this->query .="WHERE nick_usuario = '$nick_usuario'";
-		
-        $this->execute_single_query();
-        $this->mensaje = 'Usuario modificado';
-    }
 
     # Eliminar un usuario
-    public function delete($user_email='') {
-        $this->query = "DELETE FROM usuario WHERE nick_usuario = '$nick_usuario'";
+    public function delete($id_usuario='') {
+        $query = "DELETE FROM `icanyo`.`usuario` WHERE `usuario`.`id_usuario` =$id_usuario";
+        $this->query = $query;
         $this->execute_single_query();
         $this->mensaje = 'Usuario eliminado';
     }
-
-    # Método constructor
+    
+    
+        # Método constructor
     function __construct() {
-        $this->db_name = 'usuario';
     }
 
     # Método destructor del objeto

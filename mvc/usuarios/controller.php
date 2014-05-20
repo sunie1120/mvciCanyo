@@ -1,7 +1,12 @@
 <?php
+session_start();
+$vacaciones='s';//$_SESSION['vacaciones'];
+$rol=4;//$_SESSION['rol'];
+
 require_once('constants.php');
 require_once('model.php');
 require_once('view.php');
+
 
 function handler() {
     $event = VIEW_GET_USER;
@@ -30,7 +35,10 @@ function handler() {
             $data = array(
                 'nombre'=>$usuario->nombre,
                 'primer_apellido'=>$usuario->primer_apellido,
-                'segundo_apellido'=>$usuario->segundo_apellido
+                'segundo_apellido'=>$usuario->segundo_apellido,
+                'nick_usuario'=>$usuario->nick_usuario,
+                'contrasena'=>$usuario->contrasena,
+                'rol'=>$usuario->rol
             );
             retornar_vista(VIEW_EDIT_USER, $data);
             break;
@@ -49,27 +57,36 @@ function handler() {
     }
 }
 
-
-function set_obj() {
-    $obj = new Usuario();
+# instanciamos la clase 
+ function set_obj() {
+    $obj = new usuario();
     return $obj;
 }
-
+   
+#guardamos los datos en un array
 function helper_user_data() {
     $user_data = array();
     if($_POST) {
         if(array_key_exists('nombre', $_POST)) { 
-            $user_data['nombre'] = $_POST['nombre']; 
+            $user_data['nombre'] = htmlspecialchars ($_POST['nombre']); 
         }
         if(array_key_exists('primer_apellido', $_POST)) { 
-            $user_data['primer_apellido'] = $_POST['primer_apellido']; 
+            $user_data['primer_apellido'] = htmlspecialchars ($_POST['primer_apellido']); 
         }
         if(array_key_exists('segundo_apellido', $_POST)) { 
-            $user_data['segundo_apellido'] = $_POST['segundo_apellido']; 
+            $user_data['segundo_apellido'] = htmlspecialchars ($_POST['segundo_apellido']); 
         }
         if(array_key_exists('nick_usuario', $_POST)) { 
-            $user_data['nick_usuario'] = $_POST['nick_usuario']; 
+            $user_data['nick_usuario'] = htmlspecialchars ($_POST['nick_usuario']); 
         }
+        if(array_key_exists('contrasena', $_POST)) { 
+            $user_data['contrasena'] = htmlspecialchars ($_POST['contrasena']); 
+        }
+        if(array_key_exists('rol', $_POST)) { 
+            $user_data['rol'] = htmlspecialchars ($_POST['rol']); 
+        }
+        //Falta la foto
+        
     } else if($_GET) {
         if(array_key_exists('id_usuario', $_GET)) {
             $user_data = $_GET['id_usuario'];
@@ -77,7 +94,6 @@ function helper_user_data() {
     }
     return $user_data;
 }
-
 
 handler();
 ?>

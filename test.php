@@ -3,6 +3,7 @@ $rol=4;
 $id_usuario=39;
 
 $template=file_get_contents('mvc/site_media/html/estructura.html');
+$titulo="iCanyo";
 switch ($rol){
     case 4:
          $menu=file_get_contents('mvc/site_media/html/menu_basic.html');
@@ -15,6 +16,7 @@ switch ($rol){
 
 $cuerpo=file_get_contents('mvc/site_media/html/cuerpo_anuncios.html');
 
+$template = str_replace('{titulo}', $titulo, $template);
 $template = str_replace('{menu}', $menu, $template);
 $template = str_replace('{cuerpo}', $cuerpo, $template);
 
