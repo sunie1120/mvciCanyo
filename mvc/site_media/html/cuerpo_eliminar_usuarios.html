@@ -67,36 +67,38 @@
                 <div class="span12 offset4">
 					<div class="tile triple triple-vertical bg-white" style="border: solid 3px orange">
 					<center>
-					<form id="nuevo_usuario" action="alta_usuario.php" method="post">
+					<form id="nuevo_usuario" action="elimina_usuario.php" method="post">
 						<div class="input-control text size3 mg3 info-state">
 							<input type="text" id="name" name="nombre" placeholder="Nombre" ></input> 
 						</div>
 						<div class="input-control text size3 mg3  info-state" data-role="input-control">
-							<input type="text"  id="papellido" name="primer_apellido"  placeholder="Primer apellido" /></input> 
+							<input type="text"  id="papellido" name="primer_apellido"  placeholder="Primer apellido" ></input> 
 						</div>
 						<div class="input-control text size3 mg3  info-state">
-							<input type="text"  id="sapellido" name="segundo_apellido"  placeholder="Segundo Apellido" /></input> 
+							<input type="text"  id="sapellido" name="segundo_apellido"  placeholder="Segundo Apellido" ></input> 
 						</div>
 						<div class="input-control text size3 mg3  info-state">
-							<input type="text"  id="alias" name="nick"  placeholder="Nick de usuario" /></input> 
+							<input type="text"  id="alias" name="nick_usuario"  placeholder="Nick de usuario" ></input> 
 						</div>
 						<div class="input-control password size3 mg3  info-state">
-							<input type="text"  id="id_user" name="id_usuario"  placeholder="Id de usuario" /></input> 
+							<input type="text"  id="id_user" name="id_usuario"  placeholder="Id de usuario" ></input> 
 						</center>
 					</div>					
 					<div class="tile quadro triple-vertical bg-orange">
                         <div class="tile-content text-center">
  							
 						<h5>Datos del usuario a eliminar</h5>
-							<div id="usuario_eliminar">
+					
+							<div id="usuario_eliminar" class="tile ribbed-amber quadro double-vertical" >
+							
 							<!---Div para que aprezcan los datos del usuario que va a ser eliminado de la BBDD-->
 							</div>
-							
+						
                          <div class="brand bg-black">
                             <span class="label fg-white text-right">
 							<input type="reset" value="Restaura" class="bg-steel fg-white bg-hover-red">
-                             <input type="submit" class="bg-orange fg-white bg-hover-amber" value="Eliminar usuario"></input>
-					</form>
+                             <input type="button" id="eliminar" class="bg-orange fg-white bg-hover-amber" value="Eliminar usuario"></input>
+					
                             </span>
                          </div>  
 						</div>
@@ -118,8 +120,9 @@
 					</div>
 					<div class="tile  bg-steel"></div>
 					<div class="tile  bg-amber"></div>
-					<div class="tile double  bg-teal">
+					<div id="confirmacion" class="tile double  bg-teal">
 					</div>
+				</form>
 					<div class="tile bg-black">
 						<img src="../../../imagenes/gatete1.png" alt="iGreb, la mascota de iCanyo: un gato naranja atigrado, diseñado por Javier Bailen" title="iGreb, la mascota de iCanyo: un gato naranja atigrado, diseñado por Javier Bailen"></img>
 					</div>
@@ -141,45 +144,6 @@
 		<script src="../docs/js/jquery/mousewheel.js"></script>
 		<script src="../js/iCanyo.js"></script>
 		<script type="text/javascript" src="../js/carga_usuarios_eliminar.js"></script>
-<script>
-function carga_resultados(){
-
-var id_usuario = $("input[name='id_usuario']").prop("value");
-var nombre = $("input[name='nombre']").prop("value");
-var papellido = $("input[name='papellido']").prop("value");
-var sapellido = $("input[name='sapellido']").prop("value");
-var nick = $("input[name='nick']").prop("value");
-
-
-	 var request = $.ajax({
-	 url: "../php/eliminar_usuario.php",
-	 type: "POST",
-	 data: 'id_usuario='+ id_usuario +'&nombre='+ nombre+'&primer_apellido='+ papellido+'&seguno_apellido='+ sapellido+"'&nick_usuario'"+nick,
-	 dataType: "html"
-	 });
-	 request.done(function( msg ) {
-	 $( "#resultado_consulta" ).html( msg );
-	 });
-	 request.fail(function( jqXHR, textStatus ) {
-	 alert( "Request failed: " + textStatus );
-	 });
-}
-
-$( document ).ready(function() {
-
-	$("#usuario_eliminar").keyup(function(){
-	alert(11);
- carga_resultados();
-
-	});
-	
-		/*$("select").change(function(){
- carga_resultados();
-
-	});*/
-});
-</script>
-	
 	</body>
 	
 	
