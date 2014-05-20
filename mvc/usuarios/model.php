@@ -13,34 +13,11 @@ class usuario extends DBAbstractModel {
     protected $nick_usuario;
     private $contrasena;
     private $id_rol;
-    /*private $nombre_archivo;
-    private $nombre_temporal_archivo;
-    private $tipo_archivo;
-    private $tamano_archivo;
-    protected $foto;*/
-
+    
 
     ################################# MÉTODOS ##################################
             
-        /**
-         * Método constructor
-         * @return void
-         */
-//        public function __construct($nombre='',$primer_apellido='', $segundo_apellido='', $nick_usuario='', $contrasena='', $id_rol=0/*, $nombre_archivo,$nombre_temporal_archivo,$tipo_archivo,$tamano_archivo*/){
-//            $this->nombre=$nombre;
-//            $this->primer_apellido=$primer_apellido;
-//            $this->segundo_apellido=$segundo_apellido;
-//            $this->nick_usuario=$nick_usuario;
-//            $this->contrasena=$contrasena;
-//            $this->id_rol=$id_rol;
-//            //$this->nombre_archivo=$nombre_archivo;
-//            //$this->nombre_temporal_archivo=$nombre_temporal_archivo;
-//            //$this->tipo_archivo=$tipo_archivo;
-//            //$this->tamano_archivo=$tamano_archivo;
-//            //$this->foto=file($this->nombre_archivo);
-//            
-//        }
-        
+       
         ############################### SET ################################
         /**
          * Metodo que modifica el nombre 
@@ -203,19 +180,19 @@ class usuario extends DBAbstractModel {
             return $this->foto;
         }
         ############################### OTROS ################################
-        /**
-         * Metodo que comprueba si el tipo de archivo es correcto, jpg o png
-         * @return boolean
-         */
-        public function isTipoArchivoCorrecto(){
-           
-           if (!((strpos($this->getNombreArchivo(), 'jpg')))&&!((strpos($this->getNombreArchivo(), 'png')))) {
-               return false;
-           }
-           else{
-               return true;
-           }
-        }    
+//        /**
+//         * Metodo que comprueba si el tipo de archivo es correcto, jpg o png
+//         * @return boolean
+//         */
+//        public function isTipoArchivoCorrecto(){
+//           
+//           if (!((strpos($this->getNombreArchivo(), 'jpg')))&&!((strpos($this->getNombreArchivo(), 'png')))) {
+//               return false;
+//           }
+//           else{
+//               return true;
+//           }
+//        }    
 
     public function edit($id_usuario='',$user_data=array()) {
         
@@ -275,33 +252,13 @@ class usuario extends DBAbstractModel {
     }
     
     # Crear un usuario
-//    public function set() {
-//        if ($this->nick_usuario!=''){
-//            $this->query = "
-//                SELECT      *
-//                FROM        usuario
-//                WHERE       nick_usuario = '$this->nick_usuario'
-//            ";
-//            $this->get_results_from_query();
-//        }
-//
-//        if(count($this->rows) == 1) {
-//            $this->mensaje = 'Nick de usuario no disponible';
-//        }else{
-//            $query = "INSERT INTO `icanyo`.`usuario` (`id_usuario`, `nombre`, `primer_apellido`, `segundo_apellido`, `nick_usuario`, `contrasena`, `id_rol`, `foto`) VALUES (NULL, '$this->nombre', '$this->primer_apellido', '$this->segundo_apellido', '$this->nick_usuario', PASSWORD('$this->contrasena'), '$this->id_rol', NULL);";
-//            $this->query = $query;
-//            $this->execute_single_query();
-//            $this->mensaje = 'Usuario agregado exitosamente';
-//        }
-//    }
-    # Crear un usuario
     public function set($user_data=array()) {
             $nick=$user_data['nick_usuario'];
             $this->query = "SELECT * FROM usuario WHERE nick_usuario = '$nick'";
             $this->get_results_from_query();
             
             if(count($this->rows) == 0){
-                $query = "INSERT INTO `icanyo`.`usuario` (`id_usuario`, `nombre`, `primer_apellido`, `segundo_apellido`, `nick_usuario`, `contrasena`, `id_rol`, `foto`) VALUES (NULL, '$this->nombre', '$this->primer_apellido', '$this->segundo_apellido', '$this->nick_usuario', PASSWORD('$this->contrasena'), '$this->id_rol', NULL);";
+                $query = "INSERT INTO `icanyo`.`usuario` (`id_usuario`, `nombre`, `primer_apellido`, `segundo_apellido`, `nick_usuario`, `contrasena`, `id_rol`) VALUES (NULL, '$this->nombre', '$this->primer_apellido', '$this->segundo_apellido', '$this->nick_usuario', PASSWORD('$this->contrasena'), '$this->id_rol');";
                 $this->query = $query;
                 $this->execute_single_query();
                 $this->mensaje = 'Usuario agregado exitosamente';
@@ -320,13 +277,60 @@ class usuario extends DBAbstractModel {
     }
     
     
-        # Método constructor
+    # Método constructor
     function __construct() {
+//        $this->extensiones = array("png","jpg");
+//        $this->extension_valida=false;
+//        $this->tamano_correcto=false;
+//        $this->direc_imagenes='fotos';
+//        $this->sobreescribir='si';
     }
 
     # Método destructor del objeto
     function __destruct() {
         unset($this);
     }
+    
+//    ############################### IMAGEN ################################
+// function is_extension_valida($extension)
+//{
+//	foreach($this->extensiones as $extensionv){
+//		if($extensionv==$extension)$this->extension_valida = true; // Permite el archivo
+//	}
+//
+//}
+//
+// function is_tamano_correcto($tamano)
+//{
+//	if (($tamano < 1) || ($tamano > $this->maxbytes))
+//		$this->tamano_correcto=false;
+//	else
+//            $this->tamano_correcto=true;
+//}
+//
+//function is_nombre_archivo_valido($nombre_completo)
+//{
+//	if ((!$nombre_completo) || ($nombre_completo==""))
+//		$this->mensaje="No se ha seleccionado archivo";
+//	elseif (file_exists($direc_imagenes.'\\'.$nombre_completo) && ($sobreescribir=="no")){
+//            $this->mensaje="El archivo ya existe y no se puede sobreescribir";
+//	}	
+//}
+//
+//function control_fichero($nombre_completo,$tamano)
+//{
+//  if (is_nombre_archivo_valido($nombre_completo)){
+//	  $fichero_ext = preg_split("/\./",$nombre_completo);
+//	  if (is_extension_valida($fichero_ext[1]))
+//	  {
+//		if (! (is_tamano_correcto($tamano))) {
+//                    $this->mensaje="El archivo NO tiene un tama&ntilde;o v&aacute;lido";
+//                }
+//	  }
+//	  else {
+//		$this->mensaje="El archivo NO es de un tipo permitido";
+//	  }
+//  }
+//}
 }
 ?>

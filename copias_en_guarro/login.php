@@ -7,4 +7,4 @@ $contrasenya=htmlspecialchars($_POST['contrasenya']);
 }
 
 
-<?
+?>
