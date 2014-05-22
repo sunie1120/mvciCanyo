@@ -1,26 +1,47 @@
 <?php
 require_once 'model.php';
-$data = array(
-                'nombre'=>'David',
-                'primer_apellido'=>'Cabello',
-                'segundo_apellido'=>'del Barco',
-                'nick_usuario'=>'Cabellaco',
-                'contrasena'=>123,
-                'rol'=>0
-            );
+
+function encriptar_contrasena($contrasena){
+        $opciones = [
+            'cost' => 11,
+            'salt' => mcrypt_create_iv(22, MCRYPT_DEV_URANDOM),
+        ];
+        //$hash=password_hash($contrasena, PASSWORD_BCRYPT, $opciones);
+        //$hash = password_hash($passwod, PASSWORD_DEFAULT);
+        $hash=hash('sha256', $contrasena);
+        return $hash;
+    }
+
 //$data = array(
-//                'nombre'=>'roi',
-//                'primer_apellido'=>'aguilera',
-//                'segundo_apellido'=>'fidalgo',
-//                'nick_usuario'=>'',
-//                'contrasena'=>'',
-//                'rol'=>''
+//                'nombre'=>'David',
+//                'primer_apellido'=>'Cabello',
+//                'segundo_apellido'=>'del Barco',
+//                'nick_usuario'=>$contrasena,
+//                'contrasena'=>123,
+//                'id_rol'=>0
 //            );
+    
+$contrasena='cuenca';
+$hash= $contrasena; //hash('sha256', $contrasena);
+//echo $hash;
+$data = array(
+                'nombre'=>'Pol',
+                'primer_apellido'=>'aguilera',
+                'segundo_apellido'=>'fidalgo',
+                'nick_usuario'=>'Pol',
+                'contrasena'=>$hash,
+                'id_rol'=>'0'
+            );
 $usuario=new usuario();
 $usuario->set($data);
-//$usuario->get(42);
-//echo 'Nombre: '.$usuario->getNombre();
-//$usuario->edit(41,$data);
-//echo 'Nombre: '.$usuario->getNombre();
-//$usuario->delete(41);
 echo $usuario->mensaje;
+//$usuario->edit(42,$data);
+//echo 'Nombre: '.$usuario->getNombre();
+$usuario->get_por_nick_usuario('Pol', 'Pol');
+echo $usuario->mensaje;
+//echo 'Nombre: '.$usuario->getNombre();
+
+//$usuario->delete(41);
+
+
+?>

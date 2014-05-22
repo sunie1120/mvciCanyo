@@ -6,5 +6,5 @@
 .mg{margin-top: 40px;}
 .mg2{margin-top: 60px;}
 .mg3{margin-top: 30px;}
-.validado(background:green;)
-.no_validado(background:red; /* firefox */)
+.validado {background:green;}
+.no_validado{background:red; /* firefox */}

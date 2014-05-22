@@ -63,41 +63,41 @@ class usuario extends DBAbstractModel {
          * Metodo que modifica el nombre de archivo de la foto 
          * @param string $nombre_archivo
          */
-        public function setNombre_archivo($nombre_archivo){
-            $this->nombre_archivo=$nombre_archivo;
-        }
+//        public function setNombre_archivo($nombre_archivo){
+//            $this->nombre_archivo=$nombre_archivo;
+//        }
         
         /**
          * Metodo que modifica el nombre de archivo temporal de la foto 
          * @param string $nombre_archivo_temporal
          */
-        public function setNombre_archivo_temporal($nombre_archivo_temporal){
-            $this->nombre_archivo_temporal=$nombre_archivo_temporal;
-        }
+//        public function setNombre_archivo_temporal($nombre_archivo_temporal){
+//            $this->nombre_archivo_temporal=$nombre_archivo_temporal;
+//        }
         
         /**
          * Metodo que modifica el nombre de archivo temporal de la foto 
          * @param string $nombre_archivo_temporal
          */
-        public function setTipo_archivo($tipo_archivo){
-            $this->tipo_archivo=$tipo_archivo;
-        }
+//        public function setTipo_archivo($tipo_archivo){
+//            $this->tipo_archivo=$tipo_archivo;
+//        }
         
         /**
          * Metodo que modifica el tamaño de archivo 
          * @param string $tamano_archivo
          */
-        public function setTamano_archivo($tipo_archivo){
-            $this->tamano_archivo=$tamano_archivo;
-        }
+//        public function setTamano_archivo($tipo_archivo){
+//            $this->tamano_archivo=$tamano_archivo;
+//        }
         
         /**
          * Metodo que modifica la foto del usuario
          * @param 
          */
-        public function setFoto(){
-            $this->foto=file($this->nombre_archivo);
-        }
+//        public function setFoto(){
+//            $this->foto=file($this->nombre_archivo);
+//        }
         
         ############################### GET ################################
         /**
@@ -144,41 +144,41 @@ class usuario extends DBAbstractModel {
          * Metodo que devuelve el nombre de archivo de la foto 
          * @return string $nombre_archivo
          */
-        public function getNombre_archivo(){
-            return $this->nombre_archivo;
-        }
+//        public function getNombre_archivo(){
+//            return $this->nombre_archivo;
+//        }
         
         /**
          * Metodo que devuelve el nombre de archivo temporal de la foto 
          * @return string $nombre_archivo_temporal
          */
-        public function getNombre_archivo_temporal(){
-            return $this->nombre_archivo_temporal;
-        }
+//        public function getNombre_archivo_temporal(){
+//            return $this->nombre_archivo_temporal;
+//        }
         
         /**
          * Metodo que devuelve el nombre de archivo temporal de la foto 
          * @return string $nombre_archivo_temporal
          */
-        public function getTipo_archivo(){
-            return $this->tipo_archivo;
-        }
+//        public function getTipo_archivo(){
+//            return $this->tipo_archivo;
+//        }
         
         /**
          * Metodo que devuelve el tamaño de archivo 
          * @return string $tamano_archivo
          */
-        public function getTamano_archivo(){
-            return $this->tamano_archivo;
-        }
+//        public function getTamano_archivo(){
+//            return $this->tamano_archivo;
+//        }
         
         /**
          * Metodo que devuelve la foto del usuario
          * @return 
          */
-        public function getFoto(){
-            return $this->foto;
-        }
+//        public function getFoto(){
+//            return $this->foto;
+//        }
         ############################### OTROS ################################
 //        /**
 //         * Metodo que comprueba si el tipo de archivo es correcto, jpg o png
@@ -193,6 +193,8 @@ class usuario extends DBAbstractModel {
 //               return true;
 //           }
 //        }    
+
+    
 
     public function edit($id_usuario='',$user_data=array()) {
         
@@ -250,7 +252,31 @@ class usuario extends DBAbstractModel {
             $this->mensaje = 'Usuario no encontrado';
         }
     }
-    
+        # Traer datos de un usuario
+    public function get_por_nick_usuario($nick_usuario='', $contrasena='') {
+        if($nick_usuario != '') {
+            $this->query = "
+                SELECT      *
+                FROM        usuario
+                WHERE       nick_usuario = '$nick_usuario'
+            ";
+            $this->get_results_from_query();
+        }
+        
+        if(count($this->rows) == 1) {
+            foreach ($this->rows[0] as $propiedad=>$valor) {
+                $this->$propiedad = $valor;
+            }
+            if ($this->contrasena==hash('sha256', $contrasena)) {
+                $this->mensaje ='¡La contraseña es válida!';
+            } else {
+                $this->mensaje = 'La contraseña no es válida.';
+            }
+            $this->mensaje = 'Usuario encontrado';
+        } else {
+            $this->mensaje = 'El usuario erroneo';
+        }
+    }
     # Crear un usuario
     public function set($user_data=array()) {
             $nick=$user_data['nick_usuario'];
@@ -258,12 +284,19 @@ class usuario extends DBAbstractModel {
             $this->get_results_from_query();
             
             if(count($this->rows) == 0){
-                $query = "INSERT INTO `icanyo`.`usuario` (`id_usuario`, `nombre`, `primer_apellido`, `segundo_apellido`, `nick_usuario`, `contrasena`, `id_rol`) VALUES (NULL, '$this->nombre', '$this->primer_apellido', '$this->segundo_apellido', '$this->nick_usuario', PASSWORD('$this->contrasena'), '$this->id_rol');";
+                $nombre=$user_data['nombre'];
+                $primer_apellido=$user_data['primer_apellido'];
+                $segundo_apellido=$user_data['segundo_apellido'];
+                $contrasena=$user_data['contrasena'];
+                $id_rol=$user_data['id_rol'];
+                
+                $query = "INSERT INTO `icanyo`.`usuario` (`id_usuario`, `nombre`, `primer_apellido`, `segundo_apellido`, `nick_usuario`, `contrasena`, `id_rol`) VALUES (NULL, '$nombre', '$primer_apellido', '$segundo_apellido', '$nick', '$contrasena', '$id_rol');";
                 $this->query = $query;
                 $this->execute_single_query();
                 $this->mensaje = 'Usuario agregado exitosamente';
+                
             } else {
-                $this->mensaje = 'El usuario ya existe';
+               $this->mensaje = 'El usuario ya existe';
             }
     }
 
