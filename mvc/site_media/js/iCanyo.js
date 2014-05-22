@@ -108,5 +108,21 @@ $( document ).ready(function() {
 		$("#puesto").val(puesto);
 		$("#departamento").val(departamento);
 	}
+/**
+* Función para recargar los anuncios 
+*/
+
+var intervalo = /*milisegundos, depende de los usuarios conectados*/;
+
+//window.setInterval("javascript function", milliseconds);
+
+
+window.setInterval(function(){
+	$('#anuncios').load('anuncios.php');
+},intervalo);
+
+
+
+
 
 

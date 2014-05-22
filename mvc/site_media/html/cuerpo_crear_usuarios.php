@@ -170,7 +170,7 @@ require_once('../php/devuelve_roles.php');
 		<script src="../docs/js/jquery/jQuery.min.js"></script>
 		<script src="../docs/js/jquery/jQuery.widget.min.js"></script>
 		<script src="../docs/js/metro.min.js"></script>
-		<script src="../docs/js/jquery/mousewheel.js"></script>
+		<script src="../docs/js/jquery/jquery.mousewheel.js"></script>
 		<script src="../js/iCanyo.js"></script>
 
 	
