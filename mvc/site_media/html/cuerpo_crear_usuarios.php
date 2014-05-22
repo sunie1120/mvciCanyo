@@ -1,30 +1,28 @@
-<?php
-require_once('../php/devuelve_roles.php');
-?>
-<!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+
+<!--<!DOCTYPE html>
+[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]
+[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]
+[if IE 8]>         <html class="no-js lt-ie9"> <![endif]
+[if gt IE 8]><! <html class="no-js"> <![endif]
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <title>iCanyo</title>
         <meta name="description" content="gestor de comunicados, tareas, vacaciones y agenda, para entidades y empresas">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="../docs/css/metro-bootstrap.css">
-        <link rel="stylesheet" href="../docs/css/metro-bootstrap-responsive.css">
-        <link  rel="stylesheet" href="../docs/css/iconFont.css">
-        <link href="../css/iCanyo.css" rel="stylesheet">
+        <link rel="stylesheet" href="../site_media/docs/css/metro-bootstrap.css">
+        <link rel="stylesheet" href="../site_media/docs/css/metro-bootstrap-responsive.css">
+        <link  rel="stylesheet" href="../site_media/docs/css/iconFont.css">
+        <link href="../site_media/css/iCanyo.css" rel="stylesheet">
 
 		
 		
     </head>
     <body class="metro">
-	<link rel="icon" type="image/png" href="../../../imagenes/gatete_favicon.png" />
+	<link rel="icon" type="image/png" href="../site_media/img/gatete_favicon.png" />
         <div class="grid">
             <div class="row">
-                <!-- Menú -->
+                 Menú 
 				<nav class="span3">
                     <ul  class="dropdown-menu dark open keep-open" >
                         <li class="menu-title">
@@ -65,12 +63,12 @@ require_once('../php/devuelve_roles.php');
                         <li class="divider"></li>
 						{Gestion usuarios}
                     </ul>
-                </nav>
+                </nav>-->
                 <!-- Cuadros -->
                 <div class="span12 offset4">
 					<div class="tile triple triple-vertical bg-white" style="border: solid 3px orange">
 					<center>
-					<form id="nuevo_usuario" action="alta_usuario.php" method="post">
+                                            <form id="nuevo_usuario" action="#" method="post">
 						<div class="input-control text size3 mg3 info-state">
 							<input type="text" id="name" name="nombre" title="No debe contener números ni caracteres especiales" placeholder="Nombre" required></input> 
 						</div>
@@ -99,27 +97,24 @@ require_once('../php/devuelve_roles.php');
 							<div class="input-control size3 select">		
 								<h5 class="item-title-secondary">Rol</h5>
 								<select id="rol_usu" name="rol">
-								<?php echo "rol";
-								roles();
-								?>
+                                                                    {funcion_roles}
+								
 								</select>
 							</div>
 							<br>
 							<div class="input-control size3 select">		
 								<h5 class="item-title-secondary">Puesto</h5>
 								<select id="puesto_usu" name="puesto">
-								<?php 
-								puestos();
-								?>
+                                                                      {funcion_puestos}
+                                                                      {esther}
 								</select>
 							</div>
 							<br>
 							<div class="input-control size3 select">		
 								<h5 class="item-title-secondary">Departamento</h5>
 								<select id="departamento_usu" name="departamento">
-								<?php
-								departamentos();	
-								?>
+                                                                    {funcion_departamento}
+								
 								</select>
 							</div>
                          <div class="brand bg-black">
@@ -138,11 +133,11 @@ require_once('../php/devuelve_roles.php');
 								</div>
 								<div class="tile-content"><br><br><br><h5 class="item-title">El nombre, los apellidos y el nick no deben contener números ni caracteres especiales.</h5>
 								</div>
-								<div class="tile-content "><img src="../../../imagenes/gatete1.png" style="width='50px' height='50px'" alt="iGreb, la mascota de iCanyo: un gato naranja atigrado, diseñado por Javier Bailen" title="iGreb, la mascota de iCanyo: un gato naranja atigrado, diseñado por Javier Bailen" width="60%"></img>
+								<div class="tile-content "><img src="../site_media/img/gatete1.png" style="width:50px; height:50px;" alt="iGreb, la mascota de iCanyo: un gato naranja atigrado, diseñado por Javier Bailen" title="iGreb, la mascota de iCanyo: un gato naranja atigrado, diseñado por Javier Bailen" width="60%"></img>
 								</div>
 								<div class="tile-content"><br><br><br><h5 class="item-title">La contraseña debe tener entre 6 y 20 caracteres,  un digito minimo y un alfanumérico, y no puede contener caracteres especiales.</h5>
 								</div>
-								<div class="tile-content"><img src="../../../imagenes/logoiCanyo.jpg" alt="El logotipo de iCanyo: cuadrados naranjas sobre fondo sable." title="El logotipo de iCanyo: cuadrados naranjas sobre fondo sable."></img>
+								<div class="tile-content"><img src="../site_media/img/logoiCanyo.jpg" alt="El logotipo de iCanyo: cuadrados naranjas sobre fondo sable." title="El logotipo de iCanyo: cuadrados naranjas sobre fondo sable."></img>
 								</div>
 							</div>		
 							
@@ -153,7 +148,7 @@ require_once('../php/devuelve_roles.php');
 					<div class="tile double  bg-teal">
 					</div>
 					<div class="tile bg-black">
-						<img src="../../../imagenes/gatete1.png" alt="iGreb, la mascota de iCanyo: un gato naranja atigrado, diseñado por Javier Bailen" title="iGreb, la mascota de iCanyo: un gato naranja atigrado, diseñado por Javier Bailen"></img>
+						<img src="../site_media/img/gatete1.png" alt="iGreb, la mascota de iCanyo: un gato naranja atigrado, diseñado por Javier Bailen" title="iGreb, la mascota de iCanyo: un gato naranja atigrado, diseñado por Javier Bailen"></img>
 					</div>
                     <div class="tile double">
                         <div class="brand">
@@ -161,21 +156,23 @@ require_once('../php/devuelve_roles.php');
                         </div>
                     </div>
 					<div class="tile bg-black">
-						<img src="../../../imagenes/logoiCanyo.jpg" alt="El logotipo de iCanyo: cuadrados naranjas sobre fondo sable." title="El logotipo de iCanyo: cuadrados naranjas sobre fondo sable."></img>
+						<img src="../site_media/img/logoiCanyo.jpg" alt="El logotipo de iCanyo: cuadrados naranjas sobre fondo sable." title="El logotipo de iCanyo: cuadrados naranjas sobre fondo sable."></img>
 					</div>
                 </div>
-            </div>
+               <script src="../site_media/docs/js/jquery/jQuery.min.js"></script>
+		<script src="../site_media/docs/js/jquery/jQuery.widget.min.js"></script>
+		<script src="../site_media/docs/js/metro.min.js"></script>
+		<script src="../site_media/docs/js/jquery/jquery.mousewheel.js"></script>
+		<script src="../site_media/js/iCanyo.js"></script>     
+                    
+<!--            </div>
         </div>
 	</div>
-		<script src="../docs/js/jquery/jQuery.min.js"></script>
-		<script src="../docs/js/jquery/jQuery.widget.min.js"></script>
-		<script src="../docs/js/metro.min.js"></script>
-		<script src="../docs/js/jquery/mousewheel.js"></script>
-		<script src="../js/iCanyo.js"></script>
+		-->
 
 	
-	</body>
+<!--	</body>
 	
 	
     </html>
-	
+	-->

@@ -1,3 +1,6 @@
+<?php
+require_once('../site_media/php/devuelve_roles.php');
+?>
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -9,9 +12,10 @@
         <title>{titulo}</title>
         <meta name="description" content="gestor de comunicados, tareas, vacaciones y agenda, para entidades y empresas">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/png" href="../site_media/img/gatete_favicon.png" />
         <link rel="stylesheet" href="../site_media/css/metro-bootstrap.css">
         <link href="../site_media/css/iconFont.min.css" rel="stylesheet">
-		<link href="css/iCanyo.css" rel="stylesheet">
+        <link href="../site_media/css/iCanyo.css" rel="stylesheet">
         <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
         <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.min.js"></script>
         <script src="../site_media/js/metro.min.js"></script>

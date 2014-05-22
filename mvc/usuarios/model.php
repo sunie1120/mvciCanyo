@@ -233,8 +233,8 @@ class usuario extends DBAbstractModel {
 
     
     # Traer datos de un usuario
-    public function get($id_usuario='') {
-        if($id_usuario != '') {
+    public function get($user_data=array()) {
+        if($user_data['id_usuario'] != '') {
             $this->query = "
                 SELECT      *
                 FROM        usuario
@@ -253,8 +253,9 @@ class usuario extends DBAbstractModel {
         }
     }
         # Traer datos de un usuario
-    public function get_por_nick_usuario($nick_usuario='', $contrasena='') {
-        if($nick_usuario != '') {
+    public function get_por_nick_usuario($user_data=array()) {
+        if($user_data['nick_usuario'] != '') {
+            $nick_usuario=$user_data['nick_usuario'];
             $this->query = "
                 SELECT      *
                 FROM        usuario
@@ -267,7 +268,7 @@ class usuario extends DBAbstractModel {
             foreach ($this->rows[0] as $propiedad=>$valor) {
                 $this->$propiedad = $valor;
             }
-            if ($this->contrasena==hash('sha256', $contrasena)) {
+            if ($this->contrasena==hash('sha256', $user_data['contrasena'])) {
                 $this->mensaje ='¡La contraseña es válida!';
             } else {
                 $this->mensaje = 'La contraseña no es válida.';
@@ -302,7 +303,8 @@ class usuario extends DBAbstractModel {
 
 
     # Eliminar un usuario
-    public function delete($id_usuario='') {
+    public function delete($user_data=array()) {
+        $id_usuario= $user_data['id_usuario'];
         $query = "DELETE FROM `icanyo`.`usuario` WHERE `usuario`.`id_usuario` =$id_usuario";
         $this->query = $query;
         $this->execute_single_query();

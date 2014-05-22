@@ -1,5 +1,6 @@
 <?php
 require_once('funciones_icanyo.php');
+
 /*-------------------------------------*/
 function devuelve_roles(){
 $conex= conectar_bdd();
@@ -35,9 +36,10 @@ mysql_close($conex);
 }
 /*-------------------------------------*/
 function roles(){
- //console.log("llega hasta aqui");
+ console.log("llega hasta aqui");
  
 $conex= conectar_bdd();
+echo $conex;
  //console.log($conex);
 $query2="select id_rol, nombre_rol from rol";
 $consulta2=mysql_query($query2,$conex);
@@ -60,6 +62,7 @@ mysql_close($conex);
 
 /*-------------------------------------*/
 function puestos(){
+    echo 'XXXX:Llamada puestos';
  //console.log("llega hasta aqui");
  
 $conex= conectar_bdd();
@@ -67,18 +70,19 @@ $conex= conectar_bdd();
  //console.log($conex);
 $query5="select id_puesto,nombre_puesto from puesto";
 $consulta5=mysql_query($query5,$conex);
-
+echo "XXX ".$consulta5;
 $total_consulta5=mysql_num_rows($consulta5);
-
+        $opciones = "";
 	if($total_consulta5 > 0){
 		while ($fila5 = mysql_fetch_array($consulta5)) {
-				echo "<option value=".$fila5[0].">".$fila5[1]."</option>";
+				$opciones .= "<option value=".$fila5[0].">".$fila5[1]."</option>";
 		}
 
 	}else{
-			echo "<option>No hay resultados</option>";
+			$opciones .= "<option>No hay resultados</option>";
 	}
 mysql_close($conex);
+    return($opciones);
 }
 
 /*-------------------------------------*/
