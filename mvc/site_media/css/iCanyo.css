@@ -5,6 +5,10 @@
 
 .mg{margin-top: 40px;}
 .mg2{margin-top: 60px;}
+/* 
+    Created on : 14-may-2014
+    Author     : Esther
+*/
 .mg3{margin-top: 30px;}
 .validado {background:green;}
 .no_validado{background:red; /* firefox */}
@@ -15,5 +19,4 @@ color:white;
 }
 #texto_footer{
 color:white;
-
 }

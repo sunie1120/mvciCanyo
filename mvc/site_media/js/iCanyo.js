@@ -133,9 +133,5 @@ type: "square"
 }
 });
 
-/* $(function(){
-$(".general_empresa").carousel({
-height: 200
-});
-})  */
+
 
