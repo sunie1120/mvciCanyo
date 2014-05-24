@@ -30,24 +30,35 @@ function crear_menu($rol, $vacaciones) {
  * Funcion que devuelve la vista al usuario
  * @return void
  */
-// retorna la vista de alta
-function compon_vista_alta($rol, $vacaciones,$mensaje) {
-    $html = file_get_contents('../site_media/html/estructura.php');
-    $html = str_replace('{titulo}', 'iCanyo Alta de Usuarios', $html);
-    $tmp_puestos = puestos();
-    $cuerpo = file_get_contents('../site_media/html/cuerpo_crear_usuarios.php');
-    $cuerpo = str_replace('{funcion_puestos}', $tmp_puestos, $cuerpo);
-    $html = str_replace('{menu}', $menu, $html);
-    $html = str_replace('{cuerpo}', $cuerpo, $html);
-    $html = str_replace('{mensaje}', $mensaje, $html);
-    print $html;
+//crea plantilla general
+function crea_plantilla(){
+    $html = file_get_contents('../site_media/html/estructura.html');
 }
 
-// dada una plantilla y un diccionario con los valores a substituir
-// retorna el html con las substituciones correspondientes
+// crea la vista de alta
+function compon_vista_alta() {
+    $html = str_replace('{titulo}', 'iCanyo Alta de Usuarios', $html);
+    $tmp_puestos = puestos();
+    $tmp_roles = roles();
+    $tmp_departamentos = departamentos();
+    $cuerpo = file_get_contents('../site_media/html/cuerpo_crear_usuarios.html');
+    $cuerpo = str_replace('{funcion_puestos}', $tmp_puestos, $cuerpo);
+    $cuerpo = str_replace('{funcion_roles}', $tmp_roles, $cuerpo);
+    $cuerpo = str_replace('{funcion_departamentos}', $tmp_departamentos, $cuerpo);
+    $html = str_replace('{cuerpo}', $cuerpo, $html);
+}
+
+/**
+ * dada una plantilla y un diccionario con los valores a substituir
+ * retorna el html con las substituciones correspondientes
+ * 
+ * @param type $plantilla
+ * @param type $valores
+ * @return type
+ */
 function compositor($plantilla, $valores) {
     foreach ($clave as $valores) {
-        $plantilla = str_replace('{'.$clave.'}', $valores, $plantilla);
+        $plantilla = str_replace('{' . $clave . '}', $valores, $plantilla);
     }
     return $plantilla;
 }
@@ -59,14 +70,14 @@ function retornar_vista($vista, $rol, $vacaciones, $mensaje) {
 
     switch ($vista) {
         case ('alta');
-            $cuerpo = file_get_contents('../site_media/html/cuerpo_crear_usuarios.php');
-
+            $cuerpo = file_get_contents('../site_media/html/cuerpo_crear_usuarios.html');
             $html = str_replace('{titulo}', 'iCanyo Alta de Usuarios', $html);
             $tmp_puestos = puestos();
-
-            //echo 'XXXX: puestos me retorna: <select>'.$tmp_puestos.'</select>';
+            $tmp_roles = roles();
+            $tmp_departamentos = departamentos();
             $cuerpo = str_replace('{funcion_puestos}', $tmp_puestos, $cuerpo);
-
+            $cuerpo = str_replace('{funcion_roles}', $tmp_roles, $cuerpo);
+            $cuerpo = str_replace('{funcion_departamento}', $tmp_departamentos, $cuerpo);
             break;
         case ('baja');
             $cuerpo = file_get_contents('../site_media/html/cuerpo_eliminar_usuarios.html');

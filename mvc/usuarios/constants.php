@@ -1,16 +1,21 @@
 <?php
-const MODULO = 'usuarios/';
-
-# controladores
-const SET_USER = 'set';
-const GET_USER = 'get';
-const DELETE_USER = 'delete';
-const EDIT_USER = 'edit';
-
-# vistas
-const VIEW_SET_USER = 'agregar';
-const VIEW_GET_USER = 'buscar';
-const VIEW_DELETE_USER = 'borrar';
-const VIEW_EDIT_USER = 'modificar';
+require_once('../site_media/php/devuelve_roles.php');
+#Constantes para diccionario alta usuarios
+$TMP_PUESTOS = puestos();
+$TMP_ROLES = roles();
+$TMP_DEPARTAMENTOS = departamentos();
+/**
+ * diccionario que contiene los <options> para seleccionar puesto, rol y departamento
+ * dentro del formulario de alta de un usuario
+ */
+$diccionario_alta_usuarios=array(
+    'funcion_puestos'=>$TMP_PUESTOS,
+    'funcion_roles'=>$TMP_ROLES,
+    'funcion_departamentos'=>$TMP_DEPARTAMENTOS
+);
+$diccionario_titulos=array(
+    'alta_usuarios'=>'iCanyo Alta Usuarios',
+    'baja_usuarios'=>'iCanyo Baja Usuarios',
+    'modificacion_usuarios'=>'iCanyo Modificar Usuarios',
+);
 ?>
-

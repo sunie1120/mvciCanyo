@@ -1,38 +1,36 @@
 <?php
 session_start();
 #recuperación de datos
-//TODO: cambiar el nombre de vista a vissta-elegida
-$vista= 'alta';// htmlspecialchars($_POST['enlace']);
-//TODO: cambiar a boolean
-$vacaciones='s';//htmlspecialchars($_SESSION['vacaciones']);
-$rol=4;//htmlspecialchars($_SESSION['id_rol']);
-$mensaje='';
+$vista_elegida= 'alta_usuarios';// htmlspecialchars($_POST['enlace']);
+$vacaciones=true;//htmlspecialchars($_SESSION['vacaciones']);
+$aprobar_vacaciones=true;//htmlspecialchars($_SESSION['aprobar_vacaciones']);
+
 #includes
-//require_once('constants.php');
 require_once('model.php');
-require_once('view.php');
+require_once('view_1.php');
 
 #Función que se encarga de generar la vista-usuario, a partir de $vista, del rol de usuario, si ha de 
-function handler($vista,$rol,$vacaciones,$mensaje) {
-    //echo "XXXX : entra el handler ".$vista;
-    $user_data = helper_user_data($rol,$vacaciones,$mensaje);
-    $usuario = new usuario();
-    //$mensaje=$usuario.mensaje;
-    switch ($vista){
-        case ('alta'):
-            compon_vista_alta();
-            break;
-    }
+function handler($user_data,$vista_elegida,$aprobar_vacaciones,$gestiona_usuario,$mensaje) {
+    $user_data = helper_user_data();
+    $usuario = set_obj();
+    $usuario->set($user_data);
+    $mensaje=$usuario->getMensaje();
+    $vista= set_vista($vista_elegida,$aprobar_vacaciones,$gestiona_usuario,$mensaje);
+    print $vista->get_vista();
     
-    
-    //retornar_vista($vista,$rol,$vacaciones,$mensaje);
 }
 # instanciamos la clase 
  function set_obj() {
     $obj = new usuario();
     return $obj;
 }
-   
+
+# instanciamos la clase 
+ function set_vista($vista_elegida,$aprobar_vacaciones,$gestiona_usuario,$mensaje) {
+    $obj = new genera_vista($vista_elegida,$aprobar_vacaciones,$gestiona_usuario,$mensaje);
+    return $obj;
+}
+
 #guardamos los datos en un array
 function helper_user_data() {
     $user_data = array();
@@ -53,7 +51,9 @@ function helper_user_data() {
             $user_data['contrasena'] = htmlspecialchars ($_POST['contrasena']); 
         }
         if(array_key_exists('rol', $_POST)) { 
-            $user_data['rol'] = htmlspecialchars ($_POST['rol']); 
+            
+            $user_data['id_rol'] = htmlspecialchars ($_POST['rol']); 
+            
         }
         //Falta la foto
         
@@ -65,5 +65,5 @@ function helper_user_data() {
     return $user_data;
 }
 
-handler($vista,$rol,$vacaciones,$mensaje);
+handler($user_data,$vista_elegida,$aprobar_vacaciones,$gestiona_usuario,$mensaje);
 ?>

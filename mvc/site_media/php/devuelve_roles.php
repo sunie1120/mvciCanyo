@@ -36,75 +36,67 @@ mysql_close($conex);
 }
 /*-------------------------------------*/
 function roles(){
- console.log("llega hasta aqui");
- 
+$datos_roles="";
 $conex= conectar_bdd();
-echo $conex;
- //console.log($conex);
+
 $query2="select id_rol, nombre_rol from rol";
 $consulta2=mysql_query($query2,$conex);
 $total_consulta2=mysql_num_rows($consulta2);
-
 
 $fila2 = mysql_fetch_array($consulta2);
 
 	if($total_consulta2 > 0){
 		while ($fila2 = mysql_fetch_array($consulta2)) {
-				echo "<option value=".$fila2[0].">".$fila2[1]."</option>";
+				$datos_roles.= "<option value=".$fila2[0].">".$fila2[1]."</option>";
 		}
 
 	}else{
-			echo "<option>No hay resultados</option>";
+			$datos_roles.= "<option>No hay resultados</option>";
 			
 	}
 mysql_close($conex);
+return $datos_roles;
 }
 
 /*-------------------------------------*/
 function puestos(){
-    echo 'XXXX:Llamada puestos';
- //console.log("llega hasta aqui");
- 
 $conex= conectar_bdd();
 
- //console.log($conex);
 $query5="select id_puesto,nombre_puesto from puesto";
 $consulta5=mysql_query($query5,$conex);
 echo "XXX ".$consulta5;
 $total_consulta5=mysql_num_rows($consulta5);
-        $opciones = "";
+        $datos_puestos = "";
 	if($total_consulta5 > 0){
 		while ($fila5 = mysql_fetch_array($consulta5)) {
-				$opciones .= "<option value=".$fila5[0].">".$fila5[1]."</option>";
+				$datos_puestos .= "<option value=".$fila5[0].">".$fila5[1]."</option>";
 		}
 
 	}else{
-			$opciones .= "<option>No hay resultados</option>";
+			$datos_puestos .= "<option>No hay resultados</option>";
 	}
 mysql_close($conex);
-    return($opciones);
+    return($datos_puestos);
 }
 
 /*-------------------------------------*/
 function departamentos(){
- //console.log("llega hasta aqui");
- 
+$datos_dtos="";
 $conex= conectar_bdd();
- //console.log($conex);
 $query6="select id_departamento,nombre_departamento from departamento";
 $consulta6=mysql_query($query6,$conex);
 $total_consulta6=mysql_num_rows($consulta6);
 
-echo $total_consulta6;
 	if($total_consulta6 > 0){
 		while ($fila6 = mysql_fetch_array($consulta6)) {
-				echo "<option value=".$fila6[0].">".$fila6[1]."</option>";
+				$datos_dtos.= "<option value=".$fila6[0].">".$fila6[1]."</option>";
 		}
 
 	}else{
-			echo "<option>No hay resultados</option>";
+			$datos_dtos= "<option>No hay resultados</option>";
 	}
 mysql_close($conex);
+return $datos_dtos;
 }
 
 /*-------------------------------------*/
