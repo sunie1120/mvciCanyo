@@ -112,7 +112,7 @@ $( document ).ready(function() {
 * Función para recargar los anuncios 
 */
 
-var intervalo = /*milisegundos, depende de los usuarios conectados*/;
+var intervalo = /*milisegundos, depende de los usuarios conectados*/
 
 //window.setInterval("javascript function", milliseconds);
 
@@ -121,8 +121,21 @@ window.setInterval(function(){
 	$('#anuncios').load('anuncios.php');
 },intervalo);
 
+/**
+* Funciones de carrousel, cada una difiere en tiempos de rotacion dependiendo del div en el que aparecen los anuncios
+*/
+$('.carousel').carousel({
+auto: true,
+period: 3000,
+duration: 2000,
+markers: {
+type: "square"
+}
+});
 
-
-
-
+/* $(function(){
+$(".general_empresa").carousel({
+height: 200
+});
+})  */
 
