@@ -14,17 +14,19 @@ $total_consulta=mysql_num_rows($consulta);
 		echo "</tr>";
 	echo "</thead>";
 	echo "<tbody>";
+
+
 		while ($fila = mysql_fetch_array($consulta)) {
-			echo "<tr>";
+			/* echo "<tr>";
 			echo "<td><p>Id del rol</p></td>";
-			echo "<td>".$fila[0]."</td>";
+			echo "<td>".$fila[0]."</td>"; */
 			//echo "</tr>";
 			//echo "<tr>";
-			echo "<td><p>Nombre del rol</p></td>";
+	/* 		echo "<td><p>Nombre</p></td>"; */
 			echo "<td>".$fila[1]."</td>";
 			//echo "</tr>";
 			//echo "<tr>";
-			echo "<td><p>Descripción</p></td>";
+		/* 	echo "<td><p>Descripción</p></td>"; */
 			echo "<td>".$fila[2]."</td>";
 			echo "</tr>";
 		}
