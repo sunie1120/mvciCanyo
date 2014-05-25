@@ -81,23 +81,19 @@ require_once('../php/devuelve_roles.php');
 								<textarea rows="7" cols="35" placeholder="Introduzca un texto para el anuncio" style="text-align: center;" ></textarea>
 							</center>
 						</div>
-						<div id="texto_anuncio" class="tile triple bg-teal">
+						<div id="texto_anuncio" class="tile triple double-vertical bg-teal" style="overflow:auto;">
 							<h6>Seleccione los usuarios que podrán ver el anuncio según su departamento</h6>
-							{departamentos_checkbox}
+							{departamentos_checkbox}							
 							<?php
-							departamentos();
+							departamentos_checkbox();
 							?>
-							<input type="checkbox" name="departamento" value=" ">I have a bike<br>
-							<input type="checkbox" name="departamento" value="Car">I have a car
 						</div>
-						<div id="texto_anuncio" class="tile triple double-vertical bg-teal">
+						<div id="texto_anuncio" class="tile triple double-vertical bg-teal" style="overflow:auto;">
 							<h6>Seleccione los usuarios que podrán ver el anuncio según puesto</h6>
 							{puestos_checkbox}
 							<?php
 							puestos_checkbox();
 							?>
-							<input type="checkbox" name="puesto" value=" ">I have a bike<br>
-							<input type="checkbox" name="puesto" value="Car">I have a car 
 						</div>
 				</form>
 				</div>

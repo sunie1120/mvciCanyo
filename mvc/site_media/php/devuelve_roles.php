@@ -152,12 +152,37 @@ $consulta5=mysql_query($query5,$conex);
 $total_consulta5=mysql_num_rows($consulta5);
 
 	if($total_consulta5 > 0){
+
 		while ($fila5 = mysql_fetch_array($consulta5)) {
 		echo "<input type='checkbox' name='puesto' value=".$fila5[0].">".$fila5[1];
+		echo "<br>";
 		}
 
 	}else{
-			echo "<option>No hay resultados</option>";
+			echo "<p'>No hay resultados</p>";
+	}
+mysql_close($conex);
+}
+/*-------------------------------------*/
+function departamentos_checkbox(){
+ //console.log("llega hasta aqui");
+ 
+$conex= conectar_bdd();
+ //console.log($conex);
+$query6="select id_departamento,nombre_departamento from departamento";
+$consulta6=mysql_query($query6,$conex);
+$total_consulta6=mysql_num_rows($consulta6);
+
+echo $total_consulta6;
+	if($total_consulta6 > 0){
+
+		while ($fila6 = mysql_fetch_array($consulta6)) {
+				echo "<input type='checkbox' name='departamento' value=".$fila6[0].">".$fila6[1];
+				echo "<br>";
+		}
+
+	}else{
+			echo "<p'>No hay resultados</p>";
 	}
 mysql_close($conex);
 }
