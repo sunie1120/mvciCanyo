@@ -138,4 +138,27 @@ $total_consulta3=mysql_num_rows($consulta3);
 	}
 mysql_close($conex);
 }
+
+/*-------------------------------------*/
+function puestos_checkbox(){
+ //console.log("llega hasta aqui");
+ 
+$conex= conectar_bdd();
+
+ //console.log($conex);
+$query5="select id_puesto,nombre_puesto from puesto";
+$consulta5=mysql_query($query5,$conex);
+
+$total_consulta5=mysql_num_rows($consulta5);
+
+	if($total_consulta5 > 0){
+		while ($fila5 = mysql_fetch_array($consulta5)) {
+		echo "<input type='checkbox' name='puesto' value=".$fila5[0].">".$fila5[1];
+		}
+
+	}else{
+			echo "<option>No hay resultados</option>";
+	}
+mysql_close($conex);
+}
 ?>
