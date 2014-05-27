@@ -68,32 +68,59 @@ require_once('../php/devuelve_roles.php');
                 </nav> -->
                 <!-- Cuadros -->
 				<div class="span12 offset4">
-				<form>
+				<form id="crear_anuncios" method="post" action="controller_anuncios_0.php">
+			
+						<div class="tile  bg-orange triple-vertical">
+						</div>
+
 						<div id="titulo_anuncio" class="tile triple bg-teal">
 							<h5>Título</h5>
 							<center>
-								<textarea rows="1" cols="35" placeholder="Introduzca un título para el anuncio" autofocus style="text-align: center;" required></textarea>
+								<textarea rows="1" cols="35" placeholder="Introduzca un título para el anuncio" autofocus style="text-align: center;" required name="titulo_anuncio"></textarea>
 							</center>
 						</div>
+						<div class="tile triple bg-green">
+						</div>
+						
 						<div id="texto_anuncio" class="tile triple double-vertical bg-teal">
 							<h5>Anuncio</h5>
 							<center>
-								<textarea rows="7" cols="35" placeholder="Introduzca un texto para el anuncio" style="text-align: center;" ></textarea>
+								<textarea rows="7" cols="35" placeholder="Introduzca un texto para el anuncio" style="text-align: center;" name="texto_anuncio" ></textarea>
 							</center>
 						</div>
+
+						
+						<div class="tile triple double-vertical bg-amber" id="selecciona_publico">
+							<h6>Si selecciona la opción Público, el anuncio será visualizado por todos los usuarios</h6>
+							<input  id="publico"  type="radio" name="vis_publica" required>Público</input><br>
+							<input   id="no_publico" type="radio" name="vis_publica" required>Seleccionar quien va a ver la publicación</input>
+
+						</div>
+						
+
 						<div id="texto_anuncio" class="tile triple double-vertical bg-teal" style="overflow:auto;">
 							<h6>Seleccione los usuarios que podrán ver el anuncio según su departamento</h6>
-							{departamentos_checkbox}							
+							{departamentos_checkbox}	<br>						
 							<?php
 							departamentos_checkbox();
 							?>
 						</div>
+
+
+						
 						<div id="texto_anuncio" class="tile triple double-vertical bg-teal" style="overflow:auto;">
 							<h6>Seleccione los usuarios que podrán ver el anuncio según puesto</h6>
-							{puestos_checkbox}
+							{puestos_checkbox}<br>
 							<?php
 							puestos_checkbox();
 							?>
+						</div>
+						
+						<div class="tile double-vertical bg-amber">
+						<br>
+						  <input type="submit" value="Publicar">
+						  <br><br>
+						  <input type="reset" value="Reiniciar">
 						</div>
 				</form>
 				</div>

@@ -13,7 +13,7 @@ var passusuario=$("#contra").val();
 	$("#loginsusuario").submit();//lo enviamos a la página de php para que compruebe en el servidor si el usuario existe
 	}
 };
-
+var num_departs;
 /**
 * Función envia al controlador para que se inserten en la base de datos
 */
@@ -46,9 +46,9 @@ function envia_usuarios(){
 *Validacion de los inputs de texto y pass
 */
 $( document ).ready(function() {
-/**
-*Validacion de los inputs de texto
-*/
+	/**
+	*Validacion de los inputs de texto
+	*/
 	$("input[type=text]").on("keypress", function(){
 		var x = $(this).val();
 		
@@ -122,7 +122,7 @@ window.setInterval(function(){
 },intervalo);
 
 /**
-* Funciones de carrousel, cada una difiere en tiempos de rotacion dependiendo del div en el que aparecen los anuncios
+* Funciones de carrousel
 */
 $('.carousel').carousel({
 auto: true,
@@ -133,5 +133,65 @@ type: "square"
 }
 });
 
+/**
+* Funcion que controla que los checkbox de la vista_crear_anuncios estén seleccionado o no, para que los anuncios sean públicos o no
+*/
 
+$(document).ready(function() {
+			//	alert('111');
+		$("input[type='radio']").click(function(){
+			var anuncio_publico = $("#publico").prop('checked');
+			var anuncio_privado = $("#no_publico").prop('checked');
 
+			if(anuncio_privado == true){
+			$("input[name='departamento']").removeAttr("disabled");
+			$("input[name='puesto']").removeAttr("disabled");
+			}else{
+			$("input[name='departamento']").attr("disabled","enabled");
+			$("input[name='puesto']").attr("disabled","enabled");
+			}
+			
+			$("input[type='reset']").click(function(){
+				$("input[name='departamento']").attr("disabled","disabled");
+				$("input[name='puesto']").attr("disabled","disabled");
+			});
+			
+		});	
+});
+		
+		//Para habilitar o dehabilitar los botones para selecionar tipos de vista, dependiendo de si el usuario ha elegido por puesto o por departamento,
+		//excluyendo unas opciones a las otras.
+		  
+		$(document).ready(function(){			
+  			$('input[name="departamento"]').change(function() {
+			num_departs=0;
+				$('input[name="departamento"]').each(function(i,o) {
+				   var actual=$(this).prop('checked');
+					if(actual){
+						num_departs++;
+					}
+				});
+				if (num_departs==0){
+				$("input[name='puesto']").attr("disabled",false);
+				}
+				else{
+				$("input[name='puesto']").attr("disabled","disabled");
+				}
+				});
+				
+			$('input[name="puesto"]').change(function() {
+			num_puestos=0;
+				$('input[name="puesto"]').each(function(i,o) {
+				   var actual=$(this).prop('checked');
+					if(actual){
+						num_puestos++;
+					}
+				});
+				if (num_puestos==0){
+				$("input[name='departamento']").attr("disabled",false);
+				}
+				else{
+				$("input[name='departamento']").attr("disabled","disabled");
+				}
+				});
+			});

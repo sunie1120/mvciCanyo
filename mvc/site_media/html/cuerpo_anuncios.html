@@ -69,49 +69,23 @@
 
 				
 				<div class="tile quadro double-vertical  bg-red">
-				<h4>Jefes de esta sección</h4>
+				<h4>Por Puestos:</h4>
 				    <div class="carousel"  data-role="carousel">
-						<div class="slide bg-black">
+					{por_puestos}
+						<div class="slide bg-orange">
 						<p>Uno</p>
 						</div>
-						<div class="slide bg-grey">
+						<div class="slide bg-amber">
 						<p>Dos</p>
 						</div>
-						<div class="slide bg-white">
+						<div class="slide bg-yellow">
 						<p>Tres</p>
 						</div> 
 						<a class="controls left"><i class="icon-arrow-left-3"></i></a>
 						<a class="controls right"><i class="icon-arrow-right-3"></i></a>
 					</div>
 				</div>
-				
-				<div class="tile triple double-vertical bg-green">
-				<h4>Generales</h4>
-					 <div class="carousel"  data-role="carousel" style="width: 80%; height: 200px;">
-
-						<a class="controls left"><i class="icon-arrow-left-3"></i></a>
-						<a class="controls right"><i class="icon-arrow-right-3"></i></a>
-					</div>
-				</div>
-
-				<div class="tile triple double-vertical bg-teal">
-				<h4>Por puesto</h4>
-					 <div class="carousel"  data-role="carousel">
-						<div class="slide">
-						<p>Uno</p>
-						</div>
-						<div class="slide">
-						<p>Dos</p>
-						</div>
-						<div class="slide">
-						<p>Tres</p>
-						</div> 
-						<a class="controls left"><i class="icon-arrow-left-3"></i></a>
-						<a class="controls right"><i class="icon-arrow-right-3"></i></a>
-					</div>
-				</div>
-
-				<div class="tile quadro double-vertical  bg-orange">
+								<div class="tile triple double-vertical  bg-orange">
 				<h4>Generales de la empresa</h4>
 					 <div class="carousel"  data-role="carousel">
 						<div class="slide bg-blue">
@@ -128,7 +102,45 @@
 					</div>
 				</div>
 				
-				<div class="tile triple bg-blue" >
+				<div class="tile quadro double-vertical bg-green">
+				<h4>Por Departamento</h4>
+					 <div class="carousel"  data-role="carousel" style="width: 80%; height: 200px;">
+						{por_departamento}
+						<div class="slide bg-black">
+						<p>Uno</p>
+						</div>
+						<div class="slide bg-grey">
+						<p>Dos</p>
+						</div>
+						<div class="slide bg-white">
+						<p>Tres</p>
+						</div> 
+						<a class="controls left"><i class="icon-arrow-left-3"></i></a>
+						<a class="controls right"><i class="icon-arrow-right-3"></i></a>
+					</div>
+				</div>
+
+				<div class="tile triple double-vertical bg-teal">
+				<h4>General</h4>
+					 <div class="carousel"  data-role="carousel">
+						{general}
+						<div class="slide">
+						<p>Uno</p>
+						</div>
+						<div class="slide">
+						<p>Dos</p>
+						</div>
+						<div class="slide">
+						<p>Tres</p>
+						</div> 
+						<a class="controls left"><i class="icon-arrow-left-3"></i></a>
+						<a class="controls right"><i class="icon-arrow-right-3"></i></a>
+					</div>
+				</div>
+
+
+				
+				<!-- <div class="tile triple bg-blue" >
 				<h4>Encargados de esta sección</h4>
 					 <div class="carousel" data-role="carousel">
 						<div class="slide">
@@ -160,7 +172,7 @@
 						<a class="controls left"><i class="icon-arrow-left-3"></i></a>
 						<a class="controls right"><i class="icon-arrow-right-3"></i></a>
 					</div>
-				</div>
+				</div> -->
 				<script>
 				$('.carousel').carousel({
 					auto: true,

@@ -154,7 +154,7 @@ $total_consulta5=mysql_num_rows($consulta5);
 	if($total_consulta5 > 0){
 
 		while ($fila5 = mysql_fetch_array($consulta5)) {
-		echo "<input type='checkbox' name='puesto' value=".$fila5[0].">".$fila5[1];
+		echo "<input type='checkbox' name='puesto' value=".$fila5[0]." disabled='disabled'>".$fila5[1];
 		echo "<br>";
 		}
 
@@ -177,7 +177,7 @@ echo $total_consulta6;
 	if($total_consulta6 > 0){
 
 		while ($fila6 = mysql_fetch_array($consulta6)) {
-				echo "<input type='checkbox' name='departamento' value=".$fila6[0].">".$fila6[1];
+				echo "<input type='checkbox' name='departamento' value=".$fila6[0]." disabled='disabled'>".$fila6[1];
 				echo "<br>";
 		}
 
