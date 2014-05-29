@@ -51,3 +51,6 @@ var id_usuario = $("input[name='id_usuario']").prop("value");
 	 alert( "Request failed: " + textStatus );
 	 });
 }
+
+
+

@@ -159,8 +159,8 @@ $(document).ready(function() {
 		});	
 });
 		
-		//Para habilitar o dehabilitar los botones para selecionar tipos de vista, dependiendo de si el usuario ha elegido por puesto o por departamento,
-		//excluyendo unas opciones a las otras.
+//Para habilitar o dehabilitar los botones para selecionar tipos de vista, dependiendo de si el usuario ha elegido por puesto o por departamento,
+//excluyendo unas opciones a las otras.
 		  
 		$(document).ready(function(){			
   			$('input[name="departamento"]').change(function() {
@@ -195,3 +195,23 @@ $(document).ready(function() {
 				}
 				});
 			});
+			
+/**
+* Función para controlar si los anuncios tienen cuerpo y mostrarlo al clicar en una ventana emergente
+*/
+
+var cuerpo_anuncio = "Olaia!!!";
+var titulo_anuncio = "Titulo del anuncio";
+if ( cuerpo_anuncio != "") {
+	$ (".slide").click( function(){
+		$.Dialog({
+			shadow: true,
+			overlay: false,
+			icon: '<span class="icon-rocket fg-red"></span>',
+			title: titulo_anuncio,
+			width: 500,
+			padding: 10,
+			content: cuerpo_anuncio
+		});
+	});
+}
