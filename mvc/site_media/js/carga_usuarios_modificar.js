@@ -8,25 +8,22 @@ var nick_usuario = $("input[name='nick_usuario']").prop("value");
 
 
 	 var request = $.ajax({
-	 url: "../php/eliminar_usuario.php",
+	 url: "../php/usuarios_modificar.php",
 	 type: "POST",
 	 data: 'nombre='+nombre+'&primer_apellido='+primer_apellido+'&segundo_apellido='+segundo_apellido+'&nick_usuario='+nick_usuario+'&id_usuario='+id_usuario,
 	 dataType: "html"
 	 });
 	 request.done(function( msg ) {
-	 $( "#usuario_eliminar" ).html( msg );
+	 $( "#usuario_modificar" ).html( msg );
 	 });
 	 request.fail(function( jqXHR, textStatus ) {
 	 alert( "Request failed: " + textStatus );
 	 });
 }
 
-//var $j = jQuery.noConflict();
-// $j is now an alias to the jQuery function; creating the new alias is optional.
-//jQuery.noConflict(); 
 
 $(document).ready(function() {
- //alert(4444);
+
   carga_resultados();
 	$("input").keyup(function(){
 	carga_resultados();
@@ -36,14 +33,28 @@ $(document).ready(function() {
 	   $("#datos_usuarios")[0].reset();
 		carga_resultados();
 	});
-});
-
+	
+	$(this).on('click', function(){
+	var myId = $(this).attr("id");
+	alert(myId);
+		$.Dialog({
+		flat: false,
+		shadow: true,
+		title: 'Usuario a modificar',
+		content: 'Test window content',
+		height: 200
+		});
+	});	
+}); 
+	
+/* 
+		
 function envia_usuario_eliminar(){
 
 var id_usuario = $("input[name='id_usuario']").prop("value");
 
 	 var request = $.ajax({
-	 url: "../php/eliminar_usuario.php",
+	 url: "../php/usuarios_modificar.php",
 	 type: "POST",
 	 data: 'nombre='+nombre+'&primer_apellido='+primer_apellido+'&segundo_apellido='+segundo_apellido+'&nick_usuario='+nick_usuario+'&id_usuario='+id_usuario,
 	 dataType: "html"
@@ -55,6 +66,6 @@ var id_usuario = $("input[name='id_usuario']").prop("value");
 	 alert( "Request failed: " + textStatus );
 	 });
 }
-
+ */
 
 

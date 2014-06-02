@@ -76,7 +76,7 @@ require_once('../php/devuelve_roles.php');
 						<div id="titulo_anuncio" class="tile triple bg-teal">
 							<h5>Título</h5>
 							<center>
-								<textarea rows="1" cols="35" placeholder="Introduzca un título para el anuncio" autofocus style="text-align: center;" required name="titulo_anuncio"></textarea>
+								<textarea id="titulo" rows="1" cols="35" placeholder="Introduzca un título para el anuncio" autofocus style="text-align: center;" required name="titulo_anuncio"></textarea>
 							</center>
 						</div>
 						<div class="tile triple bg-green">
@@ -85,7 +85,7 @@ require_once('../php/devuelve_roles.php');
 						<div id="texto_anuncio" class="tile triple double-vertical bg-teal">
 							<h5>Anuncio</h5>
 							<center>
-								<textarea rows="7" cols="35" placeholder="Introduzca un texto para el anuncio" style="text-align: center;" name="texto_anuncio" ></textarea>
+								<textarea id="cuerpo_anuncio" rows="7" cols="35" placeholder="Introduzca un texto para el anuncio" style="text-align: center;" name="texto_anuncio" ></textarea>
 							</center>
 						</div>
 
@@ -118,7 +118,7 @@ require_once('../php/devuelve_roles.php');
 						
 						<div class="tile double-vertical bg-amber">
 						<br>
-						  <input type="submit" value="Publicar">
+						  <input type="submit" value="Publicar" id="publicar_button">
 						  <br><br>
 						  <input type="reset" value="Reiniciar">
 						</div>

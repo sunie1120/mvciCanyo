@@ -13,7 +13,7 @@
         <link rel="stylesheet" href="../docs/css/metro-bootstrap-responsive.css">
         <link  rel="stylesheet" href="../docs/css/iconFont.css">
         <link href="../css/iCanyo.css" rel="stylesheet">
-		
+
 		
 		
     </head>
@@ -21,11 +21,11 @@
 	<link rel="icon" type="image/png" href="../../../imagenes/gatete_favicon.png" />
         <div class="grid">
             <div class="row">
-                <!-- Menú -->
-               <!--  <nav class="span3">
+                <!-- MenÃº -->
+				<nav class="span3">
                     <ul  class="dropdown-menu dark open keep-open" >
                         <li class="menu-title">
-                            <i class="icon-clipboard-2 fg-cyan"></i>
+                            <i class="icon-clipboard-2"></i>
                             Anuncios
 						</li>
                         <li><a href="#">Anuncios generales</a></li>
@@ -35,7 +35,7 @@
                         <li><a href="#">Todos los anuncios</a></li>
                         <li class="divider"></li>
                         <li class="menu-title">
-                            <i class="icon-shipping fg-green"></i>
+                            <i class="icon-volume-2"></i>
                             Tareas
                         </li>
                         <li><a href="#">Mis tareas</a></li>
@@ -43,7 +43,7 @@
                         <li><a href="#">Crear tareas</a></li>
                         <li class="divider"></li>
 						<li class="menu-title">
-                            <i class=" icon-book fg-amber"></i>
+                            <i class="icon-shipping"></i>
                             Agenda
                         </li>
                         <li><a href="#">Hoy</a></li>
@@ -51,7 +51,7 @@
                         <li><a href="#">Crear Cita</a></li>
                         <li class="divider"></li>
                         <li class="menu-title">
-                            <i class="icon-sun fg-orange"></i>
+                            <i class="icon-sun"></i>
                             Vacaciones
                         </li>
                         <li><a href="#">Ver mis vacaciones</a></li>
@@ -62,98 +62,89 @@
                         <li class="divider"></li>
 						{Gestion usuarios}
                     </ul>
-                </nav> -->
-                <!-- Cuadros -->
-                <div class="span12 offset4">
-					<div class="tile triple triple-vertical bg-white" style="border: solid 3px orange">
-					<center>
-			<form id="datos_usuarios">
-						<div class="input-control text size3 mg3 info-state">
-							<input type="text" id="name" name="nombre" placeholder="Nombre" ></input> 
-						</div>
-						<div class="input-control text size3 mg3  info-state" data-role="input-control">
-							<input type="text"  id="papellido" name="primer_apellido"  placeholder="Primer apellido" ></input> 
-						</div>
-						<div class="input-control text size3 mg3  info-state">
-							<input type="text"  id="sapellido" name="segundo_apellido"  placeholder="Segundo Apellido" ></input> 
-						</div>
-						<div class="input-control text size3 mg3  info-state">
-							<input type="text"  id="alias" name="nick_usuario"  placeholder="Nick de usuario" ></input> 
-						</div>
-						<div class="input-control password size3 mg3  info-state">
-							<input type="text"  id="id_user" name="id_usuario"  placeholder="Id de usuario" ></input> 
-						</center>
-					</div>					
-					<div class="tile quadro triple-vertical bg-orange">
-                        <div class="tile-content text-center">
- 							
-						<h5>Datos del usuario a eliminar</h5>
-					
-							<div id="usuario_eliminar" class="tile ribbed-amber quadro double-vertical"  style="overflow:auto;">
-							
-							<!---Div para que aprezcan los datos del usuario que va a ser eliminado de la BBDD-->
-							</div>
-                         <div class="brand bg-black">
-                            <span class="label fg-white text-right">
-							<input type="button" id="restaurar" value="Restaura" class="bg-steel fg-white bg-hover-red">
-                             <input type="button" id="eliminar" class="bg-orange fg-white bg-hover-amber" value="Eliminar usuario"></input>
-					
-                            </span>
-                         </div>  
-						</div>
-                    </div>
-				
-				<form id="nuevo_usuario" action="elimina_usuario.php" method="post">
-					<div class="tile triple double-vertical bg-amber">
-					<center>
-						    <div class="tile triple double-vertical bg-transparent" data-role="live-tile" data-effect="slideLeft" >
-								<div class="tile-content"><br><br><br><h5 class="item-title">El nombre, los apellidos y el nick no deben contener números ni caracteres especiales.</h5>
-								</div>
-								<div class="tile-content "><img src="../../../imagenes/gatete1.png" style="width='50px' height='50px'" alt="iGreb, la mascota de iCanyo: un gato naranja atigrado, diseñado por Javier Bailen" title="iGreb, la mascota de iCanyo: un gato naranja atigrado, diseñado por Javier Bailén" width="60%"></img>
-								</div>
-								<div class="tile-content"><br><br><br><h5 class="item-title">La contraseña debe tener entre 6 y 20 caracteres,  un digito minimo y un alfanumérico, y no puede contener caracteres especiales.</h5>
-								</div>
-								<div class="tile-content"><img src="../../../imagenes/logoiCanyo.jpg" alt="El logotipo de iCanyo: cuadrados naranjas sobre fondo sable." title="El logotipo de iCanyo: cuadrados naranjas sobre fondo sable."></img>
-								</div>
-							</div>		
-							
-					</center>	
-					</div>
-					<div class="tile  bg-steel"></div>
-					<div class="tile  bg-amber"></div>
-					<div id="confirmacion" class="tile double  bg-teal">
-						{mensaje}
-					</div>
-				</form>
-			</form>
-					<div class="tile bg-black">
-						<img src="../../../imagenes/gatete1.png" alt="iGreb, la mascota de iCanyo: un gato naranja atigrado, diseñado por Javier Bailen" title="iGreb, la mascota de iCanyo: un gato naranja atigrado, diseñado por Javier Bailen"></img>
-					</div>
-                    <div class="tile double">
-                        <div class="brand">
-                            <div class="times" data-role="times" data-alarm="hh:mm:ss"></div>
-                        </div>
-                    </div>
-					<div class="tile bg-black">
-						<img src="../../../imagenes/logoiCanyo.jpg" alt="El logotipo de iCanyo: cuadrados naranjas sobre fondo sable." title="El logotipo de iCanyo: cuadrados naranjas sobre fondo sable."></img>
-					</div>
+                </nav>
+<!-- Cuadros -->
+<div class="span12 offset3">
+    <form id="datos_usuarios">
+        <div class="tile triple triple-vertical bg-white" style="border: solid 3px orange">
+            <center>
+                <div class="input-control text size3 mg3 info-state">
+                    <input type="text" id="name" name="nombre" placeholder="Nombre" /> 
                 </div>
+                <div class="input-control text size3 mg3  info-state" data-role="input-control">
+                    <input type="text"  id="papellido" name="primer_apellido"  placeholder="Primer apellido" />
+                </div>
+                <div class="input-control text size3 mg3  info-state">
+                    <input type="text"  id="sapellido" name="segundo_apellido"  placeholder="Segundo Apellido" />
+                </div>
+                <div class="input-control text size3 mg3  info-state">
+                    <input type="text"  id="alias" name="nick_usuario"  placeholder="Nick de usuario" />
+                </div>
+                <div class="input-control password size3 mg3  info-state">
+                    <input type="text"  id="id_user" name="id_usuario"  placeholder="Id de usuario"/> 
+                </div>
+            </center>
+        </div>					
+        <div class="tile quadro triple-vertical bg-orange">
+            <div class="tile-content text-center">
+
+                <h5>Datos del usuario a eliminar</h5>
+
+                <div id="usuario_eliminar" class="tile ribbed-amber quadro double-vertical"  style="overflow:auto;">
+
+                    <!---Div para que aprezcan los datos del usuario que va a ser eliminado de la BBDD-->
+                </div>
+                <div class="brand bg-black">
+                    <span class="label fg-white text-right">
+                        <input type="button" id="restaurar" value="Restaura" class="bg-steel fg-white bg-hover-red">
+                        <input type="button" id="eliminar" class="bg-orange fg-white bg-hover-amber" value="Eliminar usuario"></input>
+                    </span>
+                </div>  
             </div>
         </div>
-	</div>
-		<script type="text/javascript" src="../docs/js/jquery/jQuery.min.js"></script>
-		<script type="text/javascript" src="../docs/js/jquery/jQuery.widget.min.js"></script>
-		<script type="text/javascript" src="../docs/js/metro.min.js"></script>
-		<script type="text/javascript" src="../docs/js/jquery/mousewheel.js"></script>
-		<script type="text/javascript" src="../js/iCanyo.js"></script>
-		<script type="text/javascript" src="../js/carga_usuarios_eliminar.js"></script>
+    </form>
+    <form id="nuevo_usuario" action="elimina_usuario.php" method="post">
+        <div class="tile triple double-vertical bg-amber">
+            <center>
+                <div class="tile triple double-vertical bg-transparent" data-role="live-tile" data-effect="slideLeft" >
+                    <div class="tile-content"><br><br><br><h5 class="item-title">El nombre, los apellidos y el nick no deben contener n&uacute;meros ni caracteres especiales.</h5>
+                    </div>
+                    <div class="tile-content "><img src="../site_media/img/gatete1.png" style="width='50px' height='50px'" alt="iGreb, la mascota de iCanyo: un gato naranja atigrado, diseï¿½ado por Javier Bailen" title="iGreb, la mascota de iCanyo: un gato naranja atigrado, diseï¿½ado por Javier Bailï¿½n" width="60%"/>
+                    </div>
+                    <div class="tile-content"><br><br><br><h5 class="item-title">La contrase&nacute;a debe tener entre 6 y 20 caracteres,  un digito minimo y un alfanum&eacute;rico, y no puede contener caracteres especiales.</h5>
+                    </div>
+                    <div class="tile-content"><img src="../site_media/img/logoiCanyo.jpg" alt="El logotipo de iCanyo: cuadrados naranjas sobre fondo sable." title="El logotipo de iCanyo: cuadrados naranjas sobre fondo sable."/>
+                    </div>
+                </div>		
+
+            </center>	
+        </div>
+        <div class="tile  bg-steel"></div>
+        <div class="tile  bg-amber"></div>
+        <div id="confirmacion" class="tile double  bg-teal">
+        </div>
+    </form>
+    <div class="tile bg-black">
+        <img src="/../site_media/img/gatete1.png" alt="iGreb, la mascota de iCanyo: un gato naranja atigrado, diseï¿½ado por Javier Bailen" title="iGreb, la mascota de iCanyo: un gato naranja atigrado, diseï¿½ado por Javier Bailen"/>
+    </div>
+    <div class="tile double">
+        <div class="brand">
+            <div class="times" data-role="times" data-alarm="hh:mm:ss"></div>
+        </div>
+    </div>
+    <div class="tile bg-black">
+        <img src="/../site_media/img/logoiCanyo.jpg" alt="El logotipo de iCanyo: cuadrados naranjas sobre fondo sable." title="El logotipo de iCanyo: cuadrados naranjas sobre fondo sable."/>
+    </div>
+</div>
+
+	
+		<script src="../docs/js/jquery/jQuery.min.js"></script>
+		<script src="../docs/js/jquery/jQuery.widget.min.js"></script>
+		<script src="../docs/js/metro.min.js"></script>
+		<script src="../docs/js/jquery/mousewheel.js"></script>
+		<script src="../js/iCanyo.js"></script>
+		<script type="text/javascript" src="../js/carga_usuarios_eliminar.js"></script> 
+<!-- 		<script src="../js/carga_usuarios_modificar.js"></script> -->
 	</body>
-<!-- 	<div>
-		<img src="../../../imagenes/logoiCanyo.jpg" style="width: 4%; height:4%;"></img>
-		<div id="footer" class="tile bg-lightRed">
-			<h5 id="texto_footer">AguantaMaryJane Estudios 2014</h5>
-		</div>
-		
-	 </div> -->
-    </html>
+ </html>
 	

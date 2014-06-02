@@ -20,3 +20,12 @@ color:white;
 #texto_footer{
 color:white;
 }
+
+
+input[type='range'] {
+	-webkit-appearance: none;
+	border-radius: 5px;
+	box-shadow: inset 0 0 5px #333;
+	background-color: red;
+	height: 10px;
+	vertical-align: middle;

@@ -45,7 +45,7 @@ function envia_usuarios(){
 /**
 *Validacion de los inputs de texto y pass
 */
-$( document ).ready(function() {
+$(document).ready(function() {
 	/**
 	*Validacion de los inputs de texto
 	*/
@@ -138,7 +138,7 @@ type: "square"
 */
 
 $(document).ready(function() {
-			//	alert('111');
+
 		$("input[type='radio']").click(function(){
 			var anuncio_publico = $("#publico").prop('checked');
 			var anuncio_privado = $("#no_publico").prop('checked');
@@ -199,19 +199,196 @@ $(document).ready(function() {
 /**
 * Función para controlar si los anuncios tienen cuerpo y mostrarlo al clicar en una ventana emergente
 */
+$(document).ready(function(){
+	var cuerpo_anuncio = "Olaia!!!";
+	var titulo_anuncio = "Titulo del anuncio";
+	if ( cuerpo_anuncio != "") {
+		$ (".slide").click( function(){
+			$.Dialog({
+				shadow: true,
+				overlay: false,
+				icon: '<span class="icon-rocket fg-red"></span>',
+				title: titulo_anuncio,
+				width: 500,
+				padding: 10,
+				content: cuerpo_anuncio
+			});
+		});
+	}
+	
+	/**
+	* Función que controla que el campo de titulo y de cuerpo de los anuncions tengan datos 
+	*/
+	var texto = $('#texto_titulo').val();
 
-var cuerpo_anuncio = "Olaia!!!";
-var titulo_anuncio = "Titulo del anuncio";
-if ( cuerpo_anuncio != "") {
-	$ (".slide").click( function(){
-		$.Dialog({
-			shadow: true,
-			overlay: false,
-			icon: '<span class="icon-rocket fg-red"></span>',
-			title: titulo_anuncio,
-			width: 500,
-			padding: 10,
-			content: cuerpo_anuncio
+	$(	'#publicar_button').click(function(){
+
+		if ( texto == "" ){
+			alert("Debes incluir un título para tu pubicación.")
+		}
+
+	});
+
+	/**
+	* Funcion que hace los cambios de color cuando el usuario quiere personalizar la aplicación
+	*/
+	$(".changecolorBN").click(function(){
+		var o = $(".bg-orange");
+		var a = $(".bg-amber");
+		var t = $(".bg-teal");
+		var C = $(".bg-darkCyan");
+		var co = $(".bg-cobalt");
+		var y = $(".bg-cyan");
+		var da = $(".bg-darker");
+		var gr = $(".bg-grey");
+		
+		o.each(function(){
+			$(this).removeClass("bg-orange").addClass("bg-gray");
+		});
+		
+		/* t.each(function(){		
+			$(this).removeClass("bg-teal").addClass("bg-grey");
+		}) */;
+
+		a.each(function(){
+			$(this).removeClass("bg-amber").addClass("bg-grey");
+		});
+		co.each(function(){
+			$(this).removeClass("bg-cobalt").addClass("bg-gray");
+		});
+		
+		t.each(function(){
+			$(this).removeClass("bg-teal").addClass("bg-darker");
+		});
+		y.each(function(){
+			$(this).removeClass("bg-cyan").addClass("bg-grey");
+		}); 
+		C.each(function(){
+			$(this).removeClass("bg-darkCyan").addClass("bg-dark");
+		});
+
+	});
+	
+	
+	$(".changecolorRelax").click(function(){
+		var o = $(".bg-orange");
+		var a = $(".bg-amber");
+		var t = $(".bg-teal");
+		var C = $(".bg-darkCyan");
+		var co = $(".bg-cobalt");
+		var y = $(".bg-cyan");
+		var da = $(".bg-darker");
+		var gr = $(".bg-grey");
+		var gra = $(".bg-gray");
+		
+		o.each(function(){
+			$(this).removeClass("bg-orange").addClass("bg-cobalt");
+		});
+		
+		gr.each(function(){	
+			$(this).removeClass("bg-grey").addClass("bg-cyan");
+
+		});
+
+		a.each(function(){
+			$(this).removeClass("bg-amber").addClass("bg-cyan");
+		});
+		
+		gra.each(function(){
+			$(this).removeClass("bg-gray").addClass("bg-cobalt");
+		});
+		
+	 	da.each(function(){
+			$(this).removeClass("bg-darker").addClass("bg-teal");
+		}); 
+		
+		/* s.each(function(){
+			$(this).removeClass("bg-dark").addClass("bg-darkCobalt");
+		}); */
+
+	});
+	
+	$(".changecolorClassic").click(function(){
+		var o = $(".bg-orange");
+		var a = $(".bg-amber");
+		var t = $(".bg-teal");
+		var C = $(".bg-darkCyan");
+		var co = $(".bg-cobalt");
+		var y = $(".bg-cyan");
+		var da = $(".bg-darker");
+		var gr = $(".bg-grey");
+		var gra = $(".bg-gray");
+		
+		gra.each(function(){
+			$(this).removeClass("bg-gray").addClass("bg-orange");
+		});
+		
+		y.each(function(){		
+			$(this).removeClass("bg-cyan").addClass("bg-amber");
+		}); 
+
+		gr.each(function(){
+			$(this).removeClass("bg-grey").addClass("bg-amber");
+		});
+		C.each(function(){
+			$(this).removeClass("bg-darkCyan").addClass("bg-teal");
+		});
+		
+		da.each(function(){
+			$(this).removeClass("bg-darker").addClass("bg-teal");
+		});
+		co.each(function(){
+			$(this).removeClass("bg-cobalt").addClass("bg-orange");
+		}); 
+		
+	/* 	y.each(function(){
+			$(this).removeClass("bg-dark").addClass("bg-teal");
+		}); */
+
+	});
+	
+	/**
+	* Funciones de carrousel muestra (página de personaliación)
+	*/
+	$(".selector_velocidad").change(function(){
+	alert (1111);
+	var valor = $(".selector_velocidad").val();
+	alert (valor);
+	});
+	
+	$(".changeVelocidad_1").click(function(){
+		$('.carousel').carousel({
+		auto: true,
+		period: 6000,
+		duration: 3000,
+		markers: {
+		type: "square"
+		}
 		});
 	});
-}
+	
+	$(".changeVelocidad_2").click(function(){
+		$('.carousel').carousel({
+		auto: true,
+		period: 3000,
+		duration: 2000,
+		markers: {
+		type: "square"
+		}
+		});
+	});
+	
+	$(".changeVelocidad_3").click(function(){
+		$('.carousel').carousel({
+		auto: true,
+		period: 2000,
+		duration: 1000,
+		markers: {
+		type: "square"
+		}
+		});
+	});
+	
+});
+
+

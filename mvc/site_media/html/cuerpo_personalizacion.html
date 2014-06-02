@@ -1,0 +1,199 @@
+<?php
+require_once('../php/devuelve_roles.php');
+?>
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>iCanyo</title>
+        <meta name="description" content="gestor de comunicados, tareas, vacaciones y agenda, para entidades y empresas">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../docs/css/metro-bootstrap.css">
+        <link rel="stylesheet" href="../docs/css/metro-bootstrap-responsive.css">
+        <link  rel="stylesheet" href="../docs/css/iconFont.css">
+        <link href="../css/iCanyo.css" rel="stylesheet">
+<link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+		
+		
+    </head>
+    <body class="metro">
+	<link rel="icon" type="image/png" href="../../../imagenes/gatete_favicon.png" />
+        <div class="grid">
+            <div class="row">
+                <!-- Menú -->
+				<nav class="span3">
+                    <ul  class="dropdown-menu dark open keep-open" >
+                        <li class="menu-title">
+                            <i class="icon-clipboard-2"></i>
+                            Anuncios
+						</li>
+                        <li><a href="#">Anuncios generales</a></li>
+                        <li><a href="#">Anuncios de mi departamento</a></li>
+                        <li><a href="#">Mis Anuncios</a></li>
+                        <li><a href="#">Crear Anuncios</a></li>
+                        <li><a href="#">Todos los anuncios</a></li>
+                        <li class="divider"></li>
+                        <li class="menu-title">
+                            <i class="icon-volume-2"></i>
+                            Tareas
+                        </li>
+                        <li><a href="#">Mis tareas</a></li>
+                        <li><a href="#">Tareas asignadas a otros</a></li>
+                        <li><a href="#">Crear tareas</a></li>
+                        <li class="divider"></li>
+						<li class="menu-title">
+                            <i class="icon-shipping"></i>
+                            Agenda
+                        </li>
+                        <li><a href="#">Hoy</a></li>
+                        <li><a href="#">Agenda</a></li>
+                        <li><a href="#">Crear Cita</a></li>
+                        <li class="divider"></li>
+                        <li class="menu-title">
+                            <i class="icon-sun"></i>
+                            Vacaciones
+                        </li>
+                        <li><a href="#">Ver mis vacaciones</a></li>
+                        <li><a href="#">Vacaciones de mi departamento</a></li>
+                        <li><a href="#">Vacaciones de toda la empresa</a></li>
+                        <li><a href="#">Solicitar vacaciones</a></li>
+                        {Aprobar vacaciones}
+                        <li class="divider"></li>
+						{Gestion usuarios}
+                    </ul>
+                </nav>
+                <!-- Cuadros -->
+                <div class="span12 offset4">
+					<form id="personaliza_usuario" action="alta_usuario.php" method="post">
+					<div class="tile triple double-vertical bg-white" style="border: solid 3px orange">
+						<h4>Seleccione una velocidad para ver los anuncios</h4>
+						<center>
+						
+						<div id="selector_velocidad"  class="slider vertical  permanent-hint hint-bottom" data-role="slider" data-position="2" data-accuracy="1" data-min="1" data-max="3" data-color="green" data-show-hint="true" style="background-color: green;">
+						<a class="marker" style="top: 26.400000000000006px;"></a></div>
+						<p id="valor"></p>
+ 
+<script>
+
+$(function(){
+    var slider = $("#slider").slider({
+   
+    });
+});
+ 
+/*$( "#slider" ).slider({value: 2, 
+	min :1, 
+	max :3,
+	change: function(event, ui) { 
+	var x = $(this).slider("value"); 
+	$("#valor").html(x); 
+	} 
+});*/
+
+
+/*
+$( "#slider" ).change(function() {
+ alert(111); 
+		var valor = $( "#slider" ).val()
+ alert(valor); 
+
+
+} );*/
+    /*var rango = $("#slider").change().val();
+    rango.addEventListener("change",function(ev){	
+    var resultado = document.getElementById("valor");
+    resultado.innerHTML = ev.currentTarget.value;
+    },true);*/
+</script>
+
+						<!-- <input id="selector_velocidad" type="range" name="velocidades" min="1" max="3" data-show-hint="true" onchange="rangevalue.value=value" />
+<output id="rangevalue"></output> -->
+						<!-- <div id="selector_velocidad"  class="slider vertical  permanent-hint hint-bottom" data-role="slider" data-position="2" data-accuracy="1" data-min="1" data-max="3" data-color="green" data-show-hint="true" style="background-color: green;"></div> -->
+						
+						</center>
+						<h5>La velocidad más lenta es 1 y la más rápida es 3</h5>
+					</div>
+								
+					<div class="tile quadro triple-vertical bg-orange">
+						<div class="tile-content text-center">
+							<p>Seleccione una distribución para las ventanas de los anuncios</p>
+						<center>
+							<div class="tile quadro double-vertical bg-white">
+							<br>
+							<br>
+								<div class="tile bg-white"><img class="changecolorBN" src="../../../imagenes/logoiCanyoBN.jpg" alt="El logotipo de iCanyo en blanco y negro."></img></div>
+								<h5>iCanyo Vintage</h5>
+								
+								<div class="tile bg-white"><img class="changecolorClassic" src="../../../imagenes/logoiCanyo.jpg" alt="El logotipo de iCanyo: cuadrados naranjas sobre fondo sable." title="El logotipo de iCanyo: cuadrados naranjas sobre fondo sable."></img>
+								</div>
+								<h5>iCanyo Classic</h5>
+								
+								<div class="tile bg-white"><img class="changecolorRelax" src="../../../imagenes/logoiCanyoBlue.jpg" alt="El logotipo de iCanyo en negro y azul."></img></div>
+								<h5>iCanyo Relax</h5>
+							</div>
+						</center>
+							 <div class="brand bg-black">
+								<span class="label fg-white text-right">
+									<input type="reset" value="Restaura" class="bg-steel fg-white bg-hover-red">
+									<input type="submit" class="bg-orange fg-white bg-hover-amber" value="Guardar personalización"></input>
+								</span>
+							 </div>  
+						</div>
+                    </div>
+					</form>
+					<div class="tile triple double-vertical bg-amber">
+						<center>
+						    <div class="tile triple double-vertical bg-transparent" data-role="live-tile" data-effect="slideLeft" >
+								<div class="tile-content"><img src="../../../imagenes/logoiCanyoBN.jpg" alt="El logotipo de iCanyo: cuadrados naranjas sobre fondo sable." title="El logotipo de iCanyo: cuadrados naranjas sobre fondo sable."></img>
+								</div>
+								
+								<div class="tile-content"><br><br><br><h5 class="item-title"><h5>Elige unos colores y una velocidad para que pasen los anuncios que te permitan trabajar cómodamente..</h5>
+								</div>
+								
+								<div class="tile-content "><img src="../../../imagenes/gatete1.png" style="width='50px' height='50px'" alt="iGreb, la mascota de iCanyo: un gato naranja atigrado, diseñado por Javier Bailen" title="iGreb, la mascota de iCanyo: un gato naranja atigrado, diseñado por Javier Bailen" width="60%"></img></div>
+								
+								<div class="tile-content"><img src="../../../imagenes/logoiCanyoBlue.jpg" alt="El logotipo de iCanyo: cuadrados naranjas sobre fondo sable." title="El logotipo de iCanyo: cuadrados naranjas sobre fondo sable."></img>
+								</div>
+								
+								<div class="tile-content"><img src="../../../imagenes/logoiCanyo.jpg" alt="El logotipo de iCanyo: cuadrados naranjas sobre fondo sable." title="El logotipo de iCanyo: cuadrados naranjas sobre fondo sable."></img>
+								</div>
+							</div>		
+						</center>
+					
+					</div>
+					<div class="tile  bg-steel"></div>
+					<div class="tile  bg-amber"></div>
+					<div class="tile double  bg-teal"></div>
+					<div class="tile bg-black">
+						<img src="../../../imagenes/gatete1.png" alt="iGreb, la mascota de iCanyo: un gato naranja atigrado, diseñado por Javier Bailen" title="iGreb, la mascota de iCanyo: un gato naranja atigrado, diseñado por Javier Bailen"></img>
+					</div>
+					
+                    <div class="tile double">
+                        <div class="brand">
+                            <div class="times" data-role="times" data-alarm="hh:mm:ss"></div>
+                        </div>
+                    </div>
+					
+					<div class="tile bg-black">
+						<img src="../../../imagenes/logoiCanyo.jpg" alt="El logotipo de iCanyo: cuadrados naranjas sobre fondo sable." title="El logotipo de iCanyo: cuadrados naranjas sobre fondo sable."></img>
+					</div>
+                </div>
+            </div>
+        </div>
+	</div>
+		<script src="../docs/js/jquery/jQuery.min.js"></script>
+		<script src="../docs/js/jquery/jQuery.widget.min.js"></script>
+		<script src="../docs/js/metro.min.js"></script>
+		<script src="../docs/js/jquery/jquery.mousewheel.js"></script>
+		<script src="../js/iCanyo.js"></script>
+
+	</body>
+    </html>
+	

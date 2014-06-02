@@ -3,7 +3,7 @@
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-    <head>
+   <!--  <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <title>iCanyo</title>
@@ -20,7 +20,7 @@
     <body class="metro">
 	<link rel="icon" type="image/png" href="../../../imagenes/gatete_favicon.png" />
         <div class="grid">
-            <div class="row">
+            <div class="row"> -->
                 <!-- Menú -->
                <!--  <nav class="span3">
                     <ul  class="dropdown-menu dark open keep-open" >
@@ -71,16 +71,17 @@
 				<div class="tile quadro double-vertical  bg-red">
 				<h4>Por Puestos:</h4>
 				    <div class="carousel"  data-role="carousel">
-					{por_puestos}
+					
 						<div class="slide bg-orange">
-						<p>Uno</p>
+						{por_puestos}
+						<!-- <p>Uno</p>
 						</div>
 						<div class="slide bg-amber">
 						<p>Dos</p>
 						</div>
 						<div class="slide bg-yellow">
 						<p>Tres</p>
-						</div> 
+						</div>  -->
 						<a class="controls left"><i class="icon-arrow-left-3"></i></a>
 						<a class="controls right"><i class="icon-arrow-right-3"></i></a>
 					</div>
@@ -88,7 +89,8 @@
 				<div class="tile triple double-vertical  bg-orange">
 				<h4>Generales de la empresa</h4>
 					 <div class="carousel"  data-role="carousel">
-						<div class="slide bg-blue">
+					 {general_1}
+						<!-- <div class="slide bg-blue">
 						<p>Uno</p>
 						</div>
 						<div class="slide bg-lightPink">
@@ -96,7 +98,7 @@
 						</div>
 						<div class="slide bg-teal">
 						<p>Tres</p>
-						</div> 
+						</div>  -->
 						<a class="controls left"><i class="icon-arrow-left-3"></i></a>
 						<a class="controls right"><i class="icon-arrow-right-3"></i></a>
 					</div>
@@ -106,7 +108,7 @@
 				<h4>Por Departamento</h4>
 					 <div class="carousel"  data-role="carousel" style="width: 80%; height: 200px;">
 						{por_departamento}
-						<div class="slide bg-black">
+						<!-- <div class="slide bg-black">
 						<p>Uno</p>
 						</div>
 						<div class="slide bg-grey">
@@ -114,7 +116,7 @@
 						</div>
 						<div class="slide bg-white">
 						<p>Tres</p>
-						</div> 
+						</div>  -->
 						<a class="controls left"><i class="icon-arrow-left-3"></i></a>
 						<a class="controls right"><i class="icon-arrow-right-3"></i></a>
 					</div>
@@ -123,8 +125,8 @@
 				<div class="tile triple double-vertical bg-teal">
 				<h4>General</h4>
 					 <div class="carousel"  data-role="carousel">
-						{general}
-						<div class="slide">
+						{general_2}
+						<!-- <div class="slide">
 						<p>Uno</p>
 						</div>
 						<div class="slide">
@@ -132,14 +134,14 @@
 						</div>
 						<div class="slide">
 						<p>Tres</p>
-						</div> 
+						</div>  -->
 						<a class="controls left"><i class="icon-arrow-left-3"></i></a>
 						<a class="controls right"><i class="icon-arrow-right-3"></i></a>
 					</div>
 				</div>
 
 
-				<script>
+				<!-- <script>
 				$('.carousel').carousel({
 					auto: true,
 					period: 3000,
@@ -148,9 +150,9 @@
 					type: "cycle"
 					}
 				});
-				</script>
+				</script> -->
 					
-        </div>
+       <!--  </div>
 	</div>
 		<script src="../docs/js/jquery/jQuery.min.js"></script>
 		<script src="../docs/js/jquery/jQuery.widget.min.js"></script>
@@ -168,3 +170,4 @@
 	 </div> 
     </html>
 	
+ -->

@@ -101,4 +101,23 @@ mysql_close($conex);
 }
 
 */
+
+
+/**
+* elimina rol
+*/
+
+/* $rol = $_POST['rol'];
+$puesto = $_POST['puesto'];
+$departamento = $_POST['departamento'];
+function elimina_rol($rol){
+$conex =  conectar_bdd();
+$query = "delete from rol where nombre_rol = \"$rol\"";
+$consulta = mysql_query($query,$conex);
+$total_consulta = mysql_num_rows($consulta);
+	if($total_consulta > 0){
+	echo "rol eliminado";
+	}
+mysql_close($conex);
+} */
 ?>
