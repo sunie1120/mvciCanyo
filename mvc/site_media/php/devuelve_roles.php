@@ -139,6 +139,45 @@ $total_consulta3=mysql_num_rows($consulta3);
 mysql_close($conex);
 }
 
+
+function anuncios_por_user(){
+$id_usuario =11;
+$conex= conectar_bdd();
+$query3="select * from anuncio where id_usuario = '$id_usuario'" ;
+$consulta3=mysql_query($query3,$conex);
+$total_consulta3=mysql_num_rows($consulta3);
+	if($total_consulta3 > 0){
+		echo "<h4>";
+		echo "Mis anuncios";
+		echo "</h4>";
+	echo "<table class='table striped'>";
+		echo "<thead>";
+			echo "<th class='text-left'>Título</th>";
+			echo "<th class='text-left'>Descripción</th>";
+			echo "<th class='text-left'>Fecha fin</th>";
+			echo "</tr>";
+		echo "</thead>";
+					echo "<tbody>";
+		while ($fila3 = mysql_fetch_array($consulta3)) {
+	
+				echo "<tr class='modificar_anuncio'>";
+				echo "<td>".$fila3[1]."</td>";
+				echo "<td>".$fila3[2]."</td>";
+				echo "<td>".$fila3[4]."</td>";
+				echo "<td>";
+				echo "<button class='small modificar_anuncio success'>Modificar</button>";
+				echo "<button class='small eliminar_anuncio warning'>Eliminar</button>";
+				echo "</td>";
+				echo "</tr>";
+				
+			}
+			echo "</tbody>";
+		echo "</table>";
+	}else{
+			echo "<option>No hay resultados</option>";
+	}
+mysql_close($conex);
+}
 /*-------------------------------------*/
 function puestos_checkbox(){
  //console.log("llega hasta aqui");

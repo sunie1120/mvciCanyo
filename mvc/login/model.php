@@ -14,7 +14,9 @@ class validar extends DBAbstractModel {
     public function get($nick_suario='',$contrasena='') {
         if($nick_suario != '') {
             $this->query = "SELECT id_uduario, id_rol, contrasena FROM usuario WHERE nick_suario = '$nick_suario' and contrasenya=password('$contrasena')";
+			
             $this->get_results_from_query();
+			echo   $this->get_results_from_query();
         }
 
         if(count($this->rows) == 1) {

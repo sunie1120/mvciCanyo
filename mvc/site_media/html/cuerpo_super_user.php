@@ -77,21 +77,7 @@ exit;
                 </nav>
                 <!-- Cuadros -->
                 <div class="span12 offset4">
-					<div class="tile triple double-vertical bg-white" style="border: solid 3px orange">
-						<center>
-						
-						<form id="getion_roles" action="#" method="post">
-							<div class="input-control text size3 mg3 info-state">
-								<input type="text" id="name_rol" name="nombre_rol" title="No debe contener números ni caracteres especiales" placeholder="Nombre rol"></input> 
-							</div>
-							<div class="input-control text size3 mg3  info-state" data-role="input-control">
-								<input type="text"  id="descripcion_rol" name="descripcion_rol" title="No debe contener números ni caracteres especiales" placeholder="Descripcion rol"/></input> 
-							</div>
-							<br>
-							<input type="submit" class="bg-orange fg-white bg-hover-amber" value="Guardar rol"></input>
-						</form>
-						</center>
-					</div>
+
 					<div class="tile triple double-vertical bg-white" style="border: solid 3px orange">
 						<form id="getion_departamentos" action="#" method="post">
 						<center>
@@ -120,24 +106,15 @@ exit;
 						</form>	
 						</center>
 					</div>
+					<div class="tile double-vertical bg-steel"></div>
+
 					
-					<div class="tile triple quadro-vertical bg-orange">
+					<div class="tile triple triple-vertical bg-orange">
                         <div class="tile-content text-center">
- 							<h5 class="item-title-secondary">Seleccione el rol, departamento o puesto que quiere eliminar</h5>
+ 							<h5 class="item-title-secondary">Seleccione el departamento o puesto que quiere eliminar</h5>
 							
 							<br>
-							<div class="input-control size3 select">		
-								<h5 class="item-title-secondary">Rol</h5>
-							<form id="elimina_rol" action="" method="">
-								<select id="rol_usu" name="rol">
-								<?php echo "rol";
-								roles();
-								?>
-								</select>
-								<input type="submit" class="bg-cyan fg-white bg-hover-amber" value="ELIMINA ROL"></input>
-							</form>
-							</div>
-							<br>
+							
 							<div class="input-control size3 select">		
 								<h5 class="item-title-secondary">Puesto</h5>
 							<form id="elimina_puesto" action="" method="">
@@ -146,6 +123,7 @@ exit;
 								puestos();
 								?>
 								</select>
+								<br>
 							<input type="submit" class="bg-cyan fg-white bg-hover-amber" value="ELIMINA PUESTO"></input>
 							</form>
 							</div>
@@ -158,16 +136,35 @@ exit;
 								departamentos();	
 								?>
 								</select>
+								<br>
 								<input type="submit" class="bg-cyan fg-white bg-hover-amber" value="ELIMINA DEPARTAMENTO"></input>
 							</form>
 							</div>
                          </div>  
 					</div>
+					<div class="tile double">
+                        <div class="brand">
+                            <div class="times" data-role="times" data-alarm="hh:mm:ss"></div>
+                        </div>
+                    </div>
+					<div class="tile  bg-steel"></div>
+					<div class="tile  bg-amber"></div>
+					<div class="tile quadro  bg-teal"></div>
+					<div class="tile  double bg-steel"></div>
 					
-						
+					<div class="tile bg-black">
+						<img src="../../../imagenes/gatete1.png" alt="iGreb, la mascota de iCanyo: un gato naranja atigrado, diseñado por Javier Bailen" title="iGreb, la mascota de iCanyo: un gato naranja atigrado, diseñado por Javier Bailen"></img>
+					</div>
+							
+                    
+					<div class="tile bg-black">
+						<img src="../../../imagenes/logoiCanyo.jpg" alt="El logotipo de iCanyo: cuadrados naranjas sobre fondo sable." title="El logotipo de iCanyo: cuadrados naranjas sobre fondo sable."></img>
+					</div>
+				</div>
+				
 					
 			
-                </div>
+            </div>
 					<!-- <div class="tile triple double-vertical bg-amber">
 					<center>
 						    <div class="tile triple double-vertical bg-transparent" data-role="live-tile" data-effect="slideLeft" >
@@ -183,23 +180,10 @@ exit;
 								</div>
 							</div>		
 							
-					</center>	 -->
-					</div>
-					<div class="tile  bg-steel"></div>
-					<div class="tile  bg-amber"></div>
-					<div class="tile double  bg-teal">
-					</div>
-					<div class="tile bg-black">
-						<img src="../../../imagenes/gatete1.png" alt="iGreb, la mascota de iCanyo: un gato naranja atigrado, diseñado por Javier Bailen" title="iGreb, la mascota de iCanyo: un gato naranja atigrado, diseñado por Javier Bailen"></img>
-					</div>
-                    <div class="tile double">
-                        <div class="brand">
-                            <div class="times" data-role="times" data-alarm="hh:mm:ss"></div>
-                        </div>
-                    </div>
-					<div class="tile bg-black">
-						<img src="../../../imagenes/logoiCanyo.jpg" alt="El logotipo de iCanyo: cuadrados naranjas sobre fondo sable." title="El logotipo de iCanyo: cuadrados naranjas sobre fondo sable."></img>
-					</div>
+					</center>	
+					</div> -->
+					
+					
                 </div>
             </div>
         </div>

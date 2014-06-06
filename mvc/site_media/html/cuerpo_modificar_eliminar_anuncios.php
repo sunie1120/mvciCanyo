@@ -1,9 +1,12 @@
+<?php
+require_once('../php/devuelve_roles.php');
+?>
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
- <head>
+    <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <title>iCanyo</title>
@@ -14,15 +17,15 @@
         <link  rel="stylesheet" href="../docs/css/iconFont.css">
         <link href="../css/iCanyo.css" rel="stylesheet">
 		
-		
+	
 		
     </head>
     <body class="metro">
 	<link rel="icon" type="image/png" href="../../../imagenes/gatete_favicon.png" />
         <div class="grid">
-            <div class="row"> 
+            <div class="row">
                 <!-- Menú -->
-               <nav class="span3">
+                <nav class="span3">
                     <ul  class="dropdown-menu dark open keep-open" >
                         <li class="menu-title">
                             <i class="icon-clipboard-2 fg-cyan"></i>
@@ -62,118 +65,70 @@
                         <li class="divider"></li>
 						{Gestion usuarios}
                     </ul>
-                </nav> 
+                </nav>
                 <!-- Cuadros -->
-            <div class="span12 offset4">
-				
+				<script>
+$(document).ready(function() {
+$(".modificar_anuncio").on("click", function(){
+var nombre_usuario = $(this).attr("name");
+var nick_usuario;
+var myId = $(this).attr("id");
+var contenido_usuario_modificar = "<form method='post' action='#'><div class='input-control text size3 mg3 info-state'><input type='text' id='name' name='nombre' placeholder='Nuevo nombre'></input></div><br/><div class='input-control text size3 mg3  info-state' data-role='input-control'><input type='text'  id='papellido' name='primer_apellido'  placeholder='Nuevo primer apellido'></input></div><br/><div class='input-control text size3 mg3  info-state'><input type='text'  id='sapellido' name='segundo_apellido'  placeholder='Nuevo segundo Apellido'></input></div><br/><div class='input-control text size3 mg3  info-state'><input type='text'  id='alias' name='nick_usuario'  placeholder='Nuevo nick de usuario' ></input></div><br/><input type='hidden' name='id_usuario_oculto' value="+myId+"><br/><input type='checkbox' id='aprobador_vacaciones' name='aprobar_vacaciones'/><p>Aprueba vacaciones</p><input type='submit' name='modificar_usuario' id="+myId+" class='bg-orange fg-white bg-hover-amber modificar_user' value='Modificar'></input></form>"; 
 
-				
-				<div class="tile quadro double-vertical  bg-red">
-				<h4>Por Puestos:</h4>
-				    <div class="carousel"  data-role="carousel">
-					{por_puestos}
-						<div class="slide bg-red con_cuerpo" name="Avido a todos los navegandte. Este viernes hay rebajas" id="pepe" value="EL CUERPO DEL ANUNCIO AQUÍ">
-						<input type="hidden" id="cuerpo_anuncio"></input>
-						<center><h5>TITULO DEL ANUNCIO UNO</h5></center>
-						<br/>
-						<p>Usuario</p>
-						</div>
-						<div class="slide bg-orange sin_cuerpo">
-						<center><h5>TITULO DEL ANUNCIO DOS</h5></center>
-						<br/>
-						<p>Usuario</p>
-						</div>
-						<div class="slide bg-amber con_cuerpo" id="pepita" value="EL CUERPO DEL ANUNCIO AQUÍ AGAIN">
-						<input type="hidden" id="cuerpo_anuncio" ></input>
-						<center><h5>TITULO DEL ANUNCIO TRES</h5></center>
-						<br/>
-						<p>Usuario</p>
-						</div> 
-						<a class="controls left"><i class="icon-arrow-left-3"></i></a>
-						<a class="controls right"><i class="icon-arrow-right-3"></i></a>
+	$.Dialog({
+	flat: false,
+	shadow: true,
+	title: 'Usuario a modificar',
+	content: contenido_usuario_modificar,
+	height: 300,
+	widht: 300
+	});
+});
+});
+				</script>
+				<div class="span12 offset4">
+					<div class="tile bg-teal  quadro"  scroll="auto">
+					<center><h4 style="color: orange">Selecciona los anuncios que quieres eliminar o modificar</h4></center>
 					</div>
-				</div>
-				<div class="tile triple double-vertical  bg-orange">
-				<h4>Generales de la empresa</h4>
-					 <div class="carousel"  data-role="carousel">
-					 {general_1}
-						<div class="slide bg-blue">
-						<p>Uno</p>
-						</div>
-						<div class="slide bg-lightPink">
-						<p>Dos</p>
-						</div>
-						<div class="slide bg-teal">
-						<p>Tres</p>
-						</div> 
-						<a class="controls left"><i class="icon-arrow-left-3"></i></a>
-						<a class="controls right"><i class="icon-arrow-right-3"></i></a>
+					<div class="tile bg-teal triple">
 					</div>
-				</div>
-				
-				<div class="tile quadro double-vertical bg-green">
-				<h4>Por Departamento</h4>
-					 <div class="carousel"  data-role="carousel" style="width: 80%; height: 200px;">
-						{por_departamento}
-						 <div class="slide bg-black">
-						<p>Uno</p>
-						</div>
-						<div class="slide bg-grey">
-						<p>Dos</p>
-						</div>
-						<div class="slide bg-white">
-						<p>Tres</p>
-						</div>
-						<a class="controls left"><i class="icon-arrow-left-3"></i></a>
-						<a class="controls right"><i class="icon-arrow-right-3"></i></a>
-					</div>
-				</div>
-
-				<div class="tile triple double-vertical bg-teal">
-				<h4>General</h4>
-					 <div class="carousel"  data-role="carousel">
-						{general_2}
-						<div class="slide">
-						<p>Uno</p>
-						</div>
-						<div class="slide">
-						<p>Dos</p>
-						</div>
-						<div class="slide">
-						<p>Tres</p>
-						</div>  
-						<a class="controls left"><i class="icon-arrow-left-3"></i></a>
-						<a class="controls right"><i class="icon-arrow-right-3"></i></a>
-					</div>
-				</div>
-
-
-		<!-- 		<script>
-				$('.carousel').carousel({
-					auto: true,
-					period: 3000,
-					duration: 2000,
-					markers: {
-					type: "cycle"
-					}
-				});
-				</script>  -->
+					<div id="ventana"class="tile bg-teal quadro-vertical quadro"scroll="auto">
+					<!-- 	muestra todos los anuncios de ese usuario -->
 					
-       </div>
+					<?php
+					anuncios_por_user();
+					?>
+					
+					
+					</div>
+					<div class="tile bg-teal triple  quadro-vertical">
+					</div>
+					<div class="tile bg-teal triple">
+					</div>
+					<div class="tile bg-black">
+						<img src="../../../imagenes/gatete1.png" alt="iGreb, la mascota de iCanyo: un gato naranja atigrado, diseñado por Javier Bailen" title="iGreb, la mascota de iCanyo: un gato naranja atigrado, diseñado por Javier Bailen"></img>
+					</div>
+                    <div class="tile double">
+                        <div class="brand">
+                            <div class="times" data-role="times" data-alarm="hh:mm:ss"></div>
+                        </div>
+                    </div>
+					<div class="tile bg-black">
+						<img src="../../../imagenes/logoiCanyo.jpg" alt="El logotipo de iCanyo: cuadrados naranjas sobre fondo sable." title="El logotipo de iCanyo: cuadrados naranjas sobre fondo sable."></img>
+					</div>
+                </div>
+            </div>
+        </div>
 	</div>
+
+		<!-- <script type="text/javascript" src="../js/carga_usuarios_eliminar.js"></script> -->
+	
 		<script src="../docs/js/jquery/jQuery.min.js"></script>
 		<script src="../docs/js/jquery/jQuery.widget.min.js"></script>
 		<script src="../docs/js/metro.min.js"></script>
-		<script src="../docs/js/jquery/jquery.mousewheel.js"></script>
+		<script src="../docs/js/jquery/mousewheel.js"></script>
 		<script src="../js/iCanyo.js"></script>
-		<script type="text/javascript" src="../js/carga_usuarios_eliminar.js"></script>
-
-		<div>
-		<img src="../../../imagenes/logoiCanyo.jpg" style="width: 4%; height:4%;"></img>
-		<div id="footer" class="tile bg-lightRed">
-			<h5 id="texto_footer">AguantaMaryJane Estudios 2014</h5>
-		</div>
-			</body>
-	 </div> 
-    </html>
+	    <script src="../js/carga_usuarios_modificar.js"></script>
+	</body>
+ </html>
 	

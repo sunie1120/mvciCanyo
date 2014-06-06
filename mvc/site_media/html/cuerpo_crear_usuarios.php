@@ -25,7 +25,11 @@ require_once('../php/devuelve_roles.php');
         <div class="grid">
             <div class="row">
                 <!-- Menú -->
+				
 				<nav class="span3">
+				<form id="cerrar_sesion" name="cerrar" action="#" method="post">
+				 <input type="button" class="bg-orange fg-white bg-hover-amber" value="Cerrar sesión"></input>
+				 </form>
                     <ul  class="dropdown-menu dark open keep-open" >
                         <li class="menu-title">
                             <i class="icon-clipboard-2"></i>
@@ -67,7 +71,7 @@ require_once('../php/devuelve_roles.php');
                     </ul>
                 </nav>
                 <!-- Cuadros -->
-                <div class="span12 offset4">
+            <div class="span12 offset4">
 					<div class="tile triple triple-vertical bg-white" style="border: solid 3px orange">
 					<center>
 					<form id="nuevo_usuario" action="alta_usuario.php" method="post">
@@ -90,11 +94,11 @@ require_once('../php/devuelve_roles.php');
 					</div>					
 					<div class="tile quadro triple-vertical bg-orange">
                         <div class="tile-content text-center">
- 							<h5 class="item-title-secondary">Seleccione una imagen para el perfil</h5>
+ 							<!--<h5 class="item-title-secondary">Seleccione una imagen para el perfil</h5>
 							<div class="input-control file size3" >
 								<input type="file" name="foto">
 								<button class="btn-file"></button></input>
-							</div>
+							</div>-->
 							<br>
 							<div class="input-control size3 select">		
 								<h5 class="item-title-secondary">Rol</h5>
@@ -122,6 +126,15 @@ require_once('../php/devuelve_roles.php');
 								?>
 								</select>
 							</div>
+								<br/>
+							
+							<div id="aprobador_vacaciones" name="aprobar_vacaciones" class="input-control switch">
+								<label>
+								<input type="checkbox" />
+								Puede aprobar vacaciones
+								</label>
+							</div>
+							
                          <div class="brand bg-black">
                             <span class="label fg-white text-right">
 							<input type="reset" value="Restaura" class="bg-steel fg-white bg-hover-red">

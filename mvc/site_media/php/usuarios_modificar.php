@@ -86,10 +86,10 @@ echo "<table class='table hovered'>";
 	while ($fila = mysql_fetch_array($consulta)) {
 				$id_usuari=$fila[0];
 		echo "<tr>";
-			echo "<td>".$fila[1]."</td>";
-			echo "<td>".$fila[2]."</td>";
-			echo "<td>".$fila[3]."</td>";
-			echo "<td><input type='button' name='modificar' id=".$id_usuari." class='bg-orange fg-white bg-hover-amber' value='Modificar usuario'><input type='hidden' name='id_usuario_oculto' value=".$id_usuari."></input></input></td>";
+			echo "<td name='1'>".$fila[1]."</td>";
+			echo "<td name='2'>".$fila[2]."</td>";
+			echo "<td name='3'>".$fila[3]."</td>";
+			echo "<td><input type='button' name='modificar' id=".$id_usuari." class='bg-orange fg-white bg-hover-amber modificar_user' value='Modificar usuario'></input></td>";
 			echo "<input type='hidden' name='id_usuario_oculto' value=".$id_usuari."></input>";
 
 //echo $id_usuari;

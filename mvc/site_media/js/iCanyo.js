@@ -1,5 +1,7 @@
 /**
+ * enviaPHP
  * Funcion para que se envien los datos mediante submit (que es lo que enlaza con php)
+ * @return void
 */
 function enviaPHP()
 {
@@ -15,7 +17,11 @@ var passusuario=$("#contra").val();
 };
 var num_departs;
 /**
-* Función envia al controlador para que se inserten en la base de datos
+* envia_usuarios
+* Función  que envia al controlador los datos de los usuarios para que se inserten en la base de datos
+* Creamos las variables que contendrán los datos recogidos del DOM y mediante ajax los enviamos al controler
+* SI no puede hacer la petición devuelve un error por pantalla a modo de alert
+* @return void
 */
 function envia_usuarios(){
 
@@ -43,8 +49,12 @@ function envia_usuarios(){
 			 });
 }
 /**
-*Validacion de los inputs de texto y pass
+* función anónima
+* Validacion de los inputs de texto y pass
+* Recogemos los datos mediate javascript según el usuario los escribe, controla que coincidan los patrones y cambia las clases de los inputs dependiendo de si halla coincidencias.
+* @return void
 */
+
 $(document).ready(function() {
 	/**
 	*Validacion de los inputs de texto
@@ -62,7 +72,7 @@ $(document).ready(function() {
 	});
 	
 	/**
-	* Validacion de pass: Entre 6 y 20 caracteres,  un digito minimo y un alfanumérico, y no puede contener caracteres especiales
+	* Validacion de password: Entre 6 y 20 caracteres,  un digito minimo y un alfanumérico, y no puede contener caracteres especiales
 	*/
 		$("input[type=password]").on("keypress", function(){
 		var x = $(this).val();
@@ -83,7 +93,10 @@ $(document).ready(function() {
 
 
 /**
+* función anónima
 * Funcion para ir mostrando los datos de usuario según se escriben
+* Recibe los datos al recorrer el DOM
+* @return void
 */
 	function controla_datos(){
 		var nombre = $("input[name='nombre']").val();
@@ -109,20 +122,26 @@ $(document).ready(function() {
 		$("#departamento").val(departamento);
 	}
 /**
+* función anónima
 * Función para recargar los anuncios 
+* Recarga los elementos con id "anuncios" dependiendo del valor de la variable intervalo
+* @return void
 */
 
-var intervalo = /*milisegundos, depende de los usuarios conectados*/
-
+var intervalo;
 //window.setInterval("javascript function", milliseconds);
-
 
 window.setInterval(function(){
 	$('#anuncios').load('anuncios.php');
 },intervalo);
 
+
 /**
-* Funciones de carrousel
+* función anónima
+* Función de carrousel
+* Fución que ejecuta el efecto carousel sobre los div con clase carousel y les asigna una duración y un perido de visualización,
+* además de establecer que sea automático el comienzo de la función
+* @return void
 */
 $('.carousel').carousel({
 auto: true,
@@ -134,7 +153,11 @@ type: "square"
 });
 
 /**
-* Funcion que controla que los checkbox de la vista_crear_anuncios estén seleccionado o no, para que los anuncios sean públicos o no
+* función anónima
+* Funcion que controla que los checkboxes de la vista_crear_anuncios estén seleccionado o no, para que los anuncios sean públicos o no
+* recoge las propiedades checked de los dos tipos de div y en consecuencia habilita o deshabilita las siguientes opciones para que si un usuario seelecciona público, 
+* no pueda a su vez elegir grupos de usuarios para su visualización
+* @retun void
 */
 
 $(document).ready(function() {
@@ -158,9 +181,14 @@ $(document).ready(function() {
 			
 		});	
 });
-		
-//Para habilitar o dehabilitar los botones para selecionar tipos de vista, dependiendo de si el usuario ha elegido por puesto o por departamento,
-//excluyendo unas opciones a las otras.
+	
+/**
+* función anónima
+* Funcion que controla que los checkboxes de departamento y puestos estén seleccionado o no, para que si se elige un tipo el oro tipo de deshabilite
+* recoge las propiedades checked de los dos tipos de div y en consecuencia habilita o deshabilita las siguientes opciones para que si un usuario seelecciona departamentos, 
+* no pueda a su vez elegir puestos
+* @retun void
+*/
 		  
 		$(document).ready(function(){			
   			$('input[name="departamento"]').change(function() {
@@ -195,33 +223,48 @@ $(document).ready(function() {
 				}
 				});
 			});
-			
+
 /**
+* función anónima
 * Función para controlar si los anuncios tienen cuerpo y mostrarlo al clicar en una ventana emergente
-*/
+* Recoge los valores de id, value y name y los asigna a una ventana emergente de tipo Dialog al clicka encima del div que pasa en el carousel de los anuncios
+* Si cuerpo de anuncio no recibe ningún valor, no se ejecuta, pues no hay nada que mostrar en la ventana emergente y elanuncio solamente tiene título y autor.
+* @retun void
+*/			
+
 $(document).ready(function(){
-	var cuerpo_anuncio = "Olaia!!!";
-	var titulo_anuncio = "Titulo del anuncio";
-	if ( cuerpo_anuncio != "") {
-		$ (".slide").click( function(){
+
+	
+	var titulo_anuncio = "";
+	var autor_anuncio;
+
+	$('.con_cuerpo').click( function(){
+	var cuerpo_anuncio = $(this).attr("value");
+	var autor_anuncio = $(this).attr("id");
+	var titulo_anuncio = $(this).attr("name");
+		
+		if(cuerpo_anuncio != ""){
 			$.Dialog({
 				shadow: true,
 				overlay: false,
 				icon: '<span class="icon-rocket fg-red"></span>',
-				title: titulo_anuncio,
+				title: autor_anuncio,
 				width: 500,
 				padding: 10,
-				content: cuerpo_anuncio
+				content:titulo_anuncio+"<br/>"+cuerpo_anuncio
 			});
-		});
-	}
+		}
+	});
 	
-	/**
-	* Función que controla que el campo de titulo y de cuerpo de los anuncions tengan datos 
-	*/
+/**
+* función anónima
+* Función que controla que el campo de titulo y de cuerpo de los anuncions tengan datos y avisa al suuario con un alert en caso de que esté vacio
+* @retun void
+*/
+	
 	var texto = $('#texto_titulo').val();
 
-	$(	'#publicar_button').click(function(){
+	$('#publicar_button').click(function(){
 
 		if ( texto == "" ){
 			alert("Debes incluir un título para tu pubicación.")
@@ -229,8 +272,17 @@ $(document).ready(function(){
 
 	});
 
+/**
+* función anónima
+* Funcion que hace los cambios de color cuando el usuario quiere personalizar la aplicación
+* Hay una qequivalencia entre tres colores dferentes por cada opción de color, de tal manera que cuando el usuario elige un tono, se sustituyen todos.
+* La función controla que colores hay en ese momento y los elimina para aplicar los que el usuario a elegido.
+* Los colores son modificados mediante el cambio de las clases que le asignan el color al fondo de los divs.
+* Hay tres opciones de cambio iCanyoClassic, iCanyoRelax e iCanyoVintage
+* @retun void
+*/	
 	/**
-	* Funcion que hace los cambios de color cuando el usuario quiere personalizar la aplicación
+	*  iCanyoVintage
 	*/
 	$(".changecolorBN").click(function(){
 		var o = $(".bg-orange");
@@ -245,10 +297,7 @@ $(document).ready(function(){
 		o.each(function(){
 			$(this).removeClass("bg-orange").addClass("bg-gray");
 		});
-		
-		/* t.each(function(){		
-			$(this).removeClass("bg-teal").addClass("bg-grey");
-		}) */;
+	
 
 		a.each(function(){
 			$(this).removeClass("bg-amber").addClass("bg-grey");
@@ -268,7 +317,9 @@ $(document).ready(function(){
 		});
 
 	});
-	
+	/**
+	*  iCanyoRelax
+	*/	
 	
 	$(".changecolorRelax").click(function(){
 		var o = $(".bg-orange");
@@ -301,13 +352,11 @@ $(document).ready(function(){
 	 	da.each(function(){
 			$(this).removeClass("bg-darker").addClass("bg-teal");
 		}); 
-		
-		/* s.each(function(){
-			$(this).removeClass("bg-dark").addClass("bg-darkCobalt");
-		}); */
-
 	});
 	
+	/**
+	*  iCanyoClassic
+	*/
 	$(".changecolorClassic").click(function(){
 		var o = $(".bg-orange");
 		var a = $(".bg-amber");
@@ -340,16 +389,17 @@ $(document).ready(function(){
 		co.each(function(){
 			$(this).removeClass("bg-cobalt").addClass("bg-orange");
 		}); 
-		
-	/* 	y.each(function(){
-			$(this).removeClass("bg-dark").addClass("bg-teal");
-		}); */
-
 	});
 	
-	/**
-	* Funciones de carrousel muestra (página de personaliación)
-	*/
+	
+
+/**
+* función anónima
+* Funciones de carrousel muestra (sólo página de personaliación).
+* Hay tres posibles velocidades que el usuario puede elegir
+* @retun void
+*/		
+
 	$(".selector_velocidad").change(function(){
 	alert (1111);
 	var valor = $(".selector_velocidad").val();

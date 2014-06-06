@@ -13,7 +13,7 @@ function crear_menu($rol,$vacaciones) {
     }
 
     #Gestion vacaciones
-    if($vacaciones=='s'){
+    if($vacaciones==true){
         $menuVaca=file_get_contents('mvc/site_media/html/menu_vacaciones.html');
     }
 
