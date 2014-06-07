@@ -1,10 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
-    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="3">
+        <file>
+            <url>mvc/usuarios/constants_1.php</url>
+            <bookmark id="2">
+                <name/>
+                <line>17</line>
+                <key/>
+            </bookmark>
+        </file>
+        <file>
+            <url>mvc/usuarios/model_datos_options_0.php</url>
+            <bookmark id="3">
+                <name/>
+                <line>18</line>
+                <key/>
+            </bookmark>
+        </file>
+    </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/mvciCanyo/mvc/usuarios/view.php</file>
-            <file>file:/C:/xampp/htdocs/mvciCanyo/mvc/usuarios/controller_usuarios.php</file>
+            <file>file:/C:/xampp/htdocs/mvciCanyo/mvc/usuarios/controller_usuario.php</file>
+            <file>file:/C:/xampp/htdocs/mvciCanyo/mvc/core/libreria_funciones_control.php</file>
+            <file>file:/C:/xampp/htdocs/mvciCanyo/mvc/usuarios/model_usuario.php</file>
         </group>
     </open-files>
 </project-private>

@@ -1,74 +1,130 @@
 <?php
 
-class validar extends DBAbstractModel {
+# Importar modelo de abstracción de base de datos
+require_once('../core/db_abstract_model.php');
 
+class validar extends DBAbstractModel {
     ############################### PROPIEDADES ################################
-    protected $nick_usuario;
-    protected $contrasena;
-    protected $id_usuario;
-    protected $id_rol;
-    protected $vacaciones;
+
+    private $nick_usuario;
+    private $contrasena;
+    private $id_usuario;
+    private $id_rol;
+    private $vacaciones;
+    public $datos_usuario;
+    private $gestiona_usuarios;
 
     ################################# MÉTODOS ##################################
-# Traer datos de un usuario
-    public function get($nick_suario='',$contrasena='') {
-        if($nick_suario != '') {
-            $this->query = "SELECT id_uduario, id_rol, contrasena FROM usuario WHERE nick_suario = '$nick_suario' and contrasenya=password('$contrasena')";
-            $this->get_results_from_query();
-        }
+    # métodos abstractos heredados de la clase padre   
 
-        if(count($this->rows) == 1) {
-            foreach ($this->rows[0] as $propiedad=>$valor) {
-                $this->$propiedad = $valor;
+    function get() {
+        
+    }
+
+    function set() {
+        
+    }
+
+    function edit() {
+        
+    }
+
+    function delete() {
+        
+    }
+
+    public function get_mensaje() {
+        return $this->mensaje;
+    }
+
+    public function getContrasena() {
+        return $this->contrasena;
+    }
+
+    public function getNick() {
+        return $this->nick_usuario;
+    }
+
+    public function getId() {
+        return $this->id_usuario;
+    }
+
+    public function getIdRol() {
+        return $this->id_rol;
+    }
+
+    public function getGestionaVacaciones() {
+        return $this->vacaciones;
+    }
+
+    public function getGestionaUsuarios() {
+        return $this->gestiona_usuarios;
+    }
+
+    public function get_por_nick_usuario($nick_usuario = '', $contra = '') {
+        $this->datos_usuario = '';
+        $this->query = "
+                        SELECT      *
+                        FROM        usuario
+                        WHERE       nick_usuario = '$nick_usuario' and contrasena = PASSWORD('$contra')
+				";
+        $this->get_results_from_query();
+        $this->datos_usuario = $this->rows;
+
+        if ($this->datos_usuario[0]!='') {
+            $this->contrasena = $this->datos_usuario[0]['contrasena'];
+            $this->nick_usuario = $this->datos_usuario[0]['nick_usuario'];
+            $this->id_usuario = $this->datos_usuario[0]['id_usuario'];
+            $this->id_rol = $this->datos_usuario[0]['id_rol'];
+
+            if ($this->id_rol > 0) {
+                $this->vacaciones = true;
+            } else {
+                $this->vacaciones = false;
             }
-            if($this->contrasena==$contrasena){
-             $this->mensaje = 'Usuario valido';
-             //echo 'usuario valido';
+            if ($this->id_rol == 5) {
+                $this->gestiona_usuarios = true;
+            } else {
+                $this->gestiona_usuarios = true;
             }
-           
+            return true;
         } else {
-            $this->mensaje = 'Usuario o contraseña incorretos';
-            //echo 'usuario o contraseña no valido';
+            $this->mensaje = 'Usuario o contraseña incorrectos.';
+            return false;
         }
     }
-    
+
+//    public function get_por_nick_usuario($nick_usuario = '') {
+//        if ($nick_usuario != '') {
+//            $this->query = "
+//					SELECT      *
+//					FROM        usuario
+//					WHERE       nick_usuario = '$nick_usuario'
+//				";
+//            $this->datos_usuario = $this->get_results_from_query();
+//        }
+//        if (count($this->datos_usuario) > 0) {
+//            $this->contrasena = $this->datos_usuario[0]['contrasena'];
+//            $this->nick_usuario = $this->datos_usuario[0]['nick_usuario'];
+//            $this->id_usuario = $this->datos_usuario[0]['id_usuario'];
+//            $this->id_rol = $this->datos_usuario[0]['id_rol'];
+//
+//            if ($this->id_rol > 0) {
+//                $this->vacaciones = true;
+//            } else {
+//                $this->vacaciones = false;
+//            }
+//            if ($this->id_rol == 5) {
+//                $this->gestiona_usuarios = true;
+//            } else {
+//                $this->gestiona_usuarios = true;
+//            }
+//        }
+//    }
     # Método constructor
+
     function __construct() {
-    }
-
-    protected function delete() {
         
     }
 
-    protected function edit() {
-        
-    }
-
-    protected function set() {
-        
-    }
-
-    /*   function control_usuario($user,$contra,&$rol)
-{
-    $conex=conectar_bdd();
-    $resultado=mysql_query("SELECT * from usuaris where user_name='$user' and contrasenya=password('$contra')"/*$buscausuario*//*,$conex);
-    $num_filas=mysql_num_rows($resultado);
-    $error=0;
-    
-    if($fila=mysql_fetch_array($resultado, MYSQL_ASSOC))
-    {
-        $rol=$fila['rol'];
-    }
-    else
-    {
-        $error=1;
-    }
-    
-    mysql_close($conex);
-    
-    return $error;	
-
-}*/
-    
-    
 }

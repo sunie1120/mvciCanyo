@@ -1,37 +1,41 @@
- <nav class="span3">
-                    <ul  class="dropdown-menu dark open keep-open" >
-                        <li class="menu-title">
-                            <i class="icon-clipboard-2"></i>
-                            Anuncios
-						</li>
-                        <li><a href="#">Anuncios generales</a></li>
-                        <li><a href="#">Anuncios de mi departamento</a></li>
-                        <li><a href="#">Mis Anuncios</a></li>
-                        <li><a href="#">Crear Anuncios</a></li>
-                        <li><a href="#">Todos los anuncios</a></li>
-                        <li class="divider"></li>
-                        <li class="menu-title">
-                            <i class="icon-volume-2"></i>
-                            Tareas
-                        </li>
-                        <li><a href="#">Mis tareas</a></li>
-                        <li><a href="#">Tareas asignadas a otros</a></li>
-                        <li><a href="#">Crear tareas</a></li>
-                        <li class="divider"></li>
-						<li class="menu-title">
-                            <i class="icon-book"></i>
-                            Agenda
-                        </li>
-                        <li><a href="#">Hoy</a></li>
-                        <li><a href="#">Agenda</a></li>
-                        <li><a href="#">Crear Cita</a></li>
-                        <li class="divider"></li>
-                        <li class="menu-title">
-                            <i class="icon-sun"></i>
-                            Vacaciones
-                        </li>
-                        <li><a href="#">Ver mis vacaciones</a></li>
-                        <li><a href="#">Vacaciones de mi departamento</a></li>
-                        <li><a href="#">Vacaciones de toda la empresa</a></li>
-                        <li><a href="#">Solicitar vacaciones</a></li>
-                        
+<div class="span3">
+                    <nav class="sidebar">
+                        <ul>
+                            <li class="title"><img src="../site_media/img/iCanyo.png" style="width:50%"/></li>
+                            <li class="stick bg-amber">
+                                <a class="dropdown-toggle" href="#"><i class="icon-volume-2 fg-amber"></i>Anuncios</a>
+                                <ul class="dropdown-menu" data-role="dropdown">
+                                    <li><a href="anuncios/controller_anuncios.php?vista=mostrar_anuncios">Ver Anuncios</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="anuncios/controller_anuncios.php?vista=crear_anuncios">Crear Anuncio</a></li>
+                                    <li><a href="anuncios/controller_anuncios.php?vista=modificar_anuncios">Modificar Anuncios</a></li>
+                                    <li><a href="anuncios/controller_anuncios.php?vista=eliminar_anuncios">Eliminar Anuncios</a></li>
+                                </ul>
+                            </li>
+                            <li class="stick bg-amber">
+                                <a class="dropdown-toggle" href="#"><i class="icon-clipboard-2 fg-amber"></i>Tareas</a>
+                                <ul class="dropdown-menu" data-role="dropdown">
+                                    <li><a href="tareas/controller_anuncios_0.php?vista=mis_tareas">Mis tareas</a></li>
+                                    <li><a href="tareas/controller_anuncios_0.php?vista=tareas_asignados">Tareas para otros</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="tareas/controller_anuncios_0.php?vista=crear_tareas">Crear tareas</a></li>
+                                </ul>
+                            </li>
+                            <li class="stick bg-amber">
+                                <a class="dropdown-toggle" href="#"><i class="icon-book fg-amber"></i>Agenda</a>
+                                <ul class="dropdown-menu" data-role="dropdown">
+                                    <li><a href="agenda/controller_agenda_0.php?vista=hoy">Hoy</a></li>
+                                    <li><a href="agenda/controller_anuncios_0.php?vista=agenda">Agenda</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="agenda/controller_anuncios_0.php?vista=crear_cita">Crear Cita</a></li>
+                                </ul>
+                            </li>
+                            <li class="stick bg-amber">
+                                <a class="dropdown-toggle" href="#"><i class="icon-sun fg-amber"></i>Vacaciones</a>
+                                <ul class="dropdown-menu" data-role="dropdown">
+                                    <li><a href="vacaciones/controller_vacaciones_0.php?vista=mis_vacaciones">Mis vacaciones</a></li>
+                                    <li><a href="vacaciones/controller_vacaciones_0.php?vista=mi_departamento">Mi departamento</a></li>
+                                    <li><a href="vacaciones/controller_vacaciones_0.php?vista=empresa">Toda la empresa</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="vacaciones/controller_vacaciones_0.php?vista=solicitar_vacaciones">Solicitar vacaciones</a></li><li class="divider"></li>
+                                    

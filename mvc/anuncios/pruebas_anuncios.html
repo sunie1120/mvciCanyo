@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>iCanyo Alta Usuarios</title>
+        <meta name="description" content="gestor de comunicados, tareas, vacaciones y agenda, para entidades y empresas">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../site_media/css/iCanyo.css">
+        <link rel="stylesheet" href="../site_media/css/metro-bootstrap.min.css">
+        <link rel="stylesheet" href="../site_media/css/metro-bootstrap-responsiv.min.css">
+        <link  rel="stylesheet" href="../site_media/css/iconFont.min.css">
+        <link href="../site_media/css/iCanyo.css" rel="stylesheet">
+        <link rel="icon" type="image/png" href="../site_media/img/gatete_favicon.png" />
+    </head>
+    <body class="metro">
+        <div class="grid">
+            <div class="row">
+                <div class="span12 offset4">
+                    <div class="tile quadro double-vertical  bg-red">
+                        <h4 class="mg1-rg">Por Puestos</h4>
+                        <div class="carousel"  data-role="carousel">
+                            <div class="slide bg-orange">
+                                <!--{por_puestos}-->
+                                <div id="anuncios_generales_1_1" >
+                                    <h5 class="text-center">Este es el título del anuncio</h5>
+                                    <div>
+                                        <p class="fg-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
+                                            <br/>
+                                        </p>
+                                        
+                                        <p class="text-right fg-white"><small><cite title="Nombre Apellidos"><strong>Esther Herrero</strong></cite> Marqueting<br/>Valido hasta: 30/11/2014</small></p>
+                                    </div>
+                                </div>
+                                <a class="controls left"><i class="icon-arrow-left-3"></i></a>
+                                <a class="controls right"><i class="icon-arrow-right-3"></i></a>
+                            </div>
+                        </div>
+                        <div class="tile triple double-vertical  bg-orange">
+                            <h4>Generales de la empresa</h4>
+                            <div class="carousel"  data-role="carousel">
+                                {general_1}
+                                <a class="controls left"><i class="icon-arrow-left-3"></i></a>
+                                <a class="controls right"><i class="icon-arrow-right-3"></i></a>
+                            </div>
+                        </div>
+                        <div class="tile quadro double-vertical bg-green">
+                            <h4>Por Departamento</h4>
+                            <div class="carousel"  data-role="carousel" style="width: 80%; height: 200px;">
+                                {por_departamento}
+                                <a class="controls left"><i class="icon-arrow-left-3"></i></a>
+                                <a class="controls right"><i class="icon-arrow-right-3"></i></a>
+                            </div>
+                        </div>
+                        <div class="tile triple double-vertical bg-teal">
+                            <h4>General</h4>
+                            <div class="carousel"  data-role="carousel">
+                                {general_2}
+                                <a class="controls left"><i class="icon-arrow-left-3"></i></a>
+                                <a class="controls right"><i class="icon-arrow-right-3"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="grid">
+            <div class="row">
+                <div id="footer" class="span12 offset4">
+                    <h5 id="texto_footer" class="text-center mg3">&copy; AguantaMaryJane Estudios 2014</h5>
+                    <br/>
+                </div>
+            </div>
+        </div> 
+
+        <script src="../site_media/docs/js/jquery/jQuery.min.js"></script>
+        <script src="../site_media/docs/js/jquery/jQuery.widget.min.js"></script>
+        <script src="../site_media/docs/js/metro.min.js"></script>
+        <script src="../site_media/docs/js/jquery/jquery.mousewheel.js"></script>
+        <script src="../site_media/js/iCanyo.js"></script>
+        <script src="../site_media/js/carga_usuarios_eliminar.js"></script>
+    </body>
+</html>

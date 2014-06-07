@@ -2,9 +2,35 @@
     Created on : 09-may-2014, 15:33:19
     Author     : Olaia
 */
-
+#footer{whith: 100%;}
 .mg{margin-top: 40px;}
+.mg1{margin-top: 20px;}
 .mg2{margin-top: 60px;}
+.mg3{margin-top: 30px;}
+.mg1-rg{margin-right:20%}
+.validado {background:green;}
+.no_validado{background:red; /* firefox */}
+/* 
+    Created on : 14-may-2014
+    Author     : Esther
+*/
 .mg3{margin-top: 30px;}
 .validado {background:green;}
 .no_validado{background:red; /* firefox */}
+#footer{
+color:white;
+	width: 85%;
+	height:5%;
+}
+#texto_footer{
+color:white;
+}
+
+
+input[type='range'] {
+	-webkit-appearance: none;
+	border-radius: 5px;
+	box-shadow: inset 0 0 5px #333;
+	background-color: red;
+	height: 10px;
+	vertical-align: middle;

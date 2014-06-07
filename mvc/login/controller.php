@@ -1,23 +1,33 @@
 <?php
-$usuario=htmlspecialchars($_POST['nombre']);
-$contra=htmlspecialchars($_POST['contra']);
 
-//require_once('constants.php');
-//require_once('model.php');
-require_once('vista.php');
+session_id();
+session_start();
+require_once('model.php');
+require_once('view_login.php');
 
+if ($_POST) {
+    //aplicar los metodos de seguridad
+    $usuario = mysqli::real_escape_string(htmlspecialchars($_POST['usuario']));
+    $contra = mysqli::real_escape_string(htmlspecialchars($_POST['contra']));
+    $nuevo = new validar();
 
+    if ($nuevo->get_por_nick_usuario($usuario, $contra)) {
+        $_SESSION['nick_suario'] = $nuevo->getNick();
+        $_SESSION['id_usuario'] = $nuevo->getId();
+        $_SESSION['id_rol'] = $nuevo->getIdRol();
+        $_SESSION['gestiona_usuarios'] = $nuevo->getGestionaUsuarios();
+        $_SESSION['aprueba_vacaciones'] = $nuevo->getGestionaVacaciones();
+        header('Location:../anuncios/controller_anuncios.php?vista=mostrar_anuncios');
+    } else {
 
-
-
-
-
-
-$rol=4;
-$id_usuario=39;
-$vacaciones='s';
-
-
-
-
+        $mensaje = $nuevo->get_mensaje();
+        $vista = new view_login();
+        $vista->crear_html_login($mensaje);
+        print ($vista->get_vista());
+    }
+} else {
+    $vista = new view_login();
+    $vista->crear_html_login_index();
+    print ($vista->get_vista());
+}
 ?>

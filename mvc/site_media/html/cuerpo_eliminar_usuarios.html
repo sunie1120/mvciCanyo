@@ -1,153 +1,73 @@
-<!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>iCanyo</title>
-        <meta name="description" content="gestor de comunicados, tareas, vacaciones y agenda, para entidades y empresas">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="../docs/css/metro-bootstrap.css">
-        <link rel="stylesheet" href="../docs/css/metro-bootstrap-responsive.css">
-        <link  rel="stylesheet" href="../docs/css/iconFont.css">
-        <link href="../css/iCanyo.css" rel="stylesheet">
-		
-		
-		
-    </head>
-    <body class="metro">
-	<link rel="icon" type="image/png" href="../../../imagenes/gatete_favicon.png" />
-        <div class="grid">
-            <div class="row">
-                <!-- Menú -->
-                <nav class="span3">
-                    <ul  class="dropdown-menu dark open keep-open" >
-                        <li class="menu-title">
-                            <i class="icon-clipboard-2 fg-cyan"></i>
-                            Anuncios
-						</li>
-                        <li><a href="#">Anuncios generales</a></li>
-                        <li><a href="#">Anuncios de mi departamento</a></li>
-                        <li><a href="#">Mis Anuncios</a></li>
-                        <li><a href="#">Crear Anuncios</a></li>
-                        <li><a href="#">Todos los anuncios</a></li>
-                        <li class="divider"></li>
-                        <li class="menu-title">
-                            <i class="icon-shipping fg-green"></i>
-                            Tareas
-                        </li>
-                        <li><a href="#">Mis tareas</a></li>
-                        <li><a href="#">Tareas asignadas a otros</a></li>
-                        <li><a href="#">Crear tareas</a></li>
-                        <li class="divider"></li>
-						<li class="menu-title">
-                            <i class=" icon-book fg-amber"></i>
-                            Agenda
-                        </li>
-                        <li><a href="#">Hoy</a></li>
-                        <li><a href="#">Agenda</a></li>
-                        <li><a href="#">Crear Cita</a></li>
-                        <li class="divider"></li>
-                        <li class="menu-title">
-                            <i class="icon-sun fg-orange"></i>
-                            Vacaciones
-                        </li>
-                        <li><a href="#">Ver mis vacaciones</a></li>
-                        <li><a href="#">Vacaciones de mi departamento</a></li>
-                        <li><a href="#">Vacaciones de toda la empresa</a></li>
-                        <li><a href="#">Solicitar vacaciones</a></li>
-                        {Aprobar vacaciones}
-                        <li class="divider"></li>
-						{Gestion usuarios}
-                    </ul>
-                </nav>
-                <!-- Cuadros -->
-                <div class="span12 offset4">
-					<div class="tile triple triple-vertical bg-white" style="border: solid 3px orange">
-					<center>
-			<form id="datos_usuarios">
-						<div class="input-control text size3 mg3 info-state">
-							<input type="text" id="name" name="nombre" placeholder="Nombre" ></input> 
-						</div>
-						<div class="input-control text size3 mg3  info-state" data-role="input-control">
-							<input type="text"  id="papellido" name="primer_apellido"  placeholder="Primer apellido" ></input> 
-						</div>
-						<div class="input-control text size3 mg3  info-state">
-							<input type="text"  id="sapellido" name="segundo_apellido"  placeholder="Segundo Apellido" ></input> 
-						</div>
-						<div class="input-control text size3 mg3  info-state">
-							<input type="text"  id="alias" name="nick_usuario"  placeholder="Nick de usuario" ></input> 
-						</div>
-						<div class="input-control password size3 mg3  info-state">
-							<input type="text"  id="id_user" name="id_usuario"  placeholder="Id de usuario" ></input> 
-						</center>
-					</div>					
-					<div class="tile quadro triple-vertical bg-orange">
-                        <div class="tile-content text-center">
- 							
-						<h5>Datos del usuario a eliminar</h5>
-					
-							<div id="usuario_eliminar" class="tile ribbed-amber quadro double-vertical"  style="overflow:auto;">
-							
-							<!---Div para que aprezcan los datos del usuario que va a ser eliminado de la BBDD-->
-							</div>
-                         <div class="brand bg-black">
-                            <span class="label fg-white text-right">
-							<input type="button" id="restaurar" value="Restaura" class="bg-steel fg-white bg-hover-red">
-                             <input type="button" id="eliminar" class="bg-orange fg-white bg-hover-amber" value="Eliminar usuario"></input>
-					
-                            </span>
-                         </div>  
-						</div>
-                    </div>
-				
-				<form id="nuevo_usuario" action="elimina_usuario.php" method="post">
-					<div class="tile triple double-vertical bg-amber">
-					<center>
-						    <div class="tile triple double-vertical bg-transparent" data-role="live-tile" data-effect="slideLeft" >
-								<div class="tile-content"><br><br><br><h5 class="item-title">El nombre, los apellidos y el nick no deben contener números ni caracteres especiales.</h5>
-								</div>
-								<div class="tile-content "><img src="../../../imagenes/gatete1.png" style="width='50px' height='50px'" alt="iGreb, la mascota de iCanyo: un gato naranja atigrado, diseñado por Javier Bailen" title="iGreb, la mascota de iCanyo: un gato naranja atigrado, diseñado por Javier Bailén" width="60%"></img>
-								</div>
-								<div class="tile-content"><br><br><br><h5 class="item-title">La contraseña debe tener entre 6 y 20 caracteres,  un digito minimo y un alfanumérico, y no puede contener caracteres especiales.</h5>
-								</div>
-								<div class="tile-content"><img src="../../../imagenes/logoiCanyo.jpg" alt="El logotipo de iCanyo: cuadrados naranjas sobre fondo sable." title="El logotipo de iCanyo: cuadrados naranjas sobre fondo sable."></img>
-								</div>
-							</div>		
-							
-					</center>	
-					</div>
-					<div class="tile  bg-steel"></div>
-					<div class="tile  bg-amber"></div>
-					<div id="confirmacion" class="tile double  bg-teal">
-					</div>
-				</form>
-			</form>
-					<div class="tile bg-black">
-						<img src="../../../imagenes/gatete1.png" alt="iGreb, la mascota de iCanyo: un gato naranja atigrado, diseñado por Javier Bailen" title="iGreb, la mascota de iCanyo: un gato naranja atigrado, diseñado por Javier Bailen"></img>
-					</div>
-                    <div class="tile double">
-                        <div class="brand">
-                            <div class="times" data-role="times" data-alarm="hh:mm:ss"></div>
-                        </div>
-                    </div>
-					<div class="tile bg-black">
-						<img src="../../../imagenes/logoiCanyo.jpg" alt="El logotipo de iCanyo: cuadrados naranjas sobre fondo sable." title="El logotipo de iCanyo: cuadrados naranjas sobre fondo sable."></img>
-					</div>
+<!-- Cuadros -->
+<div class="span12 offset3">
+    <form id="datos_usuarios">
+        <div class="tile triple triple-vertical bg-white" style="border: solid 3px orange">
+            <center>
+                <div class="input-control text size3 mg3 info-state">
+                    <input type="text" id="name" name="nombre" placeholder="Nombre" /> 
                 </div>
+                <div class="input-control text size3 mg3  info-state" data-role="input-control">
+                    <input type="text"  id="papellido" name="primer_apellido"  placeholder="Primer apellido" />
+                </div>
+                <div class="input-control text size3 mg3  info-state">
+                    <input type="text"  id="sapellido" name="segundo_apellido"  placeholder="Segundo Apellido" />
+                </div>
+                <div class="input-control text size3 mg3  info-state">
+                    <input type="text"  id="alias" name="nick_usuario"  placeholder="Nick de usuario" />
+                </div>
+                <div class="input-control password size3 mg3  info-state">
+                    <input type="text"  id="id_user" name="id_usuario"  placeholder="Id de usuario"/> 
+                </div>
+            </center>
+        </div>					
+        <div class="tile quadro triple-vertical bg-orange">
+            <div class="tile-content text-center">
+
+                <h5>Datos del usuario a eliminar</h5>
+
+                <div id="usuario_eliminar" class="tile ribbed-amber quadro double-vertical"  style="overflow:auto;">
+
+                    <!---Div para que aprezcan los datos del usuario que va a ser eliminado de la BBDD-->
+                </div>
+                <div class="brand bg-black">
+                    <span class="label fg-white text-right">
+                        <input type="button" id="restaurar" value="Restaura" class="bg-steel fg-white bg-hover-red">
+                        <input type="button" id="eliminar" class="bg-orange fg-white bg-hover-amber" value="Eliminar usuario"/>
+                    </span>
+                </div>  
             </div>
         </div>
-	</div>
-		<script src="../docs/js/jquery/jQuery.min.js"></script>
-		<script src="../docs/js/jquery/jQuery.widget.min.js"></script>
-		<script src="../docs/js/metro.min.js"></script>
-		<script src="../docs/js/jquery/mousewheel.js"></script>
-		<script src="../js/iCanyo.js"></script>
-		<script type="text/javascript" src="../js/carga_usuarios_eliminar.js"></script>
-	</body>
-	
-	
-    </html>
-	
+    </form>
+    <form id="nuevo_usuario" action="elimina_usuario.php" method="post">
+        <div class="tile triple double-vertical bg-amber">
+            <center>
+                <div class="tile triple double-vertical bg-transparent" data-role="live-tile" data-effect="slideLeft" >
+                    <div class="tile-content"><br><br><br><h5 class="item-title">Inserte algÃºn dato para buscar el usuario deseado.</h5>
+                    </div>
+                    <div class="tile-content "><img src="../site_media/img/gatete1.png" style="width='50px' height='50px'" alt="iGreb, la mascota de iCanyo: un gato naranja atigrado, diseï¿½ado por Javier Bailen" title="iGreb, la mascota de iCanyo: un gato naranja atigrado, diseï¿½ado por Javier Bailï¿½n" width="60%"/>
+                    </div>
+                    <div class="tile-content"><br><br><br><h5 class="item-title">Una vez eliminado el usuarios los cambios no se podrÃ¡n deshacer.</h5>
+                    </div>
+                    <div class="tile-content"><img src="../site_media/img/iCanyo.png" alt="El logotipo de iCanyo: cuadrados naranjas sobre fondo sable." title="El logotipo de iCanyo: cuadrados naranjas sobre fondo sable."/>
+                    </div>
+                </div>		
+
+            </center>	
+        </div>
+        <div class="tile  bg-steel"></div>
+        <div class="tile  bg-amber"></div>
+        <div id="confirmacion" class="tile double  bg-teal">
+        </div>
+    </form>
+    <div class="tile bg-black">
+        <img src="../site_media/img/gatete1.png" alt="iGreb, la mascota de iCanyo: un gato naranja atigrado, dise&ntilde;ado por Javier Bailen" title="iGreb, la mascota de iCanyo: un gato naranja atigrado, dise&ntilde;ado por Javier Bailen"/>
+    </div>
+    <div class="tile double">
+        <div class="brand">
+            <div class="times" data-role="times" data-alarm="hh:mm:ss"></div>
+        </div>
+    </div>
+    <div class="tile bg-black">
+        <img src="../site_media/img/logoiCanyo.jpg" alt="El logotipo de iCanyo: cuadrados naranjas sobre fondo sable." title="El logotipo de iCanyo: cuadrados naranjas sobre fondo sable."/>
+    </div>
+</div>

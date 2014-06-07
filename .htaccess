@@ -1,0 +1,3 @@
+RewriteEngine on
+RewriteRule ^mvc/login mvc/login/controller.php
+DirectoryIndex mvc/login/controller.php

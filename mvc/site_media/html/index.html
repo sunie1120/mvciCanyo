@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>iCanyo</title>
+        <meta name="description" content="gestor de comunicados, tareas, vacaciones y agenda, para entidades y empresas">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="mvc/site_media/css/metro-bootstrap.min.css">
+        <link rel="stylesheet" href="mvc/site_media/css/metro-bootstrap-responsive.min.css">
+        <link  rel="stylesheet" href="mvc/site_media/css/iconFont.min.css">
+        <link href="mvc/site_media/css/iCanyo.css" rel="stylesheet">
+        <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.min.js"></script>
+        <script src="mvc/site_media/js/metro.min.js"></script>
+        <script type="text/javascript" src="mvc/site_media/js/iCanyo.js"></script> 
+    </head>
+    <body class="metro">
+        <link rel="icon" type="image/png" href="imagenes/gatete_favicon.png" />
+        <div class="grid">
+            <div class="row">
+                <div class="span12 offset3">
+                    <div class="tile triple double-vertical bg-orange">
+                        <div class="tile-content text-center">
+                            <form id="loguin_usuario" method="post" action="mvc/login/controller.php">
+                                <div class="input-control text size3 mg2">
+                                    <input type="text" id="user" placeholder="nick de usuario" name="usuario" required/>
+                                </div>
+                                <div class="input-control password size3">
+                                    <input type="password" id="contra" placeholder="contraseña" name="contra" required/>
+                                    <button class="btn-reveal"></button>
+                                </div>
+                                <div id="errores">
+                                    {mensaje}
+                                </div>
+                                <div class="brand bg-black">
+                                    <span class="label fg-white text-right">
+                                        <input type="reset" value="Restaura" class="bg-steel fg-white bg-hover-red">
+                                        <input type="submit" class="bg-orange fg-white bg-hover-amber" value="Iniciar Sesión"/>
+                                    </span>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="tile double double-vertical bg-indigo"></div>
+                    <div class="tile double bg-olive"></div>
+                    <div class="tile double">
+                        <div class="brand">
+                            <div class="times" data-role="times" data-alarm="hh:mm:ss"></div>
+                        </div>
+                    </div>
+                    <div class="tile  bg-olive"></div>
+                    <div class="tile triple bg-steel"></div>
+                    <div class="tile  bg-cyan"></div>
+                    <div class="tile bg-black">
+                        <img src="mvc/site_media/img/gatete1.png"/>
+                    </div>
+                    <div class="tile bg-black">
+                        <img src="mvc/site_media/img/icanyo.png"/>
+                    </div>
+                    <div class="tile double  triple-vertical  bg-transparent">
+                        <center>
+                            <div class="calendar small" data-role="calendar" data-locale='es'></div>
+                        </center>
+                    </div>
+                    <div class="tile double-vertical   bg-grey"></div>
+                    <div class="tile double   bg-steel"></div>
+                    <div class="tile double   bg-grey"></div>
+                    <div class="tile triple   bg-amber"></div>
+                    <div class="tile  bg-red"></div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
