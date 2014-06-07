@@ -245,10 +245,10 @@ $(document).ready(function(){
 				shadow: true,
 				overlay: false,
 				icon: '<span class="icon-rocket fg-red"></span>',
-				title: autor_anuncio,
+				title: "<p><small>"+autor_anuncio+"</small></p>",
 				width: 500,
 				padding: 10,
-				content:titulo_anuncio+"<br/>"+cuerpo_anuncio
+				content:"<h5>"+titulo_anuncio+"</h5><br/>"+cuerpo_anuncio
 			});
 		}
 	});

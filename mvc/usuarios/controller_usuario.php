@@ -65,25 +65,25 @@ function helper_user_data() {
     if ($_POST) {
         $control_datos = new model_controla_datos();
         if (array_key_exists('nombre', $_POST)) {
-            $user_data['nombre'] = mysqli::real_escape_string(htmlspecialchars($_POST['nombre']));
+            $user_data['nombre'] = htmlspecialchars($_POST['nombre']);
         }
         if (array_key_exists('primer_apellido', $_POST)) {
-            $user_data['primer_apellido'] = mysqli::real_escape_string(htmlspecialchars($_POST['primer_apellido']));
+            $user_data['primer_apellido'] = htmlspecialchars($_POST['primer_apellido']);
         }
         if (array_key_exists('segundo_apellido', $_POST)) {
-            $user_data['segundo_apellido'] = mysqli::real_escape_string(htmlspecialchars($_POST['segundo_apellido']));
+            $user_data['segundo_apellido'] = htmlspecialchars($_POST['segundo_apellido']);
         }
         if (array_key_exists('nick_usuario', $_POST)) {
-            $user_data['nick_usuario'] = mysqli::real_escape_string(htmlspecialchars($_POST['nick_usuario']));
+            $user_data['nick_usuario'] = htmlspecialchars($_POST['nick_usuario']);
         }
         if (array_key_exists('contrasena', $_POST)) {
-            $user_data['contrasena'] = mysqli::real_escape_string(htmlspecialchars($_POST['contrasena']));
+            $user_data['contrasena'] = htmlspecialchars($_POST['contrasena']);
         }
         if (array_key_exists('rol', $_POST)) {
-            $user_data['id_rol'] = mysqli::real_escape_string(htmlspecialchars($_POST['rol']));
+            $user_data['id_rol'] = htmlspecialchars($_POST['rol']);
         }
         if (array_key_exists('id_usuario', $_POST)) {
-            $user_data = mysqli::real_escape_string(htmlspecialchars($_POST['id_usuario']));
+            $user_data = htmlspecialchars($_POST['id_usuario']);
         }
     }
         return $user_data;

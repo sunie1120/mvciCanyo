@@ -7,8 +7,8 @@ require_once('view_login.php');
 
 if ($_POST) {
     //aplicar los metodos de seguridad
-    $usuario = mysqli::real_escape_string(htmlspecialchars($_POST['usuario']));
-    $contra = mysqli::real_escape_string(htmlspecialchars($_POST['contra']));
+    $usuario = htmlspecialchars($_POST['usuario']);
+    $contra = htmlspecialchars($_POST['contra']);
     $nuevo = new validar();
 
     if ($nuevo->get_por_nick_usuario($usuario, $contra)) {
@@ -17,6 +17,8 @@ if ($_POST) {
         $_SESSION['id_rol'] = $nuevo->getIdRol();
         $_SESSION['gestiona_usuarios'] = $nuevo->getGestionaUsuarios();
         $_SESSION['aprueba_vacaciones'] = $nuevo->getGestionaVacaciones();
+        $_SESSION['id_departamento'] = $nuevo->getIdDepartamento();
+        $_SESSION['id_puesto'] = $nuevo->getIdPuesto();
         header('Location:../anuncios/controller_anuncios.php?vista=mostrar_anuncios');
     } else {
 

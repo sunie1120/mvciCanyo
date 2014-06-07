@@ -13,6 +13,8 @@ class validar extends DBAbstractModel {
     private $vacaciones;
     public $datos_usuario;
     private $gestiona_usuarios;
+    private $id_departamento;
+    private $id_puesto;
 
     ################################# MÉTODOS ##################################
     # métodos abstractos heredados de la clase padre   
@@ -60,12 +62,19 @@ class validar extends DBAbstractModel {
     public function getGestionaUsuarios() {
         return $this->gestiona_usuarios;
     }
+    
+    public function getIdPuesto() {
+        return $this->id_puesto;
+    }
 
+    public function getIdDepartamento() {
+        return $this->id_departamento;
+    }
     public function get_por_nick_usuario($nick_usuario = '', $contra = '') {
         $this->datos_usuario = '';
         $this->query = "
                         SELECT      *
-                        FROM        usuario
+                        FROM        usuario natural join usuario_pertenece
                         WHERE       nick_usuario = '$nick_usuario' and contrasena = PASSWORD('$contra')
 				";
         $this->get_results_from_query();
@@ -76,7 +85,10 @@ class validar extends DBAbstractModel {
             $this->nick_usuario = $this->datos_usuario[0]['nick_usuario'];
             $this->id_usuario = $this->datos_usuario[0]['id_usuario'];
             $this->id_rol = $this->datos_usuario[0]['id_rol'];
-
+            $this->id_puesto=$this->datos_usuario[0]['id_puesto'];
+            $this->id_departamento=$this->datos_usuario[0]['id_departamento'];
+            $this->id_puesto=$this->datos_usuario[0]['id_puesto'];
+            
             if ($this->id_rol > 0) {
                 $this->vacaciones = true;
             } else {

@@ -37,13 +37,13 @@ abstract class DBAbstractModel {
     # Ejecutar un query simple del tipo INSERT, DELETE, UPDATE
 
     protected function execute_single_query() {
-//	    if($_POST) {
+	    if($_POST) {
         $this->open_connection();
         $this->conn->query($this->query);
         $this->close_connection();
-//	    } else {
-//	        $this->mensaje = 'Metodo no permitido';
-//	    }
+	    } else {
+	        $this->mensaje = 'Metodo no permitido';
+	    }
     }
 
     # Traer resultados de una consulta en un Array

@@ -1,5 +1,7 @@
 <?php
+
 require_once('../core/db_abstract_model.php');
+
 /**
  * Clase anuncios, sirve para crear, modificar y eliminar un anuncio, así como
  * para listar todos los anuncios existentes para un determinado usuario
@@ -28,23 +30,23 @@ class anuncios extends DBAbstractModel {
     public function get() {
         return $this->anuncios_generales;
     }
-    
+
     public function get_por_departamento() {
         return $this->anuncios_departamento;
     }
-    
+
     public function get_por_puesto() {
         return $this->anuncios_puesto;
     }
-    
+
     public function get_por_usuario() {
         return $this->anuncios_usuario;
     }
-    
+
     public function get_por_id() {
         return $this->anuncio;
     }
-    
+
     public function query_anuncios_publicos() {
         $this->query = "SELECT titulo_anuncio, cuerpo_anuncio, nombre, primer_apellido, segundo_apellido, nombre_departamento FROM `anuncio` natural join `usuario` natural join `usuario_pertenece` natural join `departamento` WHERE `publico` LIKE TRUE AND `fecha_fin_anuncio` > CURDATE( ) OR `fecha_fin_anuncio` IS NULL";
         $this->get_results_from_query();
@@ -52,13 +54,24 @@ class anuncios extends DBAbstractModel {
     }
 
     public function query_por_departamento($id_departamento) {
-        $this->query = "SELECT * FROM anuncio natural join `visibilidad_departamentos` where `id_departamento` like $id_departamento and `fecha_fin_anuncio` > CURDATE( ) OR  `fecha_fin_anuncio` IS NULL ";
+        $this->query = "SELECT *\n"
+                . " FROM ANUNCIO\n"
+                . " NATURAL JOIN VISIBILIDAD_DEPARTAMENTOS\n"
+                . " NATURAL JOIN USUARIO\n"
+                . " NATURAL JOIN DEPARTAMENTO\n"
+                . "WHERE `id_departamento` LIKE '$id_departamento' and `fecha_fin_anuncio` > CURDATE( ) OR `fecha_fin_anuncio` IS NULL";
         $this->get_results_from_query();
         $this->anuncios_departamento = $this->rows;
     }
 
     public function query_por_puesto($id_puesto) {
-        $this->query = "SELECT * FROM `anuncio` natural join `visibilidad_puestos` where id_puesto like $id_puesto and `fecha_fin_anuncio` > CURDATE( ) OR  `fecha_fin_anuncio` IS NULL ";
+        $this->query = "SELECT titulo_anuncio, cuerpo_anuncio, nombre, primer_apellido, segundo_apellido, nombre_departamento
+                        FROM `ANUNCIO`
+                        NATURAL JOIN USUARIO
+                        NATURAL JOIN USUARIO_PERTENECE
+                        NATURAL JOIN VISIBILIDAD_PUESTOS
+                        NATURAL JOIN DEPARTAMENTO
+                        WHERE ID_PUESTO LIKE '$id_puesto' and `fecha_fin_anuncio` > CURDATE( ) OR  `fecha_fin_anuncio` IS NULL";
         $this->get_results_from_query();
         $this->anuncios_puesto = $this->rows;
     }
